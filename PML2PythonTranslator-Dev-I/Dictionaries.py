@@ -1,5 +1,5 @@
 class Dictionaries():
-    // only fragment, to be completed for all possible OSM-attributes
+    # only fragment, to be completed for all possible OSM-attributes
     def __init__(self):
         self.osm_attrs = {
             '"height"': [ "FromAttr.Float, FromAttr.Positive" ],
