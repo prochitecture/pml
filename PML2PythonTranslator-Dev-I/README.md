@@ -17,7 +17,7 @@ This file contains an interface class between the ANTLR4 listnener *pmlListener*
 This class provides all rule functions that have to create Python code for the *blender-osm* plugin. Actually, it provides wa *write()* method, that writes the translated text into a text file *output.py*, which could be overwritten by a derived class to produce other kind of output. As for instance parsing the nodes in the node-based visual editor is very similar to parsing PML style code, *PythonCoder.py* can be reused by this editor to create the same code.
 
 ***Dictionaries.py:***
-This file contains only a fragement of code. It holds the data types and ranges of OSM attributes reuired by the osm-plugin. It could later be used to hold the information about allowed attribute names of the style blocks, to check if they are allowed in the context of the actual element, and so on. This will be object of future discussions.
+This file contains only a fragement of code. It holds the data types and ranges of OSM attributes required by the osm-plugin. It could later be used to hold the information about allowed attribute names of the style blocks, to check if they are allowed in the context of the actual element, and so on. This will be object of future discussions.
 ### Prerequisites
 To run the PML2PythonTranslator, a Python 3 interpreter is required. Additionally, the Python runtime of ANTLR4 has to be installed in the interpreter, using
 ```
