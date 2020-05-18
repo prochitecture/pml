@@ -19,10 +19,8 @@ This class provides all rule functions that have to create Python code for the *
 ***Dictionaries.py:***
 This file contains only a fragement of code. It holds the data types and ranges of OSM attributes required by the osm-plugin. It could later be used to hold the information about allowed attribute names of the style blocks, to check if they are allowed in the context of the actual element, and so on. This will be object of future discussions.
 ### Prerequisites
-To run the PML2PythonTranslator, a Python 3 interpreter is required. Additionally, the Python runtime of ANTLR4 has to be installed in the interpreter, using
-```
-pip install antlr4-python3-runtime
-```
+To run the PML2PythonTranslator, a Python 3 interpreter is required.
+
 If you like to change the grammar, ANTLR4 has to be installed (see [here](https://github.com/antlr/antlr4/blob/master/doc/getting-started.md)). The parser files for the Python 3 runtime can then be generated uising
 ```
 java org.antlr.v4.Tool -Dlanguage=Python3 pml.g4
