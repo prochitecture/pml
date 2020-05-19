@@ -3,8 +3,11 @@ from pml_grammar.pmlParser import pmlParser
 from PythonCoder import PythonCoder
 
 class PythonListener(pmlListener):
-    def __init__(self, path):
+    def __init__(self):
         self.coder = PythonCoder()
+
+    def getCode(self):
+        return self.coder.getCode()
 
     # Enter a parse tree produced by pmlParser#style_list.
     def enterStyle(self, ctx:pmlParser.StyleContext):

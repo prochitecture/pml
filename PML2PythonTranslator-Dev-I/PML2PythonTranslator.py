@@ -10,9 +10,11 @@ def main(argv):
     stream = CommonTokenStream(lexer)
     parser = pmlParser(stream)
     tree = parser.style()
-    translator = PythonListener('output.py')
+    translator = PythonListener()
     walker = ParseTreeWalker()
     walker.walk(translator, tree) 
+
+    sys.stdout.write( translator.getCode() )
 
 if __name__ == '__main__':
     main(sys.argv)

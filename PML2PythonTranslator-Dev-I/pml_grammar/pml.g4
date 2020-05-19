@@ -1,5 +1,5 @@
 // This is a grammar fragment for PML style language
-// Version 01
+// Version 02
 
 
 grammar pml;
@@ -33,25 +33,27 @@ alternatives
     ;
 
 function
-    : 'Attr' LPAREN string_literal RPAREN           #ATTR
-    | 'RandomNormal' LPAREN NUMBER RPAREN           #RANDN
-    | 'RandomWeighted' LPAREN nested_list RPAREN    #RANDW
+    : 'attr' LPAREN string_literal RPAREN           #ATTR
+    | 'random_normal' LPAREN NUMBER RPAREN          #RANDN
+    | 'random_weighted' LPAREN nested_list RPAREN   #RANDW
     | constant                                      #CONST
     ;
 
 nested_list
-    : LPAREN (STRING_LITERAL | NUMBER) (COMMA (STRING_LITERAL | NUMBER))+ RPAREN
+    : LPAREN (STRING_LITERAL | NUMBER | IDENTIFIER) (COMMA (STRING_LITERAL | NUMBER  | IDENTIFIER))+ RPAREN
     | NUMBER
     | LPAREN nested_list (COMMA nested_list)+ RPAREN
    ;
 
 constant
-    : STRING_LITERAL | NUMBER
+    : STRING_LITERAL | NUMBER | IDENTIFIER
     ;
 
 simple_expr
-    : STRING_LITERAL | NUMBER
-    ;
+    : IDENTIFIER
+    | NUMBER
+    | STRING_LITERAL
+    ; 
  
 element_name
     : IDENTIFIER

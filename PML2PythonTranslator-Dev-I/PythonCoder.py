@@ -1,20 +1,28 @@
+import re
 from Dictionaries import Dictionaries
 
 class PythonCoder():
     def __init__(self):
         self.dictionary = Dictionaries()
+        self.code = ""
         self.elementCommaStack = []
         self.exprCommaStack = []
         self.alterCommaStack = []
         self.indents = 0
-        self.fd = open('output.py','w')
         self.context = ""
+
+    def getCode(self):
+        return self.code
 
     def indent(self):
         return (" "*4*self.indents)
 
     def write(self,text):
-        self.fd.write(text)
+        self.code += text
+
+    def literalize(self,text):
+        literalized = re.sub('(" +")', ' ', re.sub('("")', '"', re.sub('([a-z\\-]+)', '"\\1"', text) ) )
+        return literalized
 
     def enterStyle(self):
         self.write('[\n')
@@ -33,7 +41,8 @@ class PythonCoder():
         self.elementCommaStack.pop()
 
     def enterElement_name(self,name):
-        self.write(self.indent()+name+'(\n')
+        txt = name.capitalize()
+        self.write(self.indent()+txt+'(\n')
         self.indents += 1
 
     def enterElement(self):
@@ -89,7 +98,8 @@ class PythonCoder():
                 self.indents -= 1
                 self.write(self.indent()+'))')
 
-    def enterCONST(self,expr):
+    def enterCONST(self,text):
+        expr = self.literalize(text)
         if self.context == "alternatives":
             self.write(self.alterCommaStack[-1])
             self.write( self.indent()+"Constant(" + expr + ')' )
@@ -104,7 +114,8 @@ class PythonCoder():
         else:
             self.write('Value(RandomNormal( ' + value + ' )')
 
-    def enterRANDW(self,list):
+    def enterRANDW(self,li):
+        list = self.literalize(li)
         if self.context == "alternatives":
             self.write(self.alterCommaStack[-1])
             self.write(self.indent()+'RandomWeighted( ' + list + ' )')
@@ -112,7 +123,8 @@ class PythonCoder():
         else:
             self.write('Value(RandomWeighted( ' + list + ' )')
 
-    def enterSimple_expr(self,expr):
+    def enterSimple_expr(self,text):
+        expr = self.literalize(text)
         if self.context == "alternatives":
             self.write(self.alterCommaStack[-1])
             self.write( self.indent()+"Constant(" + expr + ')' )

@@ -22,7 +22,7 @@ def serializedATN():
         buf.write("\t\3\n\3\n\3\n\3\n\6\n^\n\n\r\n\16\n_\3\n\3\n\3\n\3\n")
         buf.write("\3\n\3\n\6\nh\n\n\r\n\16\ni\3\n\3\n\5\nn\n\n\3\13\3\13")
         buf.write("\3\f\3\f\3\r\3\r\3\16\3\16\3\17\3\17\3\20\3\20\3\20\2")
-        buf.write("\2\21\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36\2\3\3\2\7")
+        buf.write("\2\21\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36\2\3\3\2\6")
         buf.write("\b\2x\2 \3\2\2\2\4$\3\2\2\2\6,\3\2\2\2\b\64\3\2\2\2\n")
         buf.write("\67\3\2\2\2\f?\3\2\2\2\16A\3\2\2\2\20W\3\2\2\2\22m\3\2")
         buf.write("\2\2\24o\3\2\2\2\26q\3\2\2\2\30s\3\2\2\2\32u\3\2\2\2\34")
@@ -61,7 +61,7 @@ class pmlParser ( Parser ):
 
     sharedContextCache = PredictionContextCache()
 
-    literalNames = [ "<INVALID>", "'Attr'", "'RandomNormal'", "'RandomWeighted'", 
+    literalNames = [ "<INVALID>", "'attr'", "'random_normal'", "'random_weighted'", 
                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                      "<INVALID>", "'@'", "'{'", "'}'", "'('", "')'", "'['", 
                      "']'", "'|'", "','", "':'", "';'", "'>'", "'>='", "'<'", 
@@ -693,7 +693,7 @@ class pmlParser ( Parser ):
                 self.state = 82
                 self.match(pmlParser.RPAREN)
                 pass
-            elif token in [pmlParser.STRING_LITERAL, pmlParser.NUMBER]:
+            elif token in [pmlParser.IDENTIFIER, pmlParser.STRING_LITERAL, pmlParser.NUMBER]:
                 localctx = pmlParser.CONSTContext(self, localctx)
                 self.enterOuterAlt(localctx, 4)
                 self.state = 84
@@ -734,6 +734,12 @@ class pmlParser ( Parser ):
                 return self.getTokens(pmlParser.NUMBER)
             else:
                 return self.getToken(pmlParser.NUMBER, i)
+
+        def IDENTIFIER(self, i:int=None):
+            if i is None:
+                return self.getTokens(pmlParser.IDENTIFIER)
+            else:
+                return self.getToken(pmlParser.IDENTIFIER, i)
 
         def COMMA(self, i:int=None):
             if i is None:
@@ -777,7 +783,7 @@ class pmlParser ( Parser ):
                 self.match(pmlParser.LPAREN)
                 self.state = 88
                 _la = self._input.LA(1)
-                if not(_la==pmlParser.STRING_LITERAL or _la==pmlParser.NUMBER):
+                if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pmlParser.IDENTIFIER) | (1 << pmlParser.STRING_LITERAL) | (1 << pmlParser.NUMBER))) != 0)):
                     self._errHandler.recoverInline(self)
                 else:
                     self._errHandler.reportMatch(self)
@@ -790,7 +796,7 @@ class pmlParser ( Parser ):
                     self.match(pmlParser.COMMA)
                     self.state = 90
                     _la = self._input.LA(1)
-                    if not(_la==pmlParser.STRING_LITERAL or _la==pmlParser.NUMBER):
+                    if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pmlParser.IDENTIFIER) | (1 << pmlParser.STRING_LITERAL) | (1 << pmlParser.NUMBER))) != 0)):
                         self._errHandler.recoverInline(self)
                     else:
                         self._errHandler.reportMatch(self)
@@ -857,6 +863,9 @@ class pmlParser ( Parser ):
         def NUMBER(self):
             return self.getToken(pmlParser.NUMBER, 0)
 
+        def IDENTIFIER(self):
+            return self.getToken(pmlParser.IDENTIFIER, 0)
+
         def getRuleIndex(self):
             return pmlParser.RULE_constant
 
@@ -880,7 +889,7 @@ class pmlParser ( Parser ):
             self.enterOuterAlt(localctx, 1)
             self.state = 109
             _la = self._input.LA(1)
-            if not(_la==pmlParser.STRING_LITERAL or _la==pmlParser.NUMBER):
+            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pmlParser.IDENTIFIER) | (1 << pmlParser.STRING_LITERAL) | (1 << pmlParser.NUMBER))) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -900,11 +909,14 @@ class pmlParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def STRING_LITERAL(self):
-            return self.getToken(pmlParser.STRING_LITERAL, 0)
+        def IDENTIFIER(self):
+            return self.getToken(pmlParser.IDENTIFIER, 0)
 
         def NUMBER(self):
             return self.getToken(pmlParser.NUMBER, 0)
+
+        def STRING_LITERAL(self):
+            return self.getToken(pmlParser.STRING_LITERAL, 0)
 
         def getRuleIndex(self):
             return pmlParser.RULE_simple_expr
@@ -929,7 +941,7 @@ class pmlParser ( Parser ):
             self.enterOuterAlt(localctx, 1)
             self.state = 111
             _la = self._input.LA(1)
-            if not(_la==pmlParser.STRING_LITERAL or _la==pmlParser.NUMBER):
+            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pmlParser.IDENTIFIER) | (1 << pmlParser.STRING_LITERAL) | (1 << pmlParser.NUMBER))) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
