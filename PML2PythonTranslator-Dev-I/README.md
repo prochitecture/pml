@@ -30,4 +30,4 @@ To run the translator using the example style *example.pml*, execute
 ```
 python PML2PythonTranslator.py example.pml
 ```
-The translated code will be generated in a file *output.py*.
+The translated code will be written to *stdout*.
