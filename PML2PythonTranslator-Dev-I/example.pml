@@ -4,7 +4,6 @@
         // attributes with simple expression
         topHeight : 0.0;
         roofShape : flat;
-        symmetry: rightmost-of-last;
 
         // attributes with functions
         levelHeight : random_normal(3.);
