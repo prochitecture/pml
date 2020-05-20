@@ -45,10 +45,6 @@ class PythonListener(pmlListener):
     def exitAlternatives(self, ctx:pmlParser.AlternativesContext):
         self.coder.exitAlternatives()
 
-    # Enter a parse tree produced by pmlParser#attributes.
-    def enterAttributes(self, ctx:pmlParser.AttributesContext):
-       self.coder.enterAttributes()
-
     # Enter a parse tree produced by pmlParser#ATTR.
     def enterATTR(self, ctx:pmlParser.ATTRContext):
         self.coder.enterATTR(ctx.getChild(2).getText())
@@ -69,11 +65,54 @@ class PythonListener(pmlListener):
     def enterAttr_name(self, ctx:pmlParser.Attr_nameContext):
         self.coder.enterAttr_name(ctx.getText())
 
+    # Enter a parse tree produced by pmlParser#COND.
+    def enterCOND(self, ctx:pmlParser.CONDContext):
+        self.coder.enterCOND(ctx.getChild(2).getText(),ctx.getChild(4).getText())
+
+    # # Exit a parse tree produced by pmlParser#COND.
+    def exitCOND(self, ctx:pmlParser.CONDContext):
+        self.coder.exitCOND()
+
+    # Enter a parse tree produced by pmlParser#NESTED.
+    def enterNESTED(self, ctx:pmlParser.NESTEDContext):
+        self.coder.enterNESTED(ctx.getText())
+
     # Enter a parse tree produced by pmlParser#CONST.
     def enterCONST(self, ctx:pmlParser.CONSTContext):
         self.coder.enterCONST(ctx.getChild(0).getText())
+
+    # Enter a parse tree produced by pmlParser#condition.
+    def enterCondition(self, ctx:pmlParser.ConditionContext):
+        self.coder.enterCondition(ctx.getText())
+
+    # Enter a parse tree produced by pmlParser#ATOM_SINGLE.
+    def enterATOM_SINGLE(self, ctx:pmlParser.ATOM_SINGLEContext):
+        self.coder.enterATOM_SINGLE(ctx.getText())
+
+    # Enter a parse tree produced by pmlParser#ATOM_FROMATTR.
+    def enterATOM_FROMATTR(self, ctx:pmlParser.ATOM_FROMATTRContext):
+        self.coder.enterATOM_FROMATTR(ctx.getChild(2).getText(),ctx.getChild(4).getText())
+
+    # Enter a parse tree produced by pmlParser#ATOM_IDENT.
+    def enterATOM_IDENT(self, ctx:pmlParser.ATOM_IDENTContext):
+        self.coder.enterATOM_IDENT(ctx.getText())
+
+    # Enter a parse tree produced by pmlParser#const_atom.
+    def enterConst_atom(self, ctx:pmlParser.Const_atomContext):
+        self.coder.enterConst_atom(ctx.getText())
+
+    # Enter a parse tree produced by pmlParser#def_name.
+    def enterDef_name(self, ctx:pmlParser.Def_nameContext):
+        self.coder.enterDef_name(ctx.getText())
 
     # Enter a parse tree produced by pmlParser#simple_expr.
     def enterSimple_expr(self, ctx:pmlParser.Simple_exprContext):
         self.coder.enterSimple_expr(ctx.getText())
 
+    # Enter a parse tree produced by pmlParser#relop.
+    def enterRelop(self, ctx:pmlParser.RelopContext):
+        self.coder.enterRelop(ctx.getText())
+
+    # Enter a parse tree produced by pmlParser#arith_op.
+    def enterArith_op(self, ctx:pmlParser.Arith_opContext):
+        self.coder.enterArith_op(ctx.getText())

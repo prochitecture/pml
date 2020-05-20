@@ -21,7 +21,7 @@ class PythonCoder():
         self.code += text
 
     def literalize(self,text):
-        literalized = re.sub('(" +")', ' ', re.sub('("")', '"', re.sub('([a-z\\-]+)', '"\\1"', text) ) )
+        literalized = re.sub('("[ _]+")', ' ', re.sub('("")', '"', re.sub('([a-z\\-]+)', '"\\1"', text) ) )
         return literalized
 
     def enterStyle(self):
@@ -47,6 +47,7 @@ class PythonCoder():
 
     def enterElement(self):
         self.write(self.elementCommaStack[-1])
+        self.exprCommaStack.append("")
 
     def exitElement(self):
         self.indents -=1
@@ -64,9 +65,6 @@ class PythonCoder():
         self.context = ""
         self.indents -=1
         self.write('\n'+self.indent()+'))')
-
-    def enterAttributes(self):
-        self.exprCommaStack.append("")
 
     def exitAttributes(self):
         self.write("\n")
@@ -98,6 +96,24 @@ class PythonCoder():
                 self.indents -= 1
                 self.write(self.indent()+'))')
 
+    def enterCOND(self, condition, result):
+        if self.context == "alternatives":
+            self.context = "conditional"
+            self.write(self.alterCommaStack[-1])
+            self.write( self.indent()+"Conditional(\n" )
+            self.indents += 1
+            self.write(self.indent()+'lambda item: ' ) 
+
+    def exitCOND(self):
+        self.context = "alternatives"
+        self.indents -= 1
+        self.write("\n")
+        self.write(self.indent()+")" )
+
+    def enterNESTED(self, li):
+        list = self.literalize(li)
+        self.write( list )
+
     def enterCONST(self,text):
         expr = self.literalize(text)
         if self.context == "alternatives":
@@ -123,10 +139,45 @@ class PythonCoder():
         else:
             self.write('Value(RandomWeighted( ' + list + ' )')
 
+    def enterCondition(self, condition):
+        self.write(self.exprCommaStack[-1])
+        self.write(self.indent()+'condition = lambda item: ' )
+        self.exprCommaStack[-1] = ",\n"
+
+    def enterATOM_SINGLE(self,atom):
+        self.write(atom)
+
+    def enterATOM_FROMATTR(self,ident,literal):
+        if self.context == "conditional":
+            self.write( 'item.' + ident +'.getStyleBlockAttr(' + literal + ')' )
+        else:
+            self.write(self.alterCommaStack[-1])
+            identifier = ident.capitalize()
+            self.write(self.indent()+"FromStyleBlockAttr("+literal+",FromStyleBlockAttr."+identifier+")")
+            self.alterCommaStack[-1] = ",\n"
+
+    def enterATOM_IDENT(self,ident):
+        self.write(ident)
+
+    def enterConst_atom(self,atom):
+        const = self.literalize(atom)
+        self.write( ',\n'+self.indent()+"Constant(" + const + ')' )
+
+    def enterDef_name(self,definition):
+        self.write(self.exprCommaStack[-1])
+        self.write(self.indent()+'defName = "' + definition + '"' )
+        self.exprCommaStack[-1] = ",\n"
+
     def enterSimple_expr(self,text):
         expr = self.literalize(text)
-        if self.context == "alternatives":
+        if self.context in ( "alternatives", "conditional" ):
             self.write(self.alterCommaStack[-1])
             self.write( self.indent()+"Constant(" + expr + ')' )
         else:
             self.write(expr)
+
+    def enterRelop(self,op):
+        self.write( ' '+op+' ' )
+
+    def enterArith_op(self,op):
+        self.write( ' '+op+' ' )

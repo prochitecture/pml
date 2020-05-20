@@ -6,6 +6,7 @@ class Dictionaries():
             '"min_height"': [ "FromAttr.Float, FromAttr.Positive" ],
             '"building:levels"': [ "FromAttr.Integer, FromAttr.Positive" ],
             '"building:min_level"': [ "FromAttr.Integer, FromAttr.NonNegative" ],
+            '"roof:material"': ["FromAttr.String, CladdingMaterials"],
             '"roof:shape"': [ "FromAttr.String, RoofShapes" ],
             '"roof:height"': [ "FromAttr.Float, FromAttr.NonNegative" ],
             '"roof:angle"': [ "FromAttr.Float" ],
@@ -14,4 +15,7 @@ class Dictionaries():
         }
 
     def getAttributeTypes(self,attribute):
-        return self.osm_attrs[attribute]
+        if attribute not in self.osm_attrs.keys():
+            return "Dictionary ERROR: atrribute " + attribute + " not in dictionary"
+        else:
+            return self.osm_attrs[attribute]

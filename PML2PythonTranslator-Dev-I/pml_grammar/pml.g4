@@ -12,8 +12,8 @@ elements
     : element ( COMMA element )*
     ;
 
-element // for instance Footprint
-    : element_name LCURLY attributes RCURLY
+element 
+    : element_name (STRUDEL def_name)? (LBRACK condition RBRACK)? LCURLY attributes RCURLY
     ;
 
 attributes
@@ -36,7 +36,10 @@ function
     : 'attr' LPAREN string_literal RPAREN           #ATTR
     | 'random_normal' LPAREN NUMBER RPAREN          #RANDN
     | 'random_weighted' LPAREN nested_list RPAREN   #RANDW
+    | 'if' LPAREN conditional RPAREN const_atom     #COND
     | constant                                      #CONST
+    | nested_list                                   #NESTED
+    | arith_atom                                    #ARITH
     ;
 
 nested_list
@@ -44,6 +47,38 @@ nested_list
     | NUMBER
     | LPAREN nested_list (COMMA nested_list)+ RPAREN
    ;
+
+def_name
+    : IDENTIFIER
+    ;
+
+conditional
+    : arith_expr 
+    | arith_expr relop arith_expr
+    ;
+
+condition
+    : arith_expr 
+    | arith_expr relop arith_expr
+    ;
+
+arith_expr
+    : arith_atom
+    | arith_expr arith_op arith_expr
+    ;
+
+arith_atom
+    : 'item' '.' IDENTIFIER                                 # ATOM_SINGLE
+    | 'item' '.' IDENTIFIER '.' IDENTIFIER                  # ATOM_SINGLE
+    | 'item' '.' IDENTIFIER LBRACK STRING_LITERAL RBRACK    # ATOM_FROMATTR
+    | IDENTIFIER                                            # ATOM_IDENT
+    | NUMBER                                                # ATOM_IDENT
+    | STRING_LITERAL                                        # ATOM_IDENT
+    ;
+
+const_atom
+    : STRING_LITERAL | NUMBER | IDENTIFIER
+    ;
 
 constant
     : STRING_LITERAL | NUMBER | IDENTIFIER
@@ -62,6 +97,14 @@ element_name
 attr_name
     : IDENTIFIER
     ;      
+
+relop
+    : GT | GE | LT | LE | EQ
+    ;
+
+arith_op
+    : PLUS | MINUS | TIMES | DIV
+    ;
 
 number
     : NUMBER
@@ -107,11 +150,16 @@ COMMA:      ',' ;
 COLON:      ':'; 
 SEMI:       ';'; 
 
+PLUS        : '+';
+MINUS       : '-';
+TIMES       : '*';
+DIV         : '/';
+
 GT         : '>' ;
 GE         : '>=' ;
 LT         : '<' ;
 LE         : '<=' ;
-EQ         : '=' ;
+EQ         : '==' ;
 
 
 
