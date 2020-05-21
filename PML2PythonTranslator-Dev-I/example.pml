@@ -70,18 +70,18 @@ styles : {
             label : "Window and balcony";
             markup : [
                 level {
-                    // use = ("level_window_balcony",), // resulting data type not yet implemented
-                    indices : (4, -1);
+                    use : level_window_balcony; 
                     claddingMaterial : "plaster";
+                    indices : (4, -1);
                     claddingColor : (0., 0., 1., 1.);  // blue
                 },
                 level {
-                    // use = ("level_window_balcony",), // resulting data type not yet implemented
+                    use : level_window_balcony;
                     indices : (3, 3);
                     claddingColor : (0., 0.502, 0., 1.); // green
                 },
                 level{
-                    // use = ("level_window_balcony",), // resulting data type not yet implemented
+                    use : level_window_balcony;
                     indices : (0, 2);
                 },
                 bottom {
@@ -134,7 +134,7 @@ styles : {
         },
 
         facade[item.front] {
-            // use: brown_brick;        // resulting data type not yet implemented
+            use: brown_brick;
             label : "front facade";
             symmetry : middle-of-last;
             // symmetryFlip : True              // Booleans not yet implemented PML: True or true ?
@@ -152,7 +152,7 @@ styles : {
         },
 
         facade[item.back] {
-            // use: brown_brick;        // resulting data type not yet implemented
+            use: brown_brick;
             label : "back facade";
             markup : [
                 level{
@@ -176,7 +176,7 @@ styles : {
         roof-side[item.front] {                  // camel case ?????  or roof-side ?
             markup : [
                 div {
-                    // use = ("roof_side",),    // data type not yet implemented
+                    use : roof_side;
                     markup : [
                         // openable skylight or roof window
                         Window{}, //(use = ("roof_window",)),    // data type not yet implemented 
@@ -189,7 +189,7 @@ styles : {
         roof-side[item.back] {                  // camel case ?????  or roof-side ?
             markup : [
                 div {
-                    // use = ("roof_side",),    // data type not yet implemented
+                    use : roof_side;
                     markup : [
                         dormer{}, Dormer{}
                     ]

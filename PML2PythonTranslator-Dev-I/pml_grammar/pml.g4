@@ -25,12 +25,17 @@ attributes
 
 attribute 
     : 'symmetry' COLON sym_expression SEMI
+    | 'use' COLON use_expression SEMI
     | attr_name COLON expression SEMI
     | attr_name COLON markup_block  // markup
     ;
 
 sym_expression
     : IDENTIFIER
+    ;
+
+use_expression
+    : IDENTIFIER (COMMA IDENTIFIER)*
     ;
 
 markup_block

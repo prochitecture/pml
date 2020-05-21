@@ -12,7 +12,7 @@ def main(argv):
     tree = parser.styles()
     translator = PythonListener()
     walker = ParseTreeWalker()
-    walker.walk(translator, tree) 
+    walker.walk(translator, tree)
 
     sys.stdout.write( translator.getCode() )
 

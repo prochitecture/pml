@@ -61,6 +61,10 @@ class PythonListener(pmlListener):
     def enterSym_expression(self, ctx:pmlParser.Sym_expressionContext):
         self.coder.enterSym_expression(ctx.getText())
 
+    # Enter a parse tree produced by pmlParser#use_expression.
+    def enterUse_expression(self, ctx:pmlParser.Use_expressionContext):
+        self.coder.enterUse_expression(ctx.getText())
+
     # Enter a parse tree produced by pmlParser#markup_block.
     def enterMarkup_block(self, ctx:pmlParser.Markup_blockContext):
         self.coder.enterMarkup_block()

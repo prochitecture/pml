@@ -39,10 +39,18 @@ class PythonCoder():
         self.indents += 1
 
     def enterSym_expression(self,sym):
-        self.write(self.elementCommaStack[-1])
+        self.write(self.exprCommaStack[-1])
         symmetry = self.toCamelCase(sym)
-        self.write(self.indent()+'symmetry : symmetry.'+symmetry )
-        self.elementCommaStack[-1] = ",\n"
+        self.write(self.indent()+'symmetry = symmetry.'+symmetry )
+        self.exprCommaStack[-1] = ",\n"
+
+
+    def enterUse_expression(self,expr):
+        self.write(self.exprCommaStack[-1])
+        expression = self.literalize(expr)
+        self.write(self.indent()+'use = (' + expression + ',)' )
+        self.exprCommaStack[-1] = ",\n"
+
 
     def enterMarkup_block(self):
         self.write(' [\n')
