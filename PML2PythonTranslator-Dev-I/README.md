@@ -11,17 +11,17 @@ This file contains an example  description of a style, written in PML, as far as
 This file contains a demo main program that starts the translation process. The parser created by ANTLR4 creates a parse tree from any file containing PML style code and the walker class then calls the translating functions using the generated listener class.
 
 ***PythonListener.py:***
-This file contains an interface class between the ANTLR4 listnener *pmlListener* and the coder class *PythonCoder*. It just calls the parser rule functions with the same name in the coder class, transferring the retrieved content from the parse tree. In principle, all the code in *PythonCoder* could be written directly in *PythonListener*, but as *PythonListener* depends on the ANTLR4 classes, it could not be reused in other programs without the ANTLR4 runtime for Python.
+This file contains an interface class between the ANTLR4 listnener *pmlListener* and the coder class *PythonCoder*. It just calls the parser rule functions with the same name in the coder class, transferring the retrieved content from the parse tree. In principle, all the code in *PythonCoder* could be written directly in *PythonListener*, but as *PythonListener* depends on the ANTLR4 classes, it could not be reused in other programs without the ANTLR4 runtime for Python. *PythonListener* provides a method *getCode()* that gets the result of the translation for the *PythonCoder*.
 
 ***PythonCoder.py:***
-This class provides all rule functions that have to create Python code for the *blender-osm* plugin. Actually, it provides wa *write()* method, that writes the translated text into a text file *output.py*, which could be overwritten by a derived class to produce other kind of output. As for instance parsing the nodes in the node-based visual editor is very similar to parsing PML style code, *PythonCoder.py* can be reused by this editor to create the same code.
+This class provides all rule functions that have to create Python code for the *blender-osm* plugin. Actually, it provides a *write()* method, that writes the translated text into a string, accessible by the *getCode()* method of the class. The *write()* method could be overwritten by a derived class to produce other kind of output. As for instance parsing the nodes in the node-based visual editor is very similar to parsing PML style code, *PythonCoder.py* can be reused by this editor to create the same code.
 
 ***Dictionaries.py:***
 This file contains only a fragement of code. It holds the data types and ranges of OSM attributes required by the osm-plugin. It could later be used to hold the information about allowed attribute names of the style blocks, to check if they are allowed in the context of the actual element, and so on. This will be object of future discussions.
 ### Prerequisites
 To run the PML2PythonTranslator, a Python 3 interpreter is required.
 
-If you like to change the grammar, ANTLR4 has to be installed (see [here](https://github.com/antlr/antlr4/blob/master/doc/getting-started.md)). The parser files for the Python 3 runtime can then be generated uising
+If you like to change the grammar, ANTLR4 has to be installed (see [here](https://github.com/antlr/antlr4/blob/master/doc/getting-started.md)). The parser files for the Python 3 runtime can then be generated using
 ```
 java org.antlr.v4.Tool -Dlanguage=Python3 pml.g4
 ```
