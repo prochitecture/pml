@@ -97,6 +97,10 @@ class PythonListener(pmlListener):
     def exitCOND(self, ctx:pmlParser.CONDContext):
         self.coder.exitCOND()
 
+    # Enter a parse tree produced by pmlParser#USEFROM.
+    def enterUSEFROM(self, ctx:pmlParser.USEFROMContext):
+        self.coder.enterUSEFROM(ctx.getChild(2).getText())
+
     # Enter a parse tree produced by pmlParser#NESTED.
     def enterNESTED(self, ctx:pmlParser.NESTEDContext):
         self.coder.enterNESTED(ctx.getText())

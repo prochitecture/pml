@@ -140,6 +140,9 @@ class PythonCoder():
         self.write("\n")
         self.write(self.indent()+")" )
 
+    def enterUSEFROM(self,ident):
+        self.write('useFrom("' + ident + '")')
+
     def enterNESTED(self, li):
         list = self.literalize(li)
         self.write( list )
@@ -199,7 +202,10 @@ class PythonCoder():
         self.exprCommaStack[-1] = ",\n"
 
     def enterSimple_expr(self,text):
-        expr = self.literalize(text)
+        if text in ('true','false'):
+            expr = text.capitalize()
+        else:
+            expr = self.literalize(text)
         if self.context in ( "alternatives", "conditional" ):
             self.write(self.alterCommaStack[-1])
             self.write( self.indent()+"Constant(" + expr + ')' )

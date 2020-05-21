@@ -143,6 +143,15 @@ class pmlListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by pmlParser#USEFROM.
+    def enterUSEFROM(self, ctx:pmlParser.USEFROMContext):
+        pass
+
+    # Exit a parse tree produced by pmlParser#USEFROM.
+    def exitUSEFROM(self, ctx:pmlParser.USEFROMContext):
+        pass
+
+
     # Enter a parse tree produced by pmlParser#CONST.
     def enterCONST(self, ctx:pmlParser.CONSTContext):
         pass

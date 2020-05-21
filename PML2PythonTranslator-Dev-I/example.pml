@@ -102,7 +102,7 @@ styles : {
             bottomHeight : 0;
             markup : [
                 level {
-                    // repeat : False;  // Booleans not yet implemented PML: True or true ?
+                    repeat : false;
                     indices : (1, -1);
                     markup : [
                         window {
@@ -125,7 +125,7 @@ styles : {
         },
 
         div@roof_side {
-            // width : use_from("main_section");    // function not yet implemented
+            width : use_from(main_section);
             symmetry : right-most-of-last;
         },
 
@@ -137,15 +137,15 @@ styles : {
             use: brown_brick;
             label : "front facade";
             symmetry : middle-of-last;
-            // symmetryFlip : True              // Booleans not yet implemented PML: True or true ?
+            symmetryFlip : true;
             markup : [
                 div {
-                    // use = ("window_and_balcony",), // resulting data type not yet implemented
+                    use : window_and_balcony;
                     id : "main_section";
                     label : "Window and Balcony";
                 },
                 div {
-                    // use = ("staircase",),    // resulting data type not yet implemented
+                    use : staircase;
                     label : "Staircase";
                 }
             ] 
@@ -159,8 +159,12 @@ styles : {
                     indices : (0, -1);
                     markup : [
                         balcony{},
-                        window{}, // use = ("back_facade_window",)),    // resulting data type not yet implemented
-                        Window{}  // use = ("back_facade_window",))     // resulting data type not yet implemented
+                        window{
+                            use : back_facade_window;
+                        },
+                        Window{
+                            use : back_facade_window;
+                        }
                     ]
                 }
             ]
@@ -173,20 +177,24 @@ styles : {
             // sharpEdges : smoothness.Side;    // data type not yet implemented
         },
 
-        roof-side[item.front] {                  // camel case ?????  or roof-side ?
+        roof-side[item.front] { 
             markup : [
                 div {
                     use : roof_side;
                     markup : [
                         // openable skylight or roof window
-                        Window{}, //(use = ("roof_window",)),    // data type not yet implemented 
-                        Window{}  //(use = ("roof_window",))     // data type not yet implemented 
+                        window{
+                            use : roof_window;
+                        },
+                        window{
+                            use : roof_window;
+                        }
                     ]
                 }
             ]
         },
 
-        roof-side[item.back] {                  // camel case ?????  or roof-side ?
+        roof-side[item.back] {
             markup : [
                 div {
                     use : roof_side;
@@ -200,10 +208,10 @@ styles : {
         ridge {
             markup : [
                 div {
-                    // width = useFrom("main_section"), // useFrom not yet implemented
-                    // repeat : False,      // Booleans not yet implemented PML: True or true ?
+                    width : use_from(main_section);
+                    repeat : false; 
                     markup : [
-                        Chimney{}
+                        chimney{}
                     ]
                 }
             ]    

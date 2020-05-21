@@ -43,7 +43,7 @@ markup_block
     ;
 
 expression
-    : simple_expr | function | alternatives
+    :  function | alternatives | simple_expr
     ;
 
 alternatives
@@ -55,6 +55,7 @@ function
     | 'random_normal' LPAREN NUMBER RPAREN          #RANDN
     | 'random_weighted' LPAREN nested_list RPAREN   #RANDW
     | 'if' LPAREN conditional RPAREN const_atom     #COND
+    | 'use_from' LPAREN IDENTIFIER RPAREN           #USEFROM
     | constant                                      #CONST
     | nested_list                                   #NESTED
     | arith_atom                                    #ARITH
