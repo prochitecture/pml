@@ -1,4 +1,5 @@
 .*
+__*
 __pycache__/*
 PML2PythonTranslator-Dev-I/pml_grammar/make_grammar.bat
 PML2PythonTranslator-Dev-I/testListener.py
