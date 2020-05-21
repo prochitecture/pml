@@ -3,7 +3,7 @@ from antlr4 import FileStream, CommonTokenStream, ParseTreeWalker
 from pml_grammar.pmlLexer import pmlLexer
 from pml_grammar.pmlParser import pmlParser
 from PythonListener import PythonListener
-from testListener import testListener
+#from testListener import testListener
 
 def main(argv):
     input_stream = FileStream(argv[1])
