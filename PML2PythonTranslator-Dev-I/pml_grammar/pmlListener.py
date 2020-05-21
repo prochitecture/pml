@@ -62,6 +62,15 @@ class pmlListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by pmlParser#sym_expression.
+    def enterSym_expression(self, ctx:pmlParser.Sym_expressionContext):
+        pass
+
+    # Exit a parse tree produced by pmlParser#sym_expression.
+    def exitSym_expression(self, ctx:pmlParser.Sym_expressionContext):
+        pass
+
+
     # Enter a parse tree produced by pmlParser#markup_block.
     def enterMarkup_block(self, ctx:pmlParser.Markup_blockContext):
         pass

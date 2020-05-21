@@ -126,7 +126,7 @@ styles : {
 
         div@roof_side {
             // width : use_from("main_section");    // function not yet implemented
-            // symmetry : right-most-of-last;       // data type not yet implemented
+            symmetry : right-most-of-last;
         },
 
         facade[item.footprint.height - item.footprint.minHeight < minHeightForLevels] {
@@ -136,7 +136,7 @@ styles : {
         facade[item.front] {
             // use: brown_brick;        // resulting data type not yet implemented
             label : "front facade";
-            // symmetry = middle-of-last;       // data type not yet implemented
+            symmetry : middle-of-last;
             // symmetryFlip : True              // Booleans not yet implemented PML: True or true ?
             markup : [
                 div {
@@ -173,7 +173,7 @@ styles : {
             // sharpEdges : smoothness.Side;    // data type not yet implemented
         },
 
-        roofSide[item.front] {                  // camel case ?????  or roof-side ?
+        roof-side[item.front] {                  // camel case ?????  or roof-side ?
             markup : [
                 div {
                     // use = ("roof_side",),    // data type not yet implemented
@@ -186,8 +186,8 @@ styles : {
             ]
         },
 
-        roofSide[item.back] {                  // camel case ?????  or roof-side ?
-            markup = [
+        roof-side[item.back] {                  // camel case ?????  or roof-side ?
+            markup : [
                 div {
                     // use = ("roof_side",),    // data type not yet implemented
                     markup : [

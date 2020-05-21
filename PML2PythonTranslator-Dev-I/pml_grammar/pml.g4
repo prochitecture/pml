@@ -24,8 +24,13 @@ attributes
     ;
 
 attribute 
-    : attr_name COLON expression SEMI
+    : 'symmetry' COLON sym_expression SEMI
+    | attr_name COLON expression SEMI
     | attr_name COLON markup_block  // markup
+    ;
+
+sym_expression
+    : IDENTIFIER
     ;
 
 markup_block

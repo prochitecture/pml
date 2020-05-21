@@ -24,6 +24,9 @@ class PythonCoder():
         literalized = re.sub('("[ _]+")', ' ', re.sub('("")', '"', re.sub('([a-zA-Z]+)', '"\\1"', text) ) )
         return literalized
 
+    def toCamelCase(self,text):
+        return ''.join([ x.capitalize() for x in text.split('-') ])
+
     def enterStyles(self):
         self.write('styles = {\n' )
         self.indents += 1
@@ -34,6 +37,12 @@ class PythonCoder():
     def enterStyle_block(self, style):
         self.write(self.indent()+style + ' : [\n')
         self.indents += 1
+
+    def enterSym_expression(self,sym):
+        self.write(self.elementCommaStack[-1])
+        symmetry = self.toCamelCase(sym)
+        self.write(self.indent()+'symmetry : symmetry.'+symmetry )
+        self.elementCommaStack[-1] = ",\n"
 
     def enterMarkup_block(self):
         self.write(' [\n')
@@ -54,7 +63,7 @@ class PythonCoder():
         self.elementCommaStack.pop()
 
     def enterElement_name(self,name):
-        txt = name.capitalize()
+        txt = self.toCamelCase(name)
         self.write(self.indent()+txt+'(\n')
         self.indents += 1
 
