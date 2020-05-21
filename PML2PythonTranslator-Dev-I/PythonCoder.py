@@ -21,16 +21,29 @@ class PythonCoder():
         self.code += text
 
     def literalize(self,text):
-        literalized = re.sub('("[ _]+")', ' ', re.sub('("")', '"', re.sub('([a-z\\-]+)', '"\\1"', text) ) )
+        literalized = re.sub('("[ _]+")', ' ', re.sub('("")', '"', re.sub('([a-zA-Z]+)', '"\\1"', text) ) )
         return literalized
 
-    def enterStyle(self):
-        self.write('[\n')
+    def enterStyles(self):
+        self.write('styles = {\n' )
         self.indents += 1
 
-    def exitStyle(self):
-        self.indents -= 1
-        self.write(']\n')
+    def exitStyles(self):
+        self.write('\n]')
+
+    def enterStyle_block(self, style):
+        self.write(self.indent()+style + ' : [\n')
+        self.indents += 1
+
+    def enterMarkup_block(self):
+        self.write(' [\n')
+        self.indents += 1
+
+    def exitMarkup_block(self):
+        self.write(self.indent()+']')
+
+    def exitStyle_block(self):
+        self.write(self.indent()+']')
 
     def enterElements(self):
         self.elementCommaStack.append("")

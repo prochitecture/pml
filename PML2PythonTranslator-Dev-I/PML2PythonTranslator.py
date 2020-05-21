@@ -9,7 +9,7 @@ def main(argv):
     lexer = pmlLexer(input_stream)
     stream = CommonTokenStream(lexer)
     parser = pmlParser(stream)
-    tree = parser.style()
+    tree = parser.styles()
     translator = PythonListener()
     walker = ParseTreeWalker()
     walker.walk(translator, tree) 

@@ -9,13 +9,21 @@ class PythonListener(pmlListener):
     def getCode(self):
         return self.coder.getCode()
 
+    # Enter a parse tree produced by pmlParser#styles.
+    def enterStyles(self, ctx:pmlParser.StylesContext):
+        self.coder.enterStyles()
+
+    # Exit a parse tree produced by pmlParser#styles.
+    def exitStyles(self, ctx:pmlParser.StylesContext):
+        self.coder.exitStyles()
+
     # Enter a parse tree produced by pmlParser#style_list.
-    def enterStyle(self, ctx:pmlParser.StyleContext):
-        self.coder.enterStyle()
+    def enterStyle_block(self, ctx:pmlParser.Style_blockContext):
+        self.coder.enterStyle_block(ctx.getChild(0).getText())
 
     # Exit a parse tree produced by pmlParser#style_list.
-    def exitStyle(self, ctx:pmlParser.StyleContext):
-        self.coder.exitStyle()
+    def exitStyle_block(self, ctx:pmlParser.Style_blockContext):
+        self.coder.exitStyle_block()
 
      # Enter a parse tree produced by pmlParser#elements.
     def enterElements(self, ctx:pmlParser.ElementsContext):
@@ -48,6 +56,14 @@ class PythonListener(pmlListener):
     # Enter a parse tree produced by pmlParser#ATTR.
     def enterATTR(self, ctx:pmlParser.ATTRContext):
         self.coder.enterATTR(ctx.getChild(2).getText())
+
+    # Enter a parse tree produced by pmlParser#markup_block.
+    def enterMarkup_block(self, ctx:pmlParser.Markup_blockContext):
+        self.coder.enterMarkup_block()
+
+    # Exit a parse tree produced by pmlParser#markup_block.
+    def exitMarkup_block(self, ctx:pmlParser.Markup_blockContext):
+        self.coder.exitMarkup_block()
 
     # Enter a parse tree produced by pmlParser#attributes.
     def exitAttributes(self, ctx:pmlParser.AttributesContext):

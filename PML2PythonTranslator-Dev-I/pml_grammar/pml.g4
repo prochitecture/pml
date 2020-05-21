@@ -1,11 +1,14 @@
 // This is a grammar fragment for PML style language
-// Version 02
-
+// Version 03
 
 grammar pml;
 
-style
-    : LBRACK elements RBRACK
+styles
+    : 'styles' COLON LCURLY style_block (COMMA style_block)* RCURLY
+    ;
+
+style_block
+    : STRING_LITERAL COLON  LBRACK elements RBRACK
     ;
 
 elements
@@ -20,8 +23,13 @@ attributes
     : attribute*
     ;
 
-attribute // for instance 'roofShape: "gabled";
+attribute 
     : attr_name COLON expression SEMI
+    | attr_name COLON markup_block  // markup
+    ;
+
+markup_block
+    : LBRACK elements RBRACK
     ;
 
 expression
@@ -118,7 +126,7 @@ string_literal
 // -------------------------------------
 
 IDENTIFIER
-    : [a-zA-Z]([a-zA-Z0-9_]|'-')*  //[a-zA-Z][a-zA-Z0-9_]*
+    : [a-zA-Z]([a-zA-Z0-9_]|'-')*
     ;
 
 STRING_LITERAL
@@ -126,8 +134,8 @@ STRING_LITERAL
     ;
 
 NUMBER
-    : FLOAT
-    | INT
+    : '-'? FLOAT
+    | '-'? INT
     ; 
 
 FLOAT
@@ -160,14 +168,6 @@ GE         : '>=' ;
 LT         : '<' ;
 LE         : '<=' ;
 EQ         : '==' ;
-
-
-
-//Boolean  operators
-//NOT:        'not';
-//OR:         'or';
-//AND:        'and';
-
 
 COMMENT
    :'//' .*? [\r\n] -> skip 

@@ -8,12 +8,21 @@ else:
 # This class defines a complete listener for a parse tree produced by pmlParser.
 class pmlListener(ParseTreeListener):
 
-    # Enter a parse tree produced by pmlParser#style.
-    def enterStyle(self, ctx:pmlParser.StyleContext):
+    # Enter a parse tree produced by pmlParser#styles.
+    def enterStyles(self, ctx:pmlParser.StylesContext):
         pass
 
-    # Exit a parse tree produced by pmlParser#style.
-    def exitStyle(self, ctx:pmlParser.StyleContext):
+    # Exit a parse tree produced by pmlParser#styles.
+    def exitStyles(self, ctx:pmlParser.StylesContext):
+        pass
+
+
+    # Enter a parse tree produced by pmlParser#style_block.
+    def enterStyle_block(self, ctx:pmlParser.Style_blockContext):
+        pass
+
+    # Exit a parse tree produced by pmlParser#style_block.
+    def exitStyle_block(self, ctx:pmlParser.Style_blockContext):
         pass
 
 
@@ -50,6 +59,15 @@ class pmlListener(ParseTreeListener):
 
     # Exit a parse tree produced by pmlParser#attribute.
     def exitAttribute(self, ctx:pmlParser.AttributeContext):
+        pass
+
+
+    # Enter a parse tree produced by pmlParser#markup_block.
+    def enterMarkup_block(self, ctx:pmlParser.Markup_blockContext):
+        pass
+
+    # Exit a parse tree produced by pmlParser#markup_block.
+    def exitMarkup_block(self, ctx:pmlParser.Markup_blockContext):
         pass
 
 
