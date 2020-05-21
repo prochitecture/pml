@@ -65,6 +65,10 @@ class PythonListener(pmlListener):
     def enterUse_expression(self, ctx:pmlParser.Use_expressionContext):
         self.coder.enterUse_expression(ctx.getText())
 
+    # Enter a parse tree produced by pmlParser#smooth_expression.
+    def enterSmooth_expression(self, ctx:pmlParser.Smooth_expressionContext):
+        self.coder.enterSmooth_expression(ctx.parentCtx.getChild(0).getText(), ctx.getText())
+
     # Enter a parse tree produced by pmlParser#markup_block.
     def enterMarkup_block(self, ctx:pmlParser.Markup_blockContext):
         self.coder.enterMarkup_block()

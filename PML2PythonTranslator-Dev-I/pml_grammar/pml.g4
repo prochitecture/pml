@@ -26,6 +26,7 @@ attributes
 attribute 
     : 'symmetry' COLON sym_expression SEMI
     | 'use' COLON use_expression SEMI
+    | ('faces' | 'sharpEdges') COLON smooth_expression SEMI 
     | attr_name COLON expression SEMI
     | attr_name COLON markup_block  // markup
     ;
@@ -38,12 +39,16 @@ use_expression
     : IDENTIFIER (COMMA IDENTIFIER)*
     ;
 
+smooth_expression
+    : IDENTIFIER
+    ;
+
 markup_block
     : LBRACK elements RBRACK
     ;
 
 expression
-    :  function | alternatives | simple_expr
+    :  simple_expr | function | alternatives
     ;
 
 alternatives

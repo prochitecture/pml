@@ -3,6 +3,7 @@ from antlr4 import FileStream, CommonTokenStream, ParseTreeWalker
 from pml_grammar.pmlLexer import pmlLexer
 from pml_grammar.pmlParser import pmlParser
 from PythonListener import PythonListener
+from testListener import testListener
 
 def main(argv):
     input_stream = FileStream(argv[1])
@@ -10,6 +11,7 @@ def main(argv):
     stream = CommonTokenStream(lexer)
     parser = pmlParser(stream)
     tree = parser.styles()
+#    translator = testListener()
     translator = PythonListener()
     walker = ParseTreeWalker()
     walker.walk(translator, tree)

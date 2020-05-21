@@ -173,8 +173,8 @@ styles : {
         roof {
             claddingMaterial : "brick";
             claddingColor : (0.98, 0.502, 0.447, 1.); // salmon
-            // faces : smoothness.Smooth;       // data type not yet implemented 
-            // sharpEdges : smoothness.Side;    // data type not yet implemented
+            faces : smooth;      
+            sharpEdges : side; 
         },
 
         roof-side[item.front] { 
@@ -199,7 +199,7 @@ styles : {
                 div {
                     use : roof_side;
                     markup : [
-                        dormer{}, Dormer{}
+                        dormer{}, dormer{}
                     ]
                 }
             ]

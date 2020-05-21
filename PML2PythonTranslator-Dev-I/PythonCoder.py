@@ -44,13 +44,17 @@ class PythonCoder():
         self.write(self.indent()+'symmetry = symmetry.'+symmetry )
         self.exprCommaStack[-1] = ",\n"
 
-
     def enterUse_expression(self,expr):
         self.write(self.exprCommaStack[-1])
         expression = self.literalize(expr)
         self.write(self.indent()+'use = (' + expression + ',)' )
         self.exprCommaStack[-1] = ",\n"
 
+    def enterSmooth_expression(self, name, expr):
+        self.write(self.exprCommaStack[-1])
+        expression = expr.capitalize()
+        self.write(self.indent()+name+' = smoothness.' + expression )
+        self.exprCommaStack[-1] = ",\n"
 
     def enterMarkup_block(self):
         self.write(' [\n')
@@ -117,7 +121,7 @@ class PythonCoder():
             self.alterCommaStack[-1] = ",\n"
         else:
             if len(types) == 1:
-                self.write( "Value(FromAttr(" + attribute + ", " + types[0] + ')' )
+                self.write( "Value(FromAttr(" + attribute + ", " + types[0] + '))' )
             else:
                 self.write('Value(Alternatives(\n')
                 self.indents += 1
@@ -161,7 +165,7 @@ class PythonCoder():
             self.write(self.indent()+'RandomNormal( ' + value + ' )')
             self.alterCommaStack[-1] = ",\n"
         else:
-            self.write('Value(RandomNormal( ' + value + ' )')
+            self.write('Value(RandomNormal( ' + value + ' ))')
 
     def enterRANDW(self,li):
         list = self.literalize(li)
@@ -170,7 +174,7 @@ class PythonCoder():
             self.write(self.indent()+'RandomWeighted( ' + list + ' )')
             self.alterCommaStack[-1] = ",\n"
         else:
-            self.write('Value(RandomWeighted( ' + list + ' )')
+            self.write('Value(RandomWeighted( ' + list + ' ))')
 
     def enterCondition(self, condition):
         self.write(self.exprCommaStack[-1])
