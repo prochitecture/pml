@@ -8,21 +8,21 @@ else:
 # This class defines a complete listener for a parse tree produced by pmlParser.
 class pmlListener(ParseTreeListener):
 
-    # Enter a parse tree produced by pmlParser#styles.
-    def enterStyles(self, ctx:pmlParser.StylesContext):
+    # Enter a parse tree produced by pmlParser#NAMED.
+    def enterNAMED(self, ctx:pmlParser.NAMEDContext):
         pass
 
-    # Exit a parse tree produced by pmlParser#styles.
-    def exitStyles(self, ctx:pmlParser.StylesContext):
+    # Exit a parse tree produced by pmlParser#NAMED.
+    def exitNAMED(self, ctx:pmlParser.NAMEDContext):
         pass
 
 
-    # Enter a parse tree produced by pmlParser#style_block.
-    def enterStyle_block(self, ctx:pmlParser.Style_blockContext):
+    # Enter a parse tree produced by pmlParser#UNNAMED.
+    def enterUNNAMED(self, ctx:pmlParser.UNNAMEDContext):
         pass
 
-    # Exit a parse tree produced by pmlParser#style_block.
-    def exitStyle_block(self, ctx:pmlParser.Style_blockContext):
+    # Exit a parse tree produced by pmlParser#UNNAMED.
+    def exitUNNAMED(self, ctx:pmlParser.UNNAMEDContext):
         pass
 
 
@@ -158,6 +158,15 @@ class pmlListener(ParseTreeListener):
 
     # Exit a parse tree produced by pmlParser#USEFROM.
     def exitUSEFROM(self, ctx:pmlParser.USEFROMContext):
+        pass
+
+
+    # Enter a parse tree produced by pmlParser#PERBUILD.
+    def enterPERBUILD(self, ctx:pmlParser.PERBUILDContext):
+        pass
+
+    # Exit a parse tree produced by pmlParser#PERBUILD.
+    def exitPERBUILD(self, ctx:pmlParser.PERBUILDContext):
         pass
 
 

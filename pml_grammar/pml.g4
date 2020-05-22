@@ -4,12 +4,13 @@
 grammar pml;
 
 styles
-    : 'styles' COLON LCURLY style_block (COMMA style_block)* RCURLY
+    : ('@name' STRING_LITERAL SEMI elements)+   #NAMED
+    | elements?                                 #UNNAMED
     ;
 
-style_block
-    : STRING_LITERAL COLON  LBRACK elements RBRACK
-    ;
+// style_block
+//     : STRING_LITERAL COLON  LBRACK elements RBRACK
+//     ;
 
 elements
     : element ( COMMA element )*
@@ -26,7 +27,7 @@ attributes
 attribute 
     : 'symmetry' COLON sym_expression SEMI
     | 'use' COLON use_expression SEMI
-    | ('faces' | 'sharpEdges') COLON smooth_expression SEMI 
+    | ('faces' | 'sharpEdges') COLON smooth_expression SEMI
     | attr_name COLON expression SEMI
     | attr_name COLON markup_block  // markup
     ;
@@ -61,6 +62,7 @@ function
     | 'random_weighted' LPAREN nested_list RPAREN   #RANDW
     | 'if' LPAREN conditional RPAREN const_atom     #COND
     | 'use_from' LPAREN IDENTIFIER RPAREN           #USEFROM
+    | 'per_building' LPAREN function RPAREN         #PERBUILD
     | constant                                      #CONST
     | nested_list                                   #NESTED
     | arith_atom                                    #ARITH

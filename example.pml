@@ -1,5 +1,4 @@
-styles : {
-    "mid rise residential zaandam": [
+// @name   "mid rise residential zaandam";
         meta {
             buildingUse : "residential";
             buildingLaf : "modern";
@@ -25,11 +24,11 @@ styles : {
                 (0., 50), (0.05, 3), (0.1, 5), (0.15, 5), (0.2, 5), (0.25, 5), (0.3, 5),
                 (0.35, 5), (0.4, 5), (0.45, 5), (0.5, 3), (0.55, 2), (0.6, 2)
             ));
-            claddingColor : random_weighted ((  // PerBuilding not yet implemented
+            claddingColor : per_building( random_weighted ((  
                 ((0.647, 0.165, 0.165, 1.), 1), // brown
                 ((0.565, 0.933, 0.565, 1.), 1), // lightgreen
                 ((1., 0.855, 0.725, 1.), 1)     // peachpuff
-            ));
+            )));
             claddingMaterial : "brick";
         },
 
@@ -217,5 +216,5 @@ styles : {
             ]    
         }
     ]
-}
+
 

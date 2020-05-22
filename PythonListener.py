@@ -3,27 +3,27 @@ from pml_grammar.pmlParser import pmlParser
 from PythonCoder import PythonCoder
 
 class PythonListener(pmlListener):
-    def __init__(self):
-        self.coder = PythonCoder()
+    def __init__(self, pmlFileName):
+        self.coder = PythonCoder(pmlFileName)
 
     def getCode(self):
         return self.coder.getCode()
 
-    # Enter a parse tree produced by pmlParser#styles.
-    def enterStyles(self, ctx:pmlParser.StylesContext):
-        self.coder.enterStyles()
+    # Enter a parse tree produced by pmlParser#NAMED.
+    def enterNAMED(self, ctx:pmlParser.NAMEDContext):
+        self.coder.enterNAMED(ctx.getChild(1).getText())
 
-    # Exit a parse tree produced by pmlParser#styles.
-    def exitStyles(self, ctx:pmlParser.StylesContext):
-        self.coder.exitStyles()
+    # Exit a parse tree produced by pmlParser#NAMED.
+    def exitNAMED(self, ctx:pmlParser.NAMEDContext):
+        self.coder.exitNAMED()
 
-    # Enter a parse tree produced by pmlParser#style_list.
-    def enterStyle_block(self, ctx:pmlParser.Style_blockContext):
-        self.coder.enterStyle_block(ctx.getChild(0).getText())
+    # Enter a parse tree produced by pmlParser#UNNAMED.
+    def enterUNNAMED(self, ctx:pmlParser.UNNAMEDContext):
+        self.coder.enterUNNAMED()
 
-    # Exit a parse tree produced by pmlParser#style_list.
-    def exitStyle_block(self, ctx:pmlParser.Style_blockContext):
-        self.coder.exitStyle_block()
+    # Exit a parse tree produced by pmlParser#UNNAMED.
+    def exitUNNAMED(self, ctx:pmlParser.UNNAMEDContext):
+        self.coder.exitUNNAMED()
 
      # Enter a parse tree produced by pmlParser#elements.
     def enterElements(self, ctx:pmlParser.ElementsContext):
@@ -104,6 +104,14 @@ class PythonListener(pmlListener):
     # Enter a parse tree produced by pmlParser#USEFROM.
     def enterUSEFROM(self, ctx:pmlParser.USEFROMContext):
         self.coder.enterUSEFROM(ctx.getChild(2).getText())
+
+    # Enter a parse tree produced by pmlParser#PERBUILD.
+    def enterPERBUILD(self, ctx:pmlParser.PERBUILDContext):
+        self.coder.enterPERBUILD()
+
+    # Exit a parse tree produced by pmlParser#PERBUILD.
+    def exitPERBUILD(self, ctx:pmlParser.PERBUILDContext):
+        self.coder.exitPERBUILD()
 
     # Enter a parse tree produced by pmlParser#NESTED.
     def enterNESTED(self, ctx:pmlParser.NESTEDContext):

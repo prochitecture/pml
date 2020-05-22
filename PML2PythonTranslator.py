@@ -1,4 +1,5 @@
 import sys
+import os
 from antlr4 import FileStream, CommonTokenStream, ParseTreeWalker
 from pml_grammar.pmlLexer import pmlLexer
 from pml_grammar.pmlParser import pmlParser
@@ -6,6 +7,8 @@ from PythonListener import PythonListener
 from ExceptionManagement import ParserExceptionListener
 
 def main(argv):
+    # don't know if this works for all OS
+    pmlFileName = os.path.basename(argv[1]).split('.')[0]
     input_stream = FileStream(argv[1])
     lexer = pmlLexer(input_stream)
     stream = CommonTokenStream(lexer)
@@ -24,7 +27,7 @@ def main(argv):
         hadSyntaxErrors = True
 
     if not hadSyntaxErrors:  
-        translator = PythonListener()
+        translator = PythonListener(pmlFileName)
         walker = ParseTreeWalker()
         walker.walk(translator, tree)
         sys.stdout.write( translator.getCode() )

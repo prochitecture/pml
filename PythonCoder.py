@@ -2,7 +2,8 @@ import re
 from Dictionaries import Dictionaries
 
 class PythonCoder():
-    def __init__(self):
+    def __init__(self,pmlFileName):
+        self.pmlFileName = pmlFileName
         self.dictionary = Dictionaries()
         self.code = ""
         self.elementCommaStack = []
@@ -26,6 +27,24 @@ class PythonCoder():
 
     def toCamelCase(self,text):
         return ''.join([ x.capitalize() for x in text.split('-') ])
+
+    def enterNAMED(self,name):
+        self.indents = 1
+        self.write('styles = {\n' )
+        self.write(self.indent()+name + ' : [\n')
+        self.indents += 1
+
+    def exitNAMED(self):
+        self.write('\n]')
+
+    def enterUNNAMED(self):
+        self.indents = 1
+        self.write('styles = {\n' )
+        self.write(self.indent()+ '"' + self.pmlFileName + '" : [\n')
+        self.indents += 1
+
+    def exitUNNAMED(self):
+        self.write('\n]')
 
     def enterStyles(self):
         self.write('styles = {\n' )
@@ -146,6 +165,12 @@ class PythonCoder():
 
     def enterUSEFROM(self,ident):
         self.write('useFrom("' + ident + '")')
+
+    def enterPERBUILD(self):
+        self.write('PerBuilding(')
+
+    def exitPERBUILD(self):
+        self.write(')')
 
     def enterNESTED(self, li):
         list = self.literalize(li)
