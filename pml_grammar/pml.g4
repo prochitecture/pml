@@ -4,13 +4,13 @@
 grammar pml;
 
 styles
-    : ('@name' STRING_LITERAL SEMI elements)+   #NAMED
-    | elements?                                 #UNNAMED
+    : named_block+   #NAMED
+    | elements?      #UNNAMED
     ;
 
-// style_block
-//     : STRING_LITERAL COLON  LBRACK elements RBRACK
-//     ;
+named_block
+    : ('@name' STRING_LITERAL SEMI elements)
+    ;
 
 elements
     : element ( COMMA element )*

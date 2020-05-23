@@ -3,15 +3,15 @@ from pml_grammar.pmlParser import pmlParser
 from PythonCoder import PythonCoder
 
 class PythonListener(pmlListener):
-    def __init__(self, pmlFileName):
-        self.coder = PythonCoder(pmlFileName)
+    def __init__(self):
+        self.coder = PythonCoder()
 
     def getCode(self):
         return self.coder.getCode()
 
     # Enter a parse tree produced by pmlParser#NAMED.
     def enterNAMED(self, ctx:pmlParser.NAMEDContext):
-        self.coder.enterNAMED(ctx.getChild(1).getText())
+        self.coder.enterNAMED()
 
     # Exit a parse tree produced by pmlParser#NAMED.
     def exitNAMED(self, ctx:pmlParser.NAMEDContext):
@@ -24,6 +24,14 @@ class PythonListener(pmlListener):
     # Exit a parse tree produced by pmlParser#UNNAMED.
     def exitUNNAMED(self, ctx:pmlParser.UNNAMEDContext):
         self.coder.exitUNNAMED()
+
+    # Enter a parse tree produced by pmlParser#named_block.
+    def enterNamed_block(self, ctx:pmlParser.Named_blockContext):
+        self.coder.enterNamed_block(ctx.getChild(1).getText())
+
+    # Exit a parse tree produced by pmlParser#named_block.
+    def exitNamed_block(self, ctx:pmlParser.Named_blockContext):
+        self.coder.exitNamed_block()
 
      # Enter a parse tree produced by pmlParser#elements.
     def enterElements(self, ctx:pmlParser.ElementsContext):

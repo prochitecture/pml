@@ -26,6 +26,15 @@ class pmlListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by pmlParser#named_block.
+    def enterNamed_block(self, ctx:pmlParser.Named_blockContext):
+        pass
+
+    # Exit a parse tree produced by pmlParser#named_block.
+    def exitNamed_block(self, ctx:pmlParser.Named_blockContext):
+        pass
+
+
     # Enter a parse tree produced by pmlParser#elements.
     def enterElements(self, ctx:pmlParser.ElementsContext):
         pass

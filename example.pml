@@ -1,4 +1,4 @@
-// @name   "mid rise residential zaandam";
+@name   "mid rise residential zaandam";
         meta {
             buildingUse : "residential";
             buildingLaf : "modern";
