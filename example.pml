@@ -1,9 +1,10 @@
 @name   "mid rise residential zaandam";
+
         meta {
             buildingUse : "residential";
             buildingLaf : "modern";
             height : "mid rise";
-        },
+        }
 
         footprint {
             height : attr("height");
@@ -30,10 +31,10 @@
                 ((1., 0.855, 0.725, 1.), 1)     // peachpuff
             )));
             claddingMaterial : "brick";
-        },
+        }
 
         facade@brown_brick {        
-        },
+        }
 
         level@level_window_balcony {
             markup : [
@@ -42,20 +43,20 @@
                     height : 2.1;
                     rows : 1;
                     panels : 2;
-                },
+                }
                 balcony{}
             ]
-        },
+        }
 
         level@staircase {
             // offset : (0.5, units.Level)  // data type not yet implemented
-        },
+        }
 
         window@back_facade_window {
             width : 1.2;
             height : 1.8;
             panels : 1;
-        },
+        }
 
         window@roof_window {
             width : 0.8;
@@ -63,7 +64,7 @@
             rows : 1;
             panels : 1;
 
-        },
+        }
 
         div@window_and_balcony {
             label : "Window and balcony";
@@ -73,16 +74,16 @@
                     claddingMaterial : "plaster";
                     indices : (4, -1);
                     claddingColor : (0., 0., 1., 1.);  // blue
-                },
+                }
                 level {
                     use : level_window_balcony;
                     indices : (3, 3);
                     claddingColor : (0., 0.502, 0., 1.); // green
-                },
+                }
                 level{
                     use : level_window_balcony;
                     indices : (0, 2);
-                },
+                }
                 bottom {
                     markup : [
                         window{
@@ -94,7 +95,7 @@
                     ]
                 }
             ]
-        },
+        }
 
         div@staircase {
             label : "Staircase";
@@ -111,7 +112,7 @@
                             panels : 1;
                         }
                     ]
-                },
+                }
                 level {
                     indices : (0, 0);
                     markup : [
@@ -121,16 +122,16 @@
                     ]
                 }
             ]
-        },
+        }
 
         div@roof_side {
             width : use_from(main_section);
             symmetry : right-most-of-last;
-        },
+        }
 
         facade[item.footprint.height - item.footprint.minHeight < minHeightForLevels] {
             label : "cladding only for too low structures";
-        },
+        }
 
         facade[item.front] {
             use: brown_brick;
@@ -142,13 +143,13 @@
                     use : window_and_balcony;
                     id : "main_section";
                     label : "Window and Balcony";
-                },
+                }
                 div {
                     use : staircase;
                     label : "Staircase";
                 }
             ] 
-        },
+        }
 
         facade[item.back] {
             use: brown_brick;
@@ -157,24 +158,24 @@
                 level{
                     indices : (0, -1);
                     markup : [
-                        balcony{},
+                        balcony{}
                         window{
                             use : back_facade_window;
-                        },
+                        }
                         Window{
                             use : back_facade_window;
                         }
                     ]
                 }
             ]
-        },
+        }
 
         roof {
             claddingMaterial : "brick";
             claddingColor : (0.98, 0.502, 0.447, 1.); // salmon
             faces : smooth;      
             sharpEdges : side; 
-        },
+        }
 
         roof-side[item.front] { 
             markup : [
@@ -184,25 +185,25 @@
                         // openable skylight or roof window
                         window{
                             use : roof_window;
-                        },
+                        }
                         window{
                             use : roof_window;
                         }
                     ]
                 }
             ]
-        },
+        }
 
         roof-side[item.back] {
             markup : [
                 div {
                     use : roof_side;
                     markup : [
-                        dormer{}, dormer{}
+                        dormer{} dormer{}
                     ]
                 }
             ]
-        },
+        }
 
         ridge {
             markup : [
@@ -215,6 +216,5 @@
                 }
             ]    
         }
-    ]
 
 

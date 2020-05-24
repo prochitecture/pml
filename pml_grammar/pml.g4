@@ -4,8 +4,8 @@
 grammar pml;
 
 styles
-    : named_block+   #NAMED
-    | elements?      #UNNAMED
+    : named_block+              #NAMED
+    | elements                  #UNNAMED
     ;
 
 named_block
@@ -13,7 +13,7 @@ named_block
     ;
 
 elements
-    : element ( COMMA element )*
+    : element ( element )* 
     ;
 
 element 
