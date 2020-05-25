@@ -269,6 +269,15 @@ class pmlListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by pmlParser#ATOM_FROMATTR_SHORT.
+    def enterATOM_FROMATTR_SHORT(self, ctx:pmlParser.ATOM_FROMATTR_SHORTContext):
+        pass
+
+    # Exit a parse tree produced by pmlParser#ATOM_FROMATTR_SHORT.
+    def exitATOM_FROMATTR_SHORT(self, ctx:pmlParser.ATOM_FROMATTR_SHORTContext):
+        pass
+
+
     # Enter a parse tree produced by pmlParser#ATOM_IDENT.
     def enterATOM_IDENT(self, ctx:pmlParser.ATOM_IDENTContext):
         pass

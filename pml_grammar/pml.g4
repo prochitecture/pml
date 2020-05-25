@@ -97,6 +97,7 @@ arith_atom
     : 'item' '.' IDENTIFIER                                 # ATOM_SINGLE
     | 'item' '.' IDENTIFIER '.' IDENTIFIER                  # ATOM_SINGLE
     | 'item' '.' IDENTIFIER LBRACK STRING_LITERAL RBRACK    # ATOM_FROMATTR
+    | 'item' LBRACK STRING_LITERAL RBRACK                   # ATOM_FROMATTR_SHORT
     | IDENTIFIER                                            # ATOM_IDENT
     | NUMBER                                                # ATOM_IDENT
     | STRING_LITERAL                                        # ATOM_IDENT

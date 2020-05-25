@@ -141,6 +141,10 @@ class PythonListener(pmlListener):
     def enterATOM_FROMATTR(self, ctx:pmlParser.ATOM_FROMATTRContext):
         self.coder.enterATOM_FROMATTR(ctx.getChild(2).getText(),ctx.getChild(4).getText())
 
+    # Enter a parse tree produced by pmlParser#ATOM_FROMATTR_SHORT.
+    def enterATOM_FROMATTR_SHORT(self, ctx:pmlParser.ATOM_FROMATTR_SHORTContext):
+        self.coder.enterATOM_FROMATTR_SHORT(ctx.getChild(2).getText())
+
     # Enter a parse tree produced by pmlParser#ATOM_IDENT.
     def enterATOM_IDENT(self, ctx:pmlParser.ATOM_IDENTContext):
         self.coder.enterATOM_IDENT(ctx.getText())

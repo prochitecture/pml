@@ -223,6 +223,15 @@ class PythonCoder():
             self.write(self.indent()+"FromStyleBlockAttr("+literal+",FromStyleBlockAttr."+identifier+")")
             self.alterCommaStack[-1] = ",\n"
 
+    def enterATOM_FROMATTR_SHORT(self,literal):
+        if self.context == "conditional":
+            self.write( 'item.getStyleBlockAttr(' + literal + ')' )
+        else:
+            self.write(self.alterCommaStack[-1])
+            self.write(self.indent()+"FromStyleBlockAttr("+literal+")")
+            self.alterCommaStack[-1] = ",\n"
+
+
     def enterATOM_IDENT(self,ident):
         self.write(ident)
 
