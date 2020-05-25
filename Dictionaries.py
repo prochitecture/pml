@@ -7,6 +7,7 @@ class Dictionaries():
             '"building:levels"': [ "FromAttr.Integer, FromAttr.Positive" ],
             '"building:min_level"': [ "FromAttr.Integer, FromAttr.NonNegative" ],
             '"building:material"': ["FromAttr.String, CladdingMaterials" ],
+            '"building:colour"': [ "FromAttr.Color" ],
             '"roof:material"': ["FromAttr.String, CladdingMaterials"],
             '"roof:shape"': [ "FromAttr.String, RoofShapes" ],
             '"roof:height"': [ "FromAttr.Float, FromAttr.NonNegative" ],
