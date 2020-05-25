@@ -1,6 +1,6 @@
 @name   "mid rise residential zaandam";
 
-        meta {
+        @meta {
             buildingUse : "residential";
             buildingLaf : "modern";
             height : "mid rise";
@@ -9,27 +9,27 @@
         footprint {
             height : attr("height");
             minHeight : attr("min_height");
-            numLevels : attr("building:levels") | random_weighted( ( (4, 10), (5, 40), (6, 10) ) );
+            numLevels : attr("building:levels") | random_weighted( (4, 10), (5, 40), (6, 10) );
             hasNumLevelsAttr : attr("building:levels");
             minLevel : attr("building:min_level") | 0.0;
             topHeight : 0.;
             levelHeight : random_normal(3.);
             groundLevelHeight : random_normal(4.2);
             bottomHeight : random_normal(1.);
-            roofShape : attr("roof:shape") | "flat" | "saltbox" | random_weighted( ( ("gabled", 10), ("flat", 40) ) );
+            roofShape : attr("roof:shape") | "flat" | "saltbox" | random_weighted( ("gabled", 10), ("flat", 40) );
             roofHeight : attr("roof:height") | 5.0;
             roofAngle : attr("roof:angle");
             roofDirection : attr("roof:direction") | attr("roof:slope:direction");
             roofOrientation : "across";
-            lastLevelOffsetFactor : random_weighted ((
+            lastLevelOffsetFactor : random_weighted (
                 (0., 50), (0.05, 3), (0.1, 5), (0.15, 5), (0.2, 5), (0.25, 5), (0.3, 5),
                 (0.35, 5), (0.4, 5), (0.45, 5), (0.5, 3), (0.55, 2), (0.6, 2)
-            ));
-            claddingColor : per_building( random_weighted ((  
+            );
+            claddingColor : per_building( random_weighted (  
                 ((0.647, 0.165, 0.165, 1.), 1), // brown
                 ((0.565, 0.933, 0.565, 1.), 1), // lightgreen
                 ((1., 0.855, 0.725, 1.), 1)     // peachpuff
-            )));
+            ));
             claddingMaterial : "brick";
         }
 

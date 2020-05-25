@@ -95,7 +95,7 @@ class PythonListener(pmlListener):
 
     # Enter a parse tree produced by pmlParser#RANDW.
     def enterRANDW(self, ctx:pmlParser.RANDWContext):
-        self.coder.enterRANDW(ctx.getChild(2).getText())
+        self.coder.enterRANDW(ctx.getChild(1).getText())
 
     # Enter a parse tree produced by pmlParser#attr_name.
     def enterAttr_name(self, ctx:pmlParser.Attr_nameContext):

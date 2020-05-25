@@ -17,7 +17,7 @@ elements
     ;
 
 element 
-    : element_name (STRUDEL def_name)? (LBRACK condition RBRACK)? LCURLY attributes RCURLY
+    : '@'? element_name (STRUDEL def_name)? (LBRACK condition RBRACK)? LCURLY attributes RCURLY
     ;
 
 attributes
@@ -59,7 +59,7 @@ alternatives
 function
     : 'attr' LPAREN string_literal RPAREN           #ATTR
     | 'random_normal' LPAREN NUMBER RPAREN          #RANDN
-    | 'random_weighted' LPAREN nested_list RPAREN   #RANDW
+    | 'random_weighted' nested_list                 #RANDW
     | 'if' LPAREN conditional RPAREN const_atom     #COND
     | 'use_from' LPAREN IDENTIFIER RPAREN           #USEFROM
     | 'per_building' LPAREN function RPAREN         #PERBUILD

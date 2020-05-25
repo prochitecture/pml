@@ -30,7 +30,6 @@ class PythonCoder():
     def enterNAMED(self):
         self.indents = 1
         self.write('styles = {\n' )
-        self.indents += 1
 
     def exitNAMED(self):
         self.write('\n}')
@@ -38,7 +37,6 @@ class PythonCoder():
     def enterUNNAMED(self):
         self.indents = 1
         self.write('styles = [\n' )
-        self.indents += 1
 
     def exitUNNAMED(self):
         self.write(']')
