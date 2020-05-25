@@ -60,7 +60,7 @@ function
     : 'attr' LPAREN string_literal RPAREN           #ATTR
     | 'random_normal' LPAREN NUMBER RPAREN          #RANDN
     | 'random_weighted' nested_list                 #RANDW
-    | 'if' LPAREN conditional RPAREN const_atom     #COND
+    | 'if' LPAREN conditional RPAREN function       #COND
     | 'use_from' LPAREN IDENTIFIER RPAREN           #USEFROM
     | 'per_building' LPAREN function RPAREN         #PERBUILD
     | constant                                      #CONST
@@ -104,7 +104,7 @@ arith_atom
     ;
 
 const_atom
-    : STRING_LITERAL | NUMBER | IDENTIFIER
+    : STRING_LITERAL | NUMBER | IDENTIFIER 
     ;
 
 constant

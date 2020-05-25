@@ -81,7 +81,7 @@ def serializedATN():
         buf.write("\7\30\2\2\u00a3\u00a4\7\22\2\2\u00a4\u00ba\7\31\2\2\u00a5")
         buf.write("\u00a6\7\n\2\2\u00a6\u00ba\5\34\17\2\u00a7\u00a8\7\13")
         buf.write("\2\2\u00a8\u00a9\7\30\2\2\u00a9\u00aa\5 \21\2\u00aa\u00ab")
-        buf.write("\7\31\2\2\u00ab\u00ac\5(\25\2\u00ac\u00ba\3\2\2\2\u00ad")
+        buf.write("\7\31\2\2\u00ab\u00ac\5\32\16\2\u00ac\u00ba\3\2\2\2\u00ad")
         buf.write("\u00ae\7\f\2\2\u00ae\u00af\7\30\2\2\u00af\u00b0\7\20\2")
         buf.write("\2\u00b0\u00ba\7\31\2\2\u00b1\u00b2\7\r\2\2\u00b2\u00b3")
         buf.write("\7\30\2\2\u00b3\u00b4\5\32\16\2\u00b4\u00b5\7\31\2\2\u00b5")
@@ -1247,8 +1247,8 @@ class pmlParser ( Parser ):
 
         def RPAREN(self):
             return self.getToken(pmlParser.RPAREN, 0)
-        def const_atom(self):
-            return self.getTypedRuleContext(pmlParser.Const_atomContext,0)
+        def function(self):
+            return self.getTypedRuleContext(pmlParser.FunctionContext,0)
 
 
         def enterRule(self, listener:ParseTreeListener):
@@ -1339,7 +1339,7 @@ class pmlParser ( Parser ):
                 self.state = 168
                 self.match(pmlParser.RPAREN)
                 self.state = 169
-                self.const_atom()
+                self.function()
                 pass
 
             elif la_ == 5:

@@ -8,6 +8,7 @@ class PythonCoder():
         self.elementCommaStack = []
         self.exprCommaStack = []
         self.alterCommaStack = []
+        self.condCommaStack = []
         self.indents = 0
         self.context = ""
 
@@ -182,7 +183,7 @@ class PythonCoder():
 
     def enterCONST(self,text):
         expr = self.literalize(text)
-        if self.context == "alternatives":
+        if self.context  in ( "alternatives", "conditional" ):
             self.write(self.alterCommaStack[-1])
             self.write( self.indent()+"Constant(" + expr + ')' )
             self.alterCommaStack[-1] = ",\n"
@@ -190,7 +191,7 @@ class PythonCoder():
             self.write('Value(Constant(' + expr + ')' )
 
     def enterRANDN(self,value):
-        if self.context == "alternatives":
+        if self.context  in ( "alternatives", "conditional" ):
             self.write(self.alterCommaStack[-1])
             self.write(self.indent()+'RandomNormal( ' + value + ' )')
             self.alterCommaStack[-1] = ",\n"
@@ -199,7 +200,7 @@ class PythonCoder():
 
     def enterRANDW(self,li):
         list = self.literalize(li)
-        if self.context == "alternatives":
+        if self.context in ( "alternatives", "conditional" ):
             self.write(self.alterCommaStack[-1])
             self.write(self.indent()+'RandomWeighted( ' + list + ' )')
             self.alterCommaStack[-1] = ",\n"
