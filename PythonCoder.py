@@ -185,6 +185,7 @@ class PythonCoder():
         if self.context == "alternatives":
             self.write(self.alterCommaStack[-1])
             self.write( self.indent()+"Constant(" + expr + ')' )
+            self.alterCommaStack[-1] = ",\n"
         else:
             self.write('Value(Constant(' + expr + ')' )
 
