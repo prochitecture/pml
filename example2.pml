@@ -1,6 +1,6 @@
 @name "high rise";
 
-meta{
+@meta{
 	buildingUse: office;
 	buildingLaf: modern;
 	height: "high rise";
@@ -17,5 +17,12 @@ footprint{
 	roofShape: attr("roof:shape") | flat;
 	roofHeight: attr("roof:height");
 	claddingMaterial: attr("building:material") | random_weighted( (brick, 1), (plaster, 1) );
-	claddingColor: attr("building:colour") | if (item["claddingMaterial"] == "brick") white;
+	claddingColor: attr("building:colour")
+		|
+		if (item["claddingMaterial"] == "brick") random_weighted(
+			((0.647, 0.165, 0.165, 1.), 1), // brown
+			((0.98, 0.502, 0.447, 1.), 1), // salmon
+			((0.502, 0., 0., 1.), 1) // maroon
+		)
+		;
 }
