@@ -37,7 +37,7 @@ footprint {
             ((0.169, 0.318, 0.361, 1.), 1),
             ((0.094, 0.18, 0.271, 1.), 1)
 		)
-		;
+	;
 }
 
 facade[
@@ -52,4 +52,37 @@ facade[item.footprint["claddingMaterial"] == "glass"] {
 	markup: [
 		curtain_wall{}
 	]
+}
+
+facade {
+	markup: [
+		level{}
+	]
+}
+
+roof {
+	roofCladdingMaterial:
+		attr("roof:material")
+		|
+		if (item.footprint["roofShape"] == "flat") concrete
+		|
+		metal
+	;
+	roofCladdingColor:
+		attr("roof:colour")
+		|
+		if (item["roofCladdingMaterial"] == "concrete") random_weighted(
+            ((0.686, 0.686, 0.686, 1.), 1),
+            ((0.698, 0.698, 0.651, 1.), 1),
+            ((0.784, 0.761, 0.714, 1.), 1)
+		)
+		|
+		// roofCladdingMaterial == "metal"
+		random_weighted(
+            ((0.686, 0.686, 0.686, 1.), 1),
+            ((0.698, 0.698, 0.651, 1.), 1),
+            ((0.784, 0.761, 0.714, 1.), 1)
+		)
+	;
+	faces: if (item.footprint["roofShape"] in ("dome", "onion")) smooth;
 }
