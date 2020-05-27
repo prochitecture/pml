@@ -26,7 +26,7 @@ class PythonCoder():
         return literalized
 
     def toCamelCase(self,text):
-        return ''.join([ x.capitalize() for x in text.split('-') ])
+        return ''.join([ x.capitalize() for x in text.split('_') ])
 
     def enterNAMED(self):
         self.indents = 1
@@ -208,6 +208,7 @@ class PythonCoder():
             self.write('Value(RandomWeighted( ' + list + ' ))')
 
     def enterCondition(self, condition):
+        self.context = "condition"
         self.write(self.exprCommaStack[-1])
         self.write(self.indent()+'condition = lambda item: ' )
         self.exprCommaStack[-1] = ",\n"
@@ -218,6 +219,9 @@ class PythonCoder():
     def enterATOM_FROMATTR(self,ident,literal):
         if self.context == "conditional":
             self.write( 'item.' + ident +'.getStyleBlockAttr(' + literal + ')' )
+        elif self.context == "condition":
+            identifier = ident.capitalize()
+            self.write( "FromStyleBlockAttr("+literal+",FromStyleBlockAttr."+identifier+")")
         else:
             self.write(self.alterCommaStack[-1])
             identifier = ident.capitalize()
@@ -227,6 +231,8 @@ class PythonCoder():
     def enterATOM_FROMATTR_SHORT(self,literal):
         if self.context == "conditional":
             self.write( 'item.getStyleBlockAttr(' + literal + ')' )
+        elif self.context == "condition":
+            self.write("FromStyleBlockAttr("+literal+")")
         else:
             self.write(self.alterCommaStack[-1])
             self.write(self.indent()+"FromStyleBlockAttr("+literal+")")
