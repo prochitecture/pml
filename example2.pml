@@ -47,3 +47,9 @@ facade[
 ] {
 	label: "cladding only for structures without levels or too low structures or too narrow facades";
 }
+
+facade[item.footprint["claddingMaterial"] == "glass"] {
+	markup: [
+		curtain_wall{}
+	]
+}
