@@ -4,8 +4,8 @@
 grammar pml;
 
 styles
-    : named_block+              #NAMED
-    | elements                  #UNNAMED
+    : named_block+  EOF            #NAMED
+    | elements EOF                 #UNNAMED
     ;
 
 named_block
@@ -79,18 +79,31 @@ def_name
     ;
 
 conditional
-    : arith_expr 
-    | arith_expr relop arith_expr
+    : bool_expr 
+//    | arith_expr relop arith_expr
     ;
 
 condition
-    : arith_expr 
-    | arith_expr relop arith_expr
+    : bool_expr 
+//    | arith_expr relop arith_expr
+    ;
+
+bool_expr
+    :   ari_lparen bool_expr ari_rparen
+    |   notop bool_expr
+    |   bool_expr logicop bool_expr
+    |   cmp_expr
+    |   arith_atom
+    ;
+
+cmp_expr
+    : arith_expr relop arith_expr
     ;
 
 arith_expr
-    : arith_atom
+    : ari_lparen arith_expr ari_rparen
     | arith_expr arith_op arith_expr
+    | arith_atom 
     ;
 
 arith_atom
@@ -101,6 +114,14 @@ arith_atom
     | IDENTIFIER                                            # ATOM_IDENT
     | NUMBER                                                # ATOM_IDENT
     | STRING_LITERAL                                        # ATOM_IDENT
+    ;
+
+ari_lparen
+    : LPAREN
+    ;
+
+ari_rparen
+    : RPAREN
     ;
 
 const_atom
@@ -129,6 +150,14 @@ relop
     : GT | GE | LT | LE | EQ
     ;
 
+logicop
+    : AND | OR
+    ;
+
+notop
+    : NOT
+    ;
+
 arith_op
     : PLUS | MINUS | TIMES | DIV
     ;
@@ -143,6 +172,11 @@ string_literal
 
 // Lexer rules
 // -------------------------------------
+
+// in front so that they get not eaten by IDENTIFIER !!??
+OR          : 'or';
+AND         : 'and';
+NOT         : 'not';
 
 IDENTIFIER
     : [a-zA-Z]([a-zA-Z0-9_]|'-')*
@@ -182,11 +216,11 @@ MINUS       : '-';
 TIMES       : '*';
 DIV         : '/';
 
-GT         : '>' ;
-GE         : '>=' ;
-LT         : '<' ;
-LE         : '<=' ;
-EQ         : '==' ;
+GT          : '>' ;
+GE          : '>=' ;
+LT          : '<' ;
+LE          : '<=' ;
+EQ          : '==' ;
 
 COMMENT
    :'//' .*? [\r\n] -> skip 

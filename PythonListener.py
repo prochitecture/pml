@@ -149,6 +149,14 @@ class PythonListener(pmlListener):
     def enterATOM_IDENT(self, ctx:pmlParser.ATOM_IDENTContext):
         self.coder.enterATOM_IDENT(ctx.getText())
 
+    # Exit a parse tree produced by pmlParser#ari_lparen.
+    def enterAri_lparen(self, ctx:pmlParser.Ari_lparenContext):
+        self.coder.enterAri_lparen()
+
+    # Enter a parse tree produced by pmlParser#ari_rparen.
+    def enterAri_rparen(self, ctx:pmlParser.Ari_rparenContext):
+        self.coder.enterAri_rparen()
+
     # Enter a parse tree produced by pmlParser#const_atom.
     def enterConst_atom(self, ctx:pmlParser.Const_atomContext):
         self.coder.enterConst_atom(ctx.getText())
@@ -164,6 +172,14 @@ class PythonListener(pmlListener):
     # Enter a parse tree produced by pmlParser#relop.
     def enterRelop(self, ctx:pmlParser.RelopContext):
         self.coder.enterRelop(ctx.getText())
+
+    # Enter a parse tree produced by pmlParser#logicop.
+    def enterLogicop(self, ctx:pmlParser.LogicopContext):
+        self.coder.enterLogicop(ctx.getText())
+
+    # Enter a parse tree produced by pmlParser#notop.
+    def enterNotop(self, ctx:pmlParser.NotopContext):
+        self.coder.enterNotop(ctx.getText())
 
     # Enter a parse tree produced by pmlParser#arith_op.
     def enterArith_op(self, ctx:pmlParser.Arith_opContext):

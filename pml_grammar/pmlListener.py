@@ -242,6 +242,24 @@ class pmlListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by pmlParser#bool_expr.
+    def enterBool_expr(self, ctx:pmlParser.Bool_exprContext):
+        pass
+
+    # Exit a parse tree produced by pmlParser#bool_expr.
+    def exitBool_expr(self, ctx:pmlParser.Bool_exprContext):
+        pass
+
+
+    # Enter a parse tree produced by pmlParser#cmp_expr.
+    def enterCmp_expr(self, ctx:pmlParser.Cmp_exprContext):
+        pass
+
+    # Exit a parse tree produced by pmlParser#cmp_expr.
+    def exitCmp_expr(self, ctx:pmlParser.Cmp_exprContext):
+        pass
+
+
     # Enter a parse tree produced by pmlParser#arith_expr.
     def enterArith_expr(self, ctx:pmlParser.Arith_exprContext):
         pass
@@ -284,6 +302,24 @@ class pmlListener(ParseTreeListener):
 
     # Exit a parse tree produced by pmlParser#ATOM_IDENT.
     def exitATOM_IDENT(self, ctx:pmlParser.ATOM_IDENTContext):
+        pass
+
+
+    # Enter a parse tree produced by pmlParser#ari_lparen.
+    def enterAri_lparen(self, ctx:pmlParser.Ari_lparenContext):
+        pass
+
+    # Exit a parse tree produced by pmlParser#ari_lparen.
+    def exitAri_lparen(self, ctx:pmlParser.Ari_lparenContext):
+        pass
+
+
+    # Enter a parse tree produced by pmlParser#ari_rparen.
+    def enterAri_rparen(self, ctx:pmlParser.Ari_rparenContext):
+        pass
+
+    # Exit a parse tree produced by pmlParser#ari_rparen.
+    def exitAri_rparen(self, ctx:pmlParser.Ari_rparenContext):
         pass
 
 
@@ -338,6 +374,24 @@ class pmlListener(ParseTreeListener):
 
     # Exit a parse tree produced by pmlParser#relop.
     def exitRelop(self, ctx:pmlParser.RelopContext):
+        pass
+
+
+    # Enter a parse tree produced by pmlParser#logicop.
+    def enterLogicop(self, ctx:pmlParser.LogicopContext):
+        pass
+
+    # Exit a parse tree produced by pmlParser#logicop.
+    def exitLogicop(self, ctx:pmlParser.LogicopContext):
+        pass
+
+
+    # Enter a parse tree produced by pmlParser#notop.
+    def enterNotop(self, ctx:pmlParser.NotopContext):
+        pass
+
+    # Exit a parse tree produced by pmlParser#notop.
+    def exitNotop(self, ctx:pmlParser.NotopContext):
         pass
 
 

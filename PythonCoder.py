@@ -256,7 +256,19 @@ class PythonCoder():
         else:
             self.write(expr)
 
+    def enterAri_lparen(self):
+        self.write( ' (' ) 
+
+    def enterAri_rparen(self):
+        self.write( ') ' ) 
+
     def enterRelop(self,op):
+        self.write( ' '+op+' ' )
+
+    def enterLogicop(self,op):
+        self.write( ' '+op+' ' )
+
+    def enterNotop(self,op):
         self.write( ' '+op+' ' )
 
     def enterArith_op(self,op):

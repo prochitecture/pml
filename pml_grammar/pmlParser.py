@@ -11,124 +11,145 @@ else:
 
 def serializedATN():
     with StringIO() as buf:
-        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3*")
-        buf.write("\u0117\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7")
+        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3-")
+        buf.write("\u0143\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7")
         buf.write("\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4\f\t\f\4\r\t\r\4\16")
         buf.write("\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22\4\23\t\23")
         buf.write("\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31")
-        buf.write("\t\31\4\32\t\32\4\33\t\33\4\34\t\34\4\35\t\35\3\2\6\2")
-        buf.write("<\n\2\r\2\16\2=\3\2\5\2A\n\2\3\3\3\3\3\3\3\3\3\3\3\4\3")
-        buf.write("\4\7\4J\n\4\f\4\16\4M\13\4\3\5\5\5P\n\5\3\5\3\5\3\5\5")
-        buf.write("\5U\n\5\3\5\3\5\3\5\3\5\5\5[\n\5\3\5\3\5\3\5\3\5\3\6\7")
-        buf.write("\6b\n\6\f\6\16\6e\13\6\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7")
+        buf.write("\t\31\4\32\t\32\4\33\t\33\4\34\t\34\4\35\t\35\4\36\t\36")
+        buf.write("\4\37\t\37\4 \t \4!\t!\4\"\t\"\4#\t#\3\2\6\2H\n\2\r\2")
+        buf.write("\16\2I\3\2\3\2\3\2\3\2\3\2\5\2Q\n\2\3\3\3\3\3\3\3\3\3")
+        buf.write("\3\3\4\3\4\7\4Z\n\4\f\4\16\4]\13\4\3\5\5\5`\n\5\3\5\3")
+        buf.write("\5\3\5\5\5e\n\5\3\5\3\5\3\5\3\5\5\5k\n\5\3\5\3\5\3\5\3")
+        buf.write("\5\3\6\7\6r\n\6\f\6\16\6u\13\6\3\7\3\7\3\7\3\7\3\7\3\7")
         buf.write("\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3")
-        buf.write("\7\3\7\3\7\5\7\177\n\7\3\b\3\b\3\t\3\t\3\t\7\t\u0086\n")
-        buf.write("\t\f\t\16\t\u0089\13\t\3\n\3\n\3\13\3\13\3\13\3\13\3\f")
-        buf.write("\3\f\3\f\5\f\u0094\n\f\3\r\3\r\3\r\6\r\u0099\n\r\r\r\16")
-        buf.write("\r\u009a\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16")
+        buf.write("\7\3\7\3\7\3\7\3\7\5\7\u008f\n\7\3\b\3\b\3\t\3\t\3\t\7")
+        buf.write("\t\u0096\n\t\f\t\16\t\u0099\13\t\3\n\3\n\3\13\3\13\3\13")
+        buf.write("\3\13\3\f\3\f\3\f\5\f\u00a4\n\f\3\r\3\r\3\r\6\r\u00a9")
+        buf.write("\n\r\r\r\16\r\u00aa\3\16\3\16\3\16\3\16\3\16\3\16\3\16")
         buf.write("\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16")
-        buf.write("\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\5\16\u00ba")
-        buf.write("\n\16\3\17\3\17\3\17\3\17\6\17\u00c0\n\17\r\17\16\17\u00c1")
-        buf.write("\3\17\3\17\3\17\3\17\3\17\3\17\6\17\u00ca\n\17\r\17\16")
-        buf.write("\17\u00cb\3\17\3\17\5\17\u00d0\n\17\3\20\3\20\3\21\3\21")
-        buf.write("\3\21\3\21\3\21\5\21\u00d9\n\21\3\22\3\22\3\22\3\22\3")
-        buf.write("\22\5\22\u00e0\n\22\3\23\3\23\3\23\3\23\3\23\3\23\3\23")
-        buf.write("\7\23\u00e9\n\23\f\23\16\23\u00ec\13\23\3\24\3\24\3\24")
-        buf.write("\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24")
-        buf.write("\3\24\3\24\3\24\3\24\3\24\3\24\3\24\5\24\u0103\n\24\3")
-        buf.write("\25\3\25\3\26\3\26\3\27\3\27\3\30\3\30\3\31\3\31\3\32")
-        buf.write("\3\32\3\33\3\33\3\34\3\34\3\35\3\35\3\35\2\3$\36\2\4\6")
-        buf.write("\b\n\f\16\20\22\24\26\30\32\34\36 \"$&(*,.\60\62\64\66")
-        buf.write("8\2\6\3\2\6\7\3\2\20\22\3\2$(\3\2 #\2\u011e\2@\3\2\2\2")
-        buf.write("\4B\3\2\2\2\6G\3\2\2\2\bO\3\2\2\2\nc\3\2\2\2\f~\3\2\2")
-        buf.write("\2\16\u0080\3\2\2\2\20\u0082\3\2\2\2\22\u008a\3\2\2\2")
-        buf.write("\24\u008c\3\2\2\2\26\u0093\3\2\2\2\30\u0095\3\2\2\2\32")
-        buf.write("\u00b9\3\2\2\2\34\u00cf\3\2\2\2\36\u00d1\3\2\2\2 \u00d8")
-        buf.write("\3\2\2\2\"\u00df\3\2\2\2$\u00e1\3\2\2\2&\u0102\3\2\2\2")
-        buf.write("(\u0104\3\2\2\2*\u0106\3\2\2\2,\u0108\3\2\2\2.\u010a\3")
-        buf.write("\2\2\2\60\u010c\3\2\2\2\62\u010e\3\2\2\2\64\u0110\3\2")
-        buf.write("\2\2\66\u0112\3\2\2\28\u0114\3\2\2\2:<\5\4\3\2;:\3\2\2")
-        buf.write("\2<=\3\2\2\2=;\3\2\2\2=>\3\2\2\2>A\3\2\2\2?A\5\6\4\2@")
-        buf.write(";\3\2\2\2@?\3\2\2\2A\3\3\2\2\2BC\7\3\2\2CD\7\21\2\2DE")
-        buf.write("\7\37\2\2EF\5\6\4\2F\5\3\2\2\2GK\5\b\5\2HJ\5\b\5\2IH\3")
-        buf.write("\2\2\2JM\3\2\2\2KI\3\2\2\2KL\3\2\2\2L\7\3\2\2\2MK\3\2")
-        buf.write("\2\2NP\7\25\2\2ON\3\2\2\2OP\3\2\2\2PQ\3\2\2\2QT\5.\30")
-        buf.write("\2RS\7\25\2\2SU\5\36\20\2TR\3\2\2\2TU\3\2\2\2UZ\3\2\2")
-        buf.write("\2VW\7\32\2\2WX\5\"\22\2XY\7\33\2\2Y[\3\2\2\2ZV\3\2\2")
-        buf.write("\2Z[\3\2\2\2[\\\3\2\2\2\\]\7\26\2\2]^\5\n\6\2^_\7\27\2")
-        buf.write("\2_\t\3\2\2\2`b\5\f\7\2a`\3\2\2\2be\3\2\2\2ca\3\2\2\2")
-        buf.write("cd\3\2\2\2d\13\3\2\2\2ec\3\2\2\2fg\7\4\2\2gh\7\36\2\2")
-        buf.write("hi\5\16\b\2ij\7\37\2\2j\177\3\2\2\2kl\7\5\2\2lm\7\36\2")
-        buf.write("\2mn\5\20\t\2no\7\37\2\2o\177\3\2\2\2pq\t\2\2\2qr\7\36")
-        buf.write("\2\2rs\5\22\n\2st\7\37\2\2t\177\3\2\2\2uv\5\60\31\2vw")
-        buf.write("\7\36\2\2wx\5\26\f\2xy\7\37\2\2y\177\3\2\2\2z{\5\60\31")
-        buf.write("\2{|\7\36\2\2|}\5\24\13\2}\177\3\2\2\2~f\3\2\2\2~k\3\2")
-        buf.write("\2\2~p\3\2\2\2~u\3\2\2\2~z\3\2\2\2\177\r\3\2\2\2\u0080")
-        buf.write("\u0081\7\20\2\2\u0081\17\3\2\2\2\u0082\u0087\7\20\2\2")
-        buf.write("\u0083\u0084\7\35\2\2\u0084\u0086\7\20\2\2\u0085\u0083")
-        buf.write("\3\2\2\2\u0086\u0089\3\2\2\2\u0087\u0085\3\2\2\2\u0087")
-        buf.write("\u0088\3\2\2\2\u0088\21\3\2\2\2\u0089\u0087\3\2\2\2\u008a")
-        buf.write("\u008b\7\20\2\2\u008b\23\3\2\2\2\u008c\u008d\7\32\2\2")
-        buf.write("\u008d\u008e\5\6\4\2\u008e\u008f\7\33\2\2\u008f\25\3\2")
-        buf.write("\2\2\u0090\u0094\5,\27\2\u0091\u0094\5\32\16\2\u0092\u0094")
-        buf.write("\5\30\r\2\u0093\u0090\3\2\2\2\u0093\u0091\3\2\2\2\u0093")
-        buf.write("\u0092\3\2\2\2\u0094\27\3\2\2\2\u0095\u0098\5\32\16\2")
-        buf.write("\u0096\u0097\7\34\2\2\u0097\u0099\5\32\16\2\u0098\u0096")
-        buf.write("\3\2\2\2\u0099\u009a\3\2\2\2\u009a\u0098\3\2\2\2\u009a")
-        buf.write("\u009b\3\2\2\2\u009b\31\3\2\2\2\u009c\u009d\7\b\2\2\u009d")
-        buf.write("\u009e\7\30\2\2\u009e\u009f\58\35\2\u009f\u00a0\7\31\2")
-        buf.write("\2\u00a0\u00ba\3\2\2\2\u00a1\u00a2\7\t\2\2\u00a2\u00a3")
-        buf.write("\7\30\2\2\u00a3\u00a4\7\22\2\2\u00a4\u00ba\7\31\2\2\u00a5")
-        buf.write("\u00a6\7\n\2\2\u00a6\u00ba\5\34\17\2\u00a7\u00a8\7\13")
-        buf.write("\2\2\u00a8\u00a9\7\30\2\2\u00a9\u00aa\5 \21\2\u00aa\u00ab")
-        buf.write("\7\31\2\2\u00ab\u00ac\5\32\16\2\u00ac\u00ba\3\2\2\2\u00ad")
-        buf.write("\u00ae\7\f\2\2\u00ae\u00af\7\30\2\2\u00af\u00b0\7\20\2")
-        buf.write("\2\u00b0\u00ba\7\31\2\2\u00b1\u00b2\7\r\2\2\u00b2\u00b3")
-        buf.write("\7\30\2\2\u00b3\u00b4\5\32\16\2\u00b4\u00b5\7\31\2\2\u00b5")
-        buf.write("\u00ba\3\2\2\2\u00b6\u00ba\5*\26\2\u00b7\u00ba\5\34\17")
-        buf.write("\2\u00b8\u00ba\5&\24\2\u00b9\u009c\3\2\2\2\u00b9\u00a1")
-        buf.write("\3\2\2\2\u00b9\u00a5\3\2\2\2\u00b9\u00a7\3\2\2\2\u00b9")
-        buf.write("\u00ad\3\2\2\2\u00b9\u00b1\3\2\2\2\u00b9\u00b6\3\2\2\2")
-        buf.write("\u00b9\u00b7\3\2\2\2\u00b9\u00b8\3\2\2\2\u00ba\33\3\2")
-        buf.write("\2\2\u00bb\u00bc\7\30\2\2\u00bc\u00bf\t\3\2\2\u00bd\u00be")
-        buf.write("\7\35\2\2\u00be\u00c0\t\3\2\2\u00bf\u00bd\3\2\2\2\u00c0")
-        buf.write("\u00c1\3\2\2\2\u00c1\u00bf\3\2\2\2\u00c1\u00c2\3\2\2\2")
-        buf.write("\u00c2\u00c3\3\2\2\2\u00c3\u00d0\7\31\2\2\u00c4\u00d0")
-        buf.write("\7\22\2\2\u00c5\u00c6\7\30\2\2\u00c6\u00c9\5\34\17\2\u00c7")
-        buf.write("\u00c8\7\35\2\2\u00c8\u00ca\5\34\17\2\u00c9\u00c7\3\2")
-        buf.write("\2\2\u00ca\u00cb\3\2\2\2\u00cb\u00c9\3\2\2\2\u00cb\u00cc")
-        buf.write("\3\2\2\2\u00cc\u00cd\3\2\2\2\u00cd\u00ce\7\31\2\2\u00ce")
-        buf.write("\u00d0\3\2\2\2\u00cf\u00bb\3\2\2\2\u00cf\u00c4\3\2\2\2")
-        buf.write("\u00cf\u00c5\3\2\2\2\u00d0\35\3\2\2\2\u00d1\u00d2\7\20")
-        buf.write("\2\2\u00d2\37\3\2\2\2\u00d3\u00d9\5$\23\2\u00d4\u00d5")
-        buf.write("\5$\23\2\u00d5\u00d6\5\62\32\2\u00d6\u00d7\5$\23\2\u00d7")
-        buf.write("\u00d9\3\2\2\2\u00d8\u00d3\3\2\2\2\u00d8\u00d4\3\2\2\2")
-        buf.write("\u00d9!\3\2\2\2\u00da\u00e0\5$\23\2\u00db\u00dc\5$\23")
-        buf.write("\2\u00dc\u00dd\5\62\32\2\u00dd\u00de\5$\23\2\u00de\u00e0")
-        buf.write("\3\2\2\2\u00df\u00da\3\2\2\2\u00df\u00db\3\2\2\2\u00e0")
-        buf.write("#\3\2\2\2\u00e1\u00e2\b\23\1\2\u00e2\u00e3\5&\24\2\u00e3")
-        buf.write("\u00ea\3\2\2\2\u00e4\u00e5\f\3\2\2\u00e5\u00e6\5\64\33")
-        buf.write("\2\u00e6\u00e7\5$\23\4\u00e7\u00e9\3\2\2\2\u00e8\u00e4")
-        buf.write("\3\2\2\2\u00e9\u00ec\3\2\2\2\u00ea\u00e8\3\2\2\2\u00ea")
-        buf.write("\u00eb\3\2\2\2\u00eb%\3\2\2\2\u00ec\u00ea\3\2\2\2\u00ed")
-        buf.write("\u00ee\7\16\2\2\u00ee\u00ef\7\17\2\2\u00ef\u0103\7\20")
-        buf.write("\2\2\u00f0\u00f1\7\16\2\2\u00f1\u00f2\7\17\2\2\u00f2\u00f3")
-        buf.write("\7\20\2\2\u00f3\u00f4\7\17\2\2\u00f4\u0103\7\20\2\2\u00f5")
-        buf.write("\u00f6\7\16\2\2\u00f6\u00f7\7\17\2\2\u00f7\u00f8\7\20")
-        buf.write("\2\2\u00f8\u00f9\7\32\2\2\u00f9\u00fa\7\21\2\2\u00fa\u0103")
-        buf.write("\7\33\2\2\u00fb\u00fc\7\16\2\2\u00fc\u00fd\7\32\2\2\u00fd")
-        buf.write("\u00fe\7\21\2\2\u00fe\u0103\7\33\2\2\u00ff\u0103\7\20")
-        buf.write("\2\2\u0100\u0103\7\22\2\2\u0101\u0103\7\21\2\2\u0102\u00ed")
-        buf.write("\3\2\2\2\u0102\u00f0\3\2\2\2\u0102\u00f5\3\2\2\2\u0102")
-        buf.write("\u00fb\3\2\2\2\u0102\u00ff\3\2\2\2\u0102\u0100\3\2\2\2")
-        buf.write("\u0102\u0101\3\2\2\2\u0103\'\3\2\2\2\u0104\u0105\t\3\2")
-        buf.write("\2\u0105)\3\2\2\2\u0106\u0107\t\3\2\2\u0107+\3\2\2\2\u0108")
-        buf.write("\u0109\t\3\2\2\u0109-\3\2\2\2\u010a\u010b\7\20\2\2\u010b")
-        buf.write("/\3\2\2\2\u010c\u010d\7\20\2\2\u010d\61\3\2\2\2\u010e")
-        buf.write("\u010f\t\4\2\2\u010f\63\3\2\2\2\u0110\u0111\t\5\2\2\u0111")
-        buf.write("\65\3\2\2\2\u0112\u0113\7\22\2\2\u0113\67\3\2\2\2\u0114")
-        buf.write("\u0115\7\21\2\2\u01159\3\2\2\2\25=@KOTZc~\u0087\u0093")
-        buf.write("\u009a\u00b9\u00c1\u00cb\u00cf\u00d8\u00df\u00ea\u0102")
+        buf.write("\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16")
+        buf.write("\5\16\u00ca\n\16\3\17\3\17\3\17\3\17\6\17\u00d0\n\17\r")
+        buf.write("\17\16\17\u00d1\3\17\3\17\3\17\3\17\3\17\3\17\6\17\u00da")
+        buf.write("\n\17\r\17\16\17\u00db\3\17\3\17\5\17\u00e0\n\17\3\20")
+        buf.write("\3\20\3\21\3\21\3\22\3\22\3\23\3\23\3\23\3\23\3\23\3\23")
+        buf.write("\3\23\3\23\3\23\3\23\5\23\u00f2\n\23\3\23\3\23\3\23\3")
+        buf.write("\23\7\23\u00f8\n\23\f\23\16\23\u00fb\13\23\3\24\3\24\3")
+        buf.write("\24\3\24\3\25\3\25\3\25\3\25\3\25\3\25\5\25\u0107\n\25")
+        buf.write("\3\25\3\25\3\25\3\25\7\25\u010d\n\25\f\25\16\25\u0110")
+        buf.write("\13\25\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3")
+        buf.write("\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26")
+        buf.write("\3\26\5\26\u0127\n\26\3\27\3\27\3\30\3\30\3\31\3\31\3")
+        buf.write("\32\3\32\3\33\3\33\3\34\3\34\3\35\3\35\3\36\3\36\3\37")
+        buf.write("\3\37\3 \3 \3!\3!\3\"\3\"\3#\3#\3#\2\4$($\2\4\6\b\n\f")
+        buf.write("\16\20\22\24\26\30\32\34\36 \"$&(*,.\60\62\64\668:<>@")
+        buf.write("BD\2\7\3\2\6\7\3\2\23\25\3\2\'+\3\2\20\21\3\2#&\2\u0147")
+        buf.write("\2P\3\2\2\2\4R\3\2\2\2\6W\3\2\2\2\b_\3\2\2\2\ns\3\2\2")
+        buf.write("\2\f\u008e\3\2\2\2\16\u0090\3\2\2\2\20\u0092\3\2\2\2\22")
+        buf.write("\u009a\3\2\2\2\24\u009c\3\2\2\2\26\u00a3\3\2\2\2\30\u00a5")
+        buf.write("\3\2\2\2\32\u00c9\3\2\2\2\34\u00df\3\2\2\2\36\u00e1\3")
+        buf.write("\2\2\2 \u00e3\3\2\2\2\"\u00e5\3\2\2\2$\u00f1\3\2\2\2&")
+        buf.write("\u00fc\3\2\2\2(\u0106\3\2\2\2*\u0126\3\2\2\2,\u0128\3")
+        buf.write("\2\2\2.\u012a\3\2\2\2\60\u012c\3\2\2\2\62\u012e\3\2\2")
+        buf.write("\2\64\u0130\3\2\2\2\66\u0132\3\2\2\28\u0134\3\2\2\2:\u0136")
+        buf.write("\3\2\2\2<\u0138\3\2\2\2>\u013a\3\2\2\2@\u013c\3\2\2\2")
+        buf.write("B\u013e\3\2\2\2D\u0140\3\2\2\2FH\5\4\3\2GF\3\2\2\2HI\3")
+        buf.write("\2\2\2IG\3\2\2\2IJ\3\2\2\2JK\3\2\2\2KL\7\2\2\3LQ\3\2\2")
+        buf.write("\2MN\5\6\4\2NO\7\2\2\3OQ\3\2\2\2PG\3\2\2\2PM\3\2\2\2Q")
+        buf.write("\3\3\2\2\2RS\7\3\2\2ST\7\24\2\2TU\7\"\2\2UV\5\6\4\2V\5")
+        buf.write("\3\2\2\2W[\5\b\5\2XZ\5\b\5\2YX\3\2\2\2Z]\3\2\2\2[Y\3\2")
+        buf.write("\2\2[\\\3\2\2\2\\\7\3\2\2\2][\3\2\2\2^`\7\30\2\2_^\3\2")
+        buf.write("\2\2_`\3\2\2\2`a\3\2\2\2ad\5\66\34\2bc\7\30\2\2ce\5\36")
+        buf.write("\20\2db\3\2\2\2de\3\2\2\2ej\3\2\2\2fg\7\35\2\2gh\5\"\22")
+        buf.write("\2hi\7\36\2\2ik\3\2\2\2jf\3\2\2\2jk\3\2\2\2kl\3\2\2\2")
+        buf.write("lm\7\31\2\2mn\5\n\6\2no\7\32\2\2o\t\3\2\2\2pr\5\f\7\2")
+        buf.write("qp\3\2\2\2ru\3\2\2\2sq\3\2\2\2st\3\2\2\2t\13\3\2\2\2u")
+        buf.write("s\3\2\2\2vw\7\4\2\2wx\7!\2\2xy\5\16\b\2yz\7\"\2\2z\u008f")
+        buf.write("\3\2\2\2{|\7\5\2\2|}\7!\2\2}~\5\20\t\2~\177\7\"\2\2\177")
+        buf.write("\u008f\3\2\2\2\u0080\u0081\t\2\2\2\u0081\u0082\7!\2\2")
+        buf.write("\u0082\u0083\5\22\n\2\u0083\u0084\7\"\2\2\u0084\u008f")
+        buf.write("\3\2\2\2\u0085\u0086\58\35\2\u0086\u0087\7!\2\2\u0087")
+        buf.write("\u0088\5\26\f\2\u0088\u0089\7\"\2\2\u0089\u008f\3\2\2")
+        buf.write("\2\u008a\u008b\58\35\2\u008b\u008c\7!\2\2\u008c\u008d")
+        buf.write("\5\24\13\2\u008d\u008f\3\2\2\2\u008ev\3\2\2\2\u008e{\3")
+        buf.write("\2\2\2\u008e\u0080\3\2\2\2\u008e\u0085\3\2\2\2\u008e\u008a")
+        buf.write("\3\2\2\2\u008f\r\3\2\2\2\u0090\u0091\7\23\2\2\u0091\17")
+        buf.write("\3\2\2\2\u0092\u0097\7\23\2\2\u0093\u0094\7 \2\2\u0094")
+        buf.write("\u0096\7\23\2\2\u0095\u0093\3\2\2\2\u0096\u0099\3\2\2")
+        buf.write("\2\u0097\u0095\3\2\2\2\u0097\u0098\3\2\2\2\u0098\21\3")
+        buf.write("\2\2\2\u0099\u0097\3\2\2\2\u009a\u009b\7\23\2\2\u009b")
+        buf.write("\23\3\2\2\2\u009c\u009d\7\35\2\2\u009d\u009e\5\6\4\2\u009e")
+        buf.write("\u009f\7\36\2\2\u009f\25\3\2\2\2\u00a0\u00a4\5\64\33\2")
+        buf.write("\u00a1\u00a4\5\32\16\2\u00a2\u00a4\5\30\r\2\u00a3\u00a0")
+        buf.write("\3\2\2\2\u00a3\u00a1\3\2\2\2\u00a3\u00a2\3\2\2\2\u00a4")
+        buf.write("\27\3\2\2\2\u00a5\u00a8\5\32\16\2\u00a6\u00a7\7\37\2\2")
+        buf.write("\u00a7\u00a9\5\32\16\2\u00a8\u00a6\3\2\2\2\u00a9\u00aa")
+        buf.write("\3\2\2\2\u00aa\u00a8\3\2\2\2\u00aa\u00ab\3\2\2\2\u00ab")
+        buf.write("\31\3\2\2\2\u00ac\u00ad\7\b\2\2\u00ad\u00ae\7\33\2\2\u00ae")
+        buf.write("\u00af\5D#\2\u00af\u00b0\7\34\2\2\u00b0\u00ca\3\2\2\2")
+        buf.write("\u00b1\u00b2\7\t\2\2\u00b2\u00b3\7\33\2\2\u00b3\u00b4")
+        buf.write("\7\25\2\2\u00b4\u00ca\7\34\2\2\u00b5\u00b6\7\n\2\2\u00b6")
+        buf.write("\u00ca\5\34\17\2\u00b7\u00b8\7\13\2\2\u00b8\u00b9\7\33")
+        buf.write("\2\2\u00b9\u00ba\5 \21\2\u00ba\u00bb\7\34\2\2\u00bb\u00bc")
+        buf.write("\5\32\16\2\u00bc\u00ca\3\2\2\2\u00bd\u00be\7\f\2\2\u00be")
+        buf.write("\u00bf\7\33\2\2\u00bf\u00c0\7\23\2\2\u00c0\u00ca\7\34")
+        buf.write("\2\2\u00c1\u00c2\7\r\2\2\u00c2\u00c3\7\33\2\2\u00c3\u00c4")
+        buf.write("\5\32\16\2\u00c4\u00c5\7\34\2\2\u00c5\u00ca\3\2\2\2\u00c6")
+        buf.write("\u00ca\5\62\32\2\u00c7\u00ca\5\34\17\2\u00c8\u00ca\5*")
+        buf.write("\26\2\u00c9\u00ac\3\2\2\2\u00c9\u00b1\3\2\2\2\u00c9\u00b5")
+        buf.write("\3\2\2\2\u00c9\u00b7\3\2\2\2\u00c9\u00bd\3\2\2\2\u00c9")
+        buf.write("\u00c1\3\2\2\2\u00c9\u00c6\3\2\2\2\u00c9\u00c7\3\2\2\2")
+        buf.write("\u00c9\u00c8\3\2\2\2\u00ca\33\3\2\2\2\u00cb\u00cc\7\33")
+        buf.write("\2\2\u00cc\u00cf\t\3\2\2\u00cd\u00ce\7 \2\2\u00ce\u00d0")
+        buf.write("\t\3\2\2\u00cf\u00cd\3\2\2\2\u00d0\u00d1\3\2\2\2\u00d1")
+        buf.write("\u00cf\3\2\2\2\u00d1\u00d2\3\2\2\2\u00d2\u00d3\3\2\2\2")
+        buf.write("\u00d3\u00e0\7\34\2\2\u00d4\u00e0\7\25\2\2\u00d5\u00d6")
+        buf.write("\7\33\2\2\u00d6\u00d9\5\34\17\2\u00d7\u00d8\7 \2\2\u00d8")
+        buf.write("\u00da\5\34\17\2\u00d9\u00d7\3\2\2\2\u00da\u00db\3\2\2")
+        buf.write("\2\u00db\u00d9\3\2\2\2\u00db\u00dc\3\2\2\2\u00dc\u00dd")
+        buf.write("\3\2\2\2\u00dd\u00de\7\34\2\2\u00de\u00e0\3\2\2\2\u00df")
+        buf.write("\u00cb\3\2\2\2\u00df\u00d4\3\2\2\2\u00df\u00d5\3\2\2\2")
+        buf.write("\u00e0\35\3\2\2\2\u00e1\u00e2\7\23\2\2\u00e2\37\3\2\2")
+        buf.write("\2\u00e3\u00e4\5$\23\2\u00e4!\3\2\2\2\u00e5\u00e6\5$\23")
+        buf.write("\2\u00e6#\3\2\2\2\u00e7\u00e8\b\23\1\2\u00e8\u00e9\5,")
+        buf.write("\27\2\u00e9\u00ea\5$\23\2\u00ea\u00eb\5.\30\2\u00eb\u00f2")
+        buf.write("\3\2\2\2\u00ec\u00ed\5> \2\u00ed\u00ee\5$\23\6\u00ee\u00f2")
+        buf.write("\3\2\2\2\u00ef\u00f2\5&\24\2\u00f0\u00f2\5*\26\2\u00f1")
+        buf.write("\u00e7\3\2\2\2\u00f1\u00ec\3\2\2\2\u00f1\u00ef\3\2\2\2")
+        buf.write("\u00f1\u00f0\3\2\2\2\u00f2\u00f9\3\2\2\2\u00f3\u00f4\f")
+        buf.write("\5\2\2\u00f4\u00f5\5<\37\2\u00f5\u00f6\5$\23\6\u00f6\u00f8")
+        buf.write("\3\2\2\2\u00f7\u00f3\3\2\2\2\u00f8\u00fb\3\2\2\2\u00f9")
+        buf.write("\u00f7\3\2\2\2\u00f9\u00fa\3\2\2\2\u00fa%\3\2\2\2\u00fb")
+        buf.write("\u00f9\3\2\2\2\u00fc\u00fd\5(\25\2\u00fd\u00fe\5:\36\2")
+        buf.write("\u00fe\u00ff\5(\25\2\u00ff\'\3\2\2\2\u0100\u0101\b\25")
+        buf.write("\1\2\u0101\u0102\5,\27\2\u0102\u0103\5(\25\2\u0103\u0104")
+        buf.write("\5.\30\2\u0104\u0107\3\2\2\2\u0105\u0107\5*\26\2\u0106")
+        buf.write("\u0100\3\2\2\2\u0106\u0105\3\2\2\2\u0107\u010e\3\2\2\2")
+        buf.write("\u0108\u0109\f\4\2\2\u0109\u010a\5@!\2\u010a\u010b\5(")
+        buf.write("\25\5\u010b\u010d\3\2\2\2\u010c\u0108\3\2\2\2\u010d\u0110")
+        buf.write("\3\2\2\2\u010e\u010c\3\2\2\2\u010e\u010f\3\2\2\2\u010f")
+        buf.write(")\3\2\2\2\u0110\u010e\3\2\2\2\u0111\u0112\7\16\2\2\u0112")
+        buf.write("\u0113\7\17\2\2\u0113\u0127\7\23\2\2\u0114\u0115\7\16")
+        buf.write("\2\2\u0115\u0116\7\17\2\2\u0116\u0117\7\23\2\2\u0117\u0118")
+        buf.write("\7\17\2\2\u0118\u0127\7\23\2\2\u0119\u011a\7\16\2\2\u011a")
+        buf.write("\u011b\7\17\2\2\u011b\u011c\7\23\2\2\u011c\u011d\7\35")
+        buf.write("\2\2\u011d\u011e\7\24\2\2\u011e\u0127\7\36\2\2\u011f\u0120")
+        buf.write("\7\16\2\2\u0120\u0121\7\35\2\2\u0121\u0122\7\24\2\2\u0122")
+        buf.write("\u0127\7\36\2\2\u0123\u0127\7\23\2\2\u0124\u0127\7\25")
+        buf.write("\2\2\u0125\u0127\7\24\2\2\u0126\u0111\3\2\2\2\u0126\u0114")
+        buf.write("\3\2\2\2\u0126\u0119\3\2\2\2\u0126\u011f\3\2\2\2\u0126")
+        buf.write("\u0123\3\2\2\2\u0126\u0124\3\2\2\2\u0126\u0125\3\2\2\2")
+        buf.write("\u0127+\3\2\2\2\u0128\u0129\7\33\2\2\u0129-\3\2\2\2\u012a")
+        buf.write("\u012b\7\34\2\2\u012b/\3\2\2\2\u012c\u012d\t\3\2\2\u012d")
+        buf.write("\61\3\2\2\2\u012e\u012f\t\3\2\2\u012f\63\3\2\2\2\u0130")
+        buf.write("\u0131\t\3\2\2\u0131\65\3\2\2\2\u0132\u0133\7\23\2\2\u0133")
+        buf.write("\67\3\2\2\2\u0134\u0135\7\23\2\2\u01359\3\2\2\2\u0136")
+        buf.write("\u0137\t\4\2\2\u0137;\3\2\2\2\u0138\u0139\t\5\2\2\u0139")
+        buf.write("=\3\2\2\2\u013a\u013b\7\22\2\2\u013b?\3\2\2\2\u013c\u013d")
+        buf.write("\t\6\2\2\u013dA\3\2\2\2\u013e\u013f\7\25\2\2\u013fC\3")
+        buf.write("\2\2\2\u0140\u0141\7\24\2\2\u0141E\3\2\2\2\26IP[_djs\u008e")
+        buf.write("\u0097\u00a3\u00aa\u00c9\u00d1\u00db\u00df\u00f1\u00f9")
+        buf.write("\u0106\u010e\u0126")
         return buf.getvalue()
 
 
@@ -145,19 +166,21 @@ class pmlParser ( Parser ):
     literalNames = [ "<INVALID>", "'@name'", "'symmetry'", "'use'", "'faces'", 
                      "'sharpEdges'", "'attr'", "'random_normal'", "'random_weighted'", 
                      "'if'", "'use_from'", "'per_building'", "'item'", "'.'", 
-                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                     "<INVALID>", "'@'", "'{'", "'}'", "'('", "')'", "'['", 
-                     "']'", "'|'", "','", "':'", "';'", "'+'", "'-'", "'*'", 
-                     "'/'", "'>'", "'>='", "'<'", "'<='", "'=='" ]
+                     "'or'", "'and'", "'not'", "<INVALID>", "<INVALID>", 
+                     "<INVALID>", "<INVALID>", "<INVALID>", "'@'", "'{'", 
+                     "'}'", "'('", "')'", "'['", "']'", "'|'", "','", "':'", 
+                     "';'", "'+'", "'-'", "'*'", "'/'", "'>'", "'>='", "'<'", 
+                     "'<='", "'=='" ]
 
     symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "<INVALID>", "<INVALID>", "IDENTIFIER", "STRING_LITERAL", 
-                      "NUMBER", "FLOAT", "INT", "STRUDEL", "LCURLY", "RCURLY", 
-                      "LPAREN", "RPAREN", "LBRACK", "RBRACK", "PIPE", "COMMA", 
-                      "COLON", "SEMI", "PLUS", "MINUS", "TIMES", "DIV", 
-                      "GT", "GE", "LT", "LE", "EQ", "COMMENT", "WS" ]
+                      "<INVALID>", "<INVALID>", "OR", "AND", "NOT", "IDENTIFIER", 
+                      "STRING_LITERAL", "NUMBER", "FLOAT", "INT", "STRUDEL", 
+                      "LCURLY", "RCURLY", "LPAREN", "RPAREN", "LBRACK", 
+                      "RBRACK", "PIPE", "COMMA", "COLON", "SEMI", "PLUS", 
+                      "MINUS", "TIMES", "DIV", "GT", "GE", "LT", "LE", "EQ", 
+                      "COMMENT", "WS" ]
 
     RULE_styles = 0
     RULE_named_block = 1
@@ -176,25 +199,32 @@ class pmlParser ( Parser ):
     RULE_def_name = 14
     RULE_conditional = 15
     RULE_condition = 16
-    RULE_arith_expr = 17
-    RULE_arith_atom = 18
-    RULE_const_atom = 19
-    RULE_constant = 20
-    RULE_simple_expr = 21
-    RULE_element_name = 22
-    RULE_attr_name = 23
-    RULE_relop = 24
-    RULE_arith_op = 25
-    RULE_number = 26
-    RULE_string_literal = 27
+    RULE_bool_expr = 17
+    RULE_cmp_expr = 18
+    RULE_arith_expr = 19
+    RULE_arith_atom = 20
+    RULE_ari_lparen = 21
+    RULE_ari_rparen = 22
+    RULE_const_atom = 23
+    RULE_constant = 24
+    RULE_simple_expr = 25
+    RULE_element_name = 26
+    RULE_attr_name = 27
+    RULE_relop = 28
+    RULE_logicop = 29
+    RULE_notop = 30
+    RULE_arith_op = 31
+    RULE_number = 32
+    RULE_string_literal = 33
 
     ruleNames =  [ "styles", "named_block", "elements", "element", "attributes", 
                    "attribute", "sym_expression", "use_expression", "smooth_expression", 
                    "markup_block", "expression", "alternatives", "function", 
                    "nested_list", "def_name", "conditional", "condition", 
-                   "arith_expr", "arith_atom", "const_atom", "constant", 
+                   "bool_expr", "cmp_expr", "arith_expr", "arith_atom", 
+                   "ari_lparen", "ari_rparen", "const_atom", "constant", 
                    "simple_expr", "element_name", "attr_name", "relop", 
-                   "arith_op", "number", "string_literal" ]
+                   "logicop", "notop", "arith_op", "number", "string_literal" ]
 
     EOF = Token.EOF
     T__0=1
@@ -210,33 +240,36 @@ class pmlParser ( Parser ):
     T__10=11
     T__11=12
     T__12=13
-    IDENTIFIER=14
-    STRING_LITERAL=15
-    NUMBER=16
-    FLOAT=17
-    INT=18
-    STRUDEL=19
-    LCURLY=20
-    RCURLY=21
-    LPAREN=22
-    RPAREN=23
-    LBRACK=24
-    RBRACK=25
-    PIPE=26
-    COMMA=27
-    COLON=28
-    SEMI=29
-    PLUS=30
-    MINUS=31
-    TIMES=32
-    DIV=33
-    GT=34
-    GE=35
-    LT=36
-    LE=37
-    EQ=38
-    COMMENT=39
-    WS=40
+    OR=14
+    AND=15
+    NOT=16
+    IDENTIFIER=17
+    STRING_LITERAL=18
+    NUMBER=19
+    FLOAT=20
+    INT=21
+    STRUDEL=22
+    LCURLY=23
+    RCURLY=24
+    LPAREN=25
+    RPAREN=26
+    LBRACK=27
+    RBRACK=28
+    PIPE=29
+    COMMA=30
+    COLON=31
+    SEMI=32
+    PLUS=33
+    MINUS=34
+    TIMES=35
+    DIV=36
+    GT=37
+    GE=38
+    LT=39
+    LE=40
+    EQ=41
+    COMMENT=42
+    WS=43
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -269,6 +302,8 @@ class pmlParser ( Parser ):
             super().__init__(parser)
             self.copyFrom(ctx)
 
+        def EOF(self):
+            return self.getToken(pmlParser.EOF, 0)
         def named_block(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(pmlParser.Named_blockContext)
@@ -294,6 +329,8 @@ class pmlParser ( Parser ):
         def elements(self):
             return self.getTypedRuleContext(pmlParser.ElementsContext,0)
 
+        def EOF(self):
+            return self.getToken(pmlParser.EOF, 0)
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterUNNAMED" ):
@@ -311,30 +348,34 @@ class pmlParser ( Parser ):
         self.enterRule(localctx, 0, self.RULE_styles)
         self._la = 0 # Token type
         try:
-            self.state = 62
+            self.state = 78
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [pmlParser.T__0]:
                 localctx = pmlParser.NAMEDContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
-                self.state = 57 
+                self.state = 69 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 while True:
-                    self.state = 56
+                    self.state = 68
                     self.named_block()
-                    self.state = 59 
+                    self.state = 71 
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
                     if not (_la==pmlParser.T__0):
                         break
 
+                self.state = 73
+                self.match(pmlParser.EOF)
                 pass
             elif token in [pmlParser.IDENTIFIER, pmlParser.STRUDEL]:
                 localctx = pmlParser.UNNAMEDContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
-                self.state = 61
+                self.state = 75
                 self.elements()
+                self.state = 76
+                self.match(pmlParser.EOF)
                 pass
             else:
                 raise NoViableAltException(self)
@@ -384,13 +425,13 @@ class pmlParser ( Parser ):
         self.enterRule(localctx, 2, self.RULE_named_block)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 64
+            self.state = 80
             self.match(pmlParser.T__0)
-            self.state = 65
+            self.state = 81
             self.match(pmlParser.STRING_LITERAL)
-            self.state = 66
+            self.state = 82
             self.match(pmlParser.SEMI)
-            self.state = 67
+            self.state = 83
             self.elements()
         except RecognitionException as re:
             localctx.exception = re
@@ -435,15 +476,15 @@ class pmlParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 69
+            self.state = 85
             self.element()
-            self.state = 73
+            self.state = 89
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==pmlParser.IDENTIFIER or _la==pmlParser.STRUDEL:
-                self.state = 70
+                self.state = 86
                 self.element()
-                self.state = 75
+                self.state = 91
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -517,43 +558,43 @@ class pmlParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 77
+            self.state = 93
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==pmlParser.STRUDEL:
-                self.state = 76
+                self.state = 92
                 self.match(pmlParser.STRUDEL)
 
 
-            self.state = 79
+            self.state = 95
             self.element_name()
-            self.state = 82
+            self.state = 98
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==pmlParser.STRUDEL:
-                self.state = 80
+                self.state = 96
                 self.match(pmlParser.STRUDEL)
-                self.state = 81
+                self.state = 97
                 self.def_name()
 
 
-            self.state = 88
+            self.state = 104
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==pmlParser.LBRACK:
-                self.state = 84
+                self.state = 100
                 self.match(pmlParser.LBRACK)
-                self.state = 85
+                self.state = 101
                 self.condition()
-                self.state = 86
+                self.state = 102
                 self.match(pmlParser.RBRACK)
 
 
-            self.state = 90
+            self.state = 106
             self.match(pmlParser.LCURLY)
-            self.state = 91
+            self.state = 107
             self.attributes()
-            self.state = 92
+            self.state = 108
             self.match(pmlParser.RCURLY)
         except RecognitionException as re:
             localctx.exception = re
@@ -598,13 +639,13 @@ class pmlParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 97
+            self.state = 113
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pmlParser.T__1) | (1 << pmlParser.T__2) | (1 << pmlParser.T__3) | (1 << pmlParser.T__4) | (1 << pmlParser.IDENTIFIER))) != 0):
-                self.state = 94
+                self.state = 110
                 self.attribute()
-                self.state = 99
+                self.state = 115
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -673,69 +714,69 @@ class pmlParser ( Parser ):
         self.enterRule(localctx, 10, self.RULE_attribute)
         self._la = 0 # Token type
         try:
-            self.state = 124
+            self.state = 140
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,7,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 100
+                self.state = 116
                 self.match(pmlParser.T__1)
-                self.state = 101
+                self.state = 117
                 self.match(pmlParser.COLON)
-                self.state = 102
+                self.state = 118
                 self.sym_expression()
-                self.state = 103
+                self.state = 119
                 self.match(pmlParser.SEMI)
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 105
+                self.state = 121
                 self.match(pmlParser.T__2)
-                self.state = 106
+                self.state = 122
                 self.match(pmlParser.COLON)
-                self.state = 107
+                self.state = 123
                 self.use_expression()
-                self.state = 108
+                self.state = 124
                 self.match(pmlParser.SEMI)
                 pass
 
             elif la_ == 3:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 110
+                self.state = 126
                 _la = self._input.LA(1)
                 if not(_la==pmlParser.T__3 or _la==pmlParser.T__4):
                     self._errHandler.recoverInline(self)
                 else:
                     self._errHandler.reportMatch(self)
                     self.consume()
-                self.state = 111
+                self.state = 127
                 self.match(pmlParser.COLON)
-                self.state = 112
+                self.state = 128
                 self.smooth_expression()
-                self.state = 113
+                self.state = 129
                 self.match(pmlParser.SEMI)
                 pass
 
             elif la_ == 4:
                 self.enterOuterAlt(localctx, 4)
-                self.state = 115
+                self.state = 131
                 self.attr_name()
-                self.state = 116
+                self.state = 132
                 self.match(pmlParser.COLON)
-                self.state = 117
+                self.state = 133
                 self.expression()
-                self.state = 118
+                self.state = 134
                 self.match(pmlParser.SEMI)
                 pass
 
             elif la_ == 5:
                 self.enterOuterAlt(localctx, 5)
-                self.state = 120
+                self.state = 136
                 self.attr_name()
-                self.state = 121
+                self.state = 137
                 self.match(pmlParser.COLON)
-                self.state = 122
+                self.state = 138
                 self.markup_block()
                 pass
 
@@ -778,7 +819,7 @@ class pmlParser ( Parser ):
         self.enterRule(localctx, 12, self.RULE_sym_expression)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 126
+            self.state = 142
             self.match(pmlParser.IDENTIFIER)
         except RecognitionException as re:
             localctx.exception = re
@@ -828,17 +869,17 @@ class pmlParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 128
+            self.state = 144
             self.match(pmlParser.IDENTIFIER)
-            self.state = 133
+            self.state = 149
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==pmlParser.COMMA:
-                self.state = 129
+                self.state = 145
                 self.match(pmlParser.COMMA)
-                self.state = 130
+                self.state = 146
                 self.match(pmlParser.IDENTIFIER)
-                self.state = 135
+                self.state = 151
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -880,7 +921,7 @@ class pmlParser ( Parser ):
         self.enterRule(localctx, 16, self.RULE_smooth_expression)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 136
+            self.state = 152
             self.match(pmlParser.IDENTIFIER)
         except RecognitionException as re:
             localctx.exception = re
@@ -927,11 +968,11 @@ class pmlParser ( Parser ):
         self.enterRule(localctx, 18, self.RULE_markup_block)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 138
+            self.state = 154
             self.match(pmlParser.LBRACK)
-            self.state = 139
+            self.state = 155
             self.elements()
-            self.state = 140
+            self.state = 156
             self.match(pmlParser.RBRACK)
         except RecognitionException as re:
             localctx.exception = re
@@ -979,24 +1020,24 @@ class pmlParser ( Parser ):
         localctx = pmlParser.ExpressionContext(self, self._ctx, self.state)
         self.enterRule(localctx, 20, self.RULE_expression)
         try:
-            self.state = 145
+            self.state = 161
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,9,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 142
+                self.state = 158
                 self.simple_expr()
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 143
+                self.state = 159
                 self.function()
                 pass
 
             elif la_ == 3:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 144
+                self.state = 160
                 self.alternatives()
                 pass
 
@@ -1050,17 +1091,17 @@ class pmlParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 147
+            self.state = 163
             self.function()
-            self.state = 150 
+            self.state = 166 
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while True:
-                self.state = 148
+                self.state = 164
                 self.match(pmlParser.PIPE)
-                self.state = 149
+                self.state = 165
                 self.function()
-                self.state = 152 
+                self.state = 168 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 if not (_la==pmlParser.PIPE):
@@ -1289,103 +1330,103 @@ class pmlParser ( Parser ):
         localctx = pmlParser.FunctionContext(self, self._ctx, self.state)
         self.enterRule(localctx, 24, self.RULE_function)
         try:
-            self.state = 183
+            self.state = 199
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,11,self._ctx)
             if la_ == 1:
                 localctx = pmlParser.ATTRContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
-                self.state = 154
+                self.state = 170
                 self.match(pmlParser.T__5)
-                self.state = 155
+                self.state = 171
                 self.match(pmlParser.LPAREN)
-                self.state = 156
+                self.state = 172
                 self.string_literal()
-                self.state = 157
+                self.state = 173
                 self.match(pmlParser.RPAREN)
                 pass
 
             elif la_ == 2:
                 localctx = pmlParser.RANDNContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
-                self.state = 159
+                self.state = 175
                 self.match(pmlParser.T__6)
-                self.state = 160
+                self.state = 176
                 self.match(pmlParser.LPAREN)
-                self.state = 161
+                self.state = 177
                 self.match(pmlParser.NUMBER)
-                self.state = 162
+                self.state = 178
                 self.match(pmlParser.RPAREN)
                 pass
 
             elif la_ == 3:
                 localctx = pmlParser.RANDWContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
-                self.state = 163
+                self.state = 179
                 self.match(pmlParser.T__7)
-                self.state = 164
+                self.state = 180
                 self.nested_list()
                 pass
 
             elif la_ == 4:
                 localctx = pmlParser.CONDContext(self, localctx)
                 self.enterOuterAlt(localctx, 4)
-                self.state = 165
+                self.state = 181
                 self.match(pmlParser.T__8)
-                self.state = 166
+                self.state = 182
                 self.match(pmlParser.LPAREN)
-                self.state = 167
+                self.state = 183
                 self.conditional()
-                self.state = 168
+                self.state = 184
                 self.match(pmlParser.RPAREN)
-                self.state = 169
+                self.state = 185
                 self.function()
                 pass
 
             elif la_ == 5:
                 localctx = pmlParser.USEFROMContext(self, localctx)
                 self.enterOuterAlt(localctx, 5)
-                self.state = 171
+                self.state = 187
                 self.match(pmlParser.T__9)
-                self.state = 172
+                self.state = 188
                 self.match(pmlParser.LPAREN)
-                self.state = 173
+                self.state = 189
                 self.match(pmlParser.IDENTIFIER)
-                self.state = 174
+                self.state = 190
                 self.match(pmlParser.RPAREN)
                 pass
 
             elif la_ == 6:
                 localctx = pmlParser.PERBUILDContext(self, localctx)
                 self.enterOuterAlt(localctx, 6)
-                self.state = 175
+                self.state = 191
                 self.match(pmlParser.T__10)
-                self.state = 176
+                self.state = 192
                 self.match(pmlParser.LPAREN)
-                self.state = 177
+                self.state = 193
                 self.function()
-                self.state = 178
+                self.state = 194
                 self.match(pmlParser.RPAREN)
                 pass
 
             elif la_ == 7:
                 localctx = pmlParser.CONSTContext(self, localctx)
                 self.enterOuterAlt(localctx, 7)
-                self.state = 180
+                self.state = 196
                 self.constant()
                 pass
 
             elif la_ == 8:
                 localctx = pmlParser.NESTEDContext(self, localctx)
                 self.enterOuterAlt(localctx, 8)
-                self.state = 181
+                self.state = 197
                 self.nested_list()
                 pass
 
             elif la_ == 9:
                 localctx = pmlParser.ARITHContext(self, localctx)
                 self.enterOuterAlt(localctx, 9)
-                self.state = 182
+                self.state = 198
                 self.arith_atom()
                 pass
 
@@ -1462,70 +1503,70 @@ class pmlParser ( Parser ):
         self.enterRule(localctx, 26, self.RULE_nested_list)
         self._la = 0 # Token type
         try:
-            self.state = 205
+            self.state = 221
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,14,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 185
+                self.state = 201
                 self.match(pmlParser.LPAREN)
-                self.state = 186
+                self.state = 202
                 _la = self._input.LA(1)
                 if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pmlParser.IDENTIFIER) | (1 << pmlParser.STRING_LITERAL) | (1 << pmlParser.NUMBER))) != 0)):
                     self._errHandler.recoverInline(self)
                 else:
                     self._errHandler.reportMatch(self)
                     self.consume()
-                self.state = 189 
+                self.state = 205 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 while True:
-                    self.state = 187
+                    self.state = 203
                     self.match(pmlParser.COMMA)
-                    self.state = 188
+                    self.state = 204
                     _la = self._input.LA(1)
                     if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pmlParser.IDENTIFIER) | (1 << pmlParser.STRING_LITERAL) | (1 << pmlParser.NUMBER))) != 0)):
                         self._errHandler.recoverInline(self)
                     else:
                         self._errHandler.reportMatch(self)
                         self.consume()
-                    self.state = 191 
+                    self.state = 207 
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
                     if not (_la==pmlParser.COMMA):
                         break
 
-                self.state = 193
+                self.state = 209
                 self.match(pmlParser.RPAREN)
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 194
+                self.state = 210
                 self.match(pmlParser.NUMBER)
                 pass
 
             elif la_ == 3:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 195
+                self.state = 211
                 self.match(pmlParser.LPAREN)
-                self.state = 196
+                self.state = 212
                 self.nested_list()
-                self.state = 199 
+                self.state = 215 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 while True:
-                    self.state = 197
+                    self.state = 213
                     self.match(pmlParser.COMMA)
-                    self.state = 198
+                    self.state = 214
                     self.nested_list()
-                    self.state = 201 
+                    self.state = 217 
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
                     if not (_la==pmlParser.COMMA):
                         break
 
-                self.state = 203
+                self.state = 219
                 self.match(pmlParser.RPAREN)
                 pass
 
@@ -1568,7 +1609,7 @@ class pmlParser ( Parser ):
         self.enterRule(localctx, 28, self.RULE_def_name)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 207
+            self.state = 223
             self.match(pmlParser.IDENTIFIER)
         except RecognitionException as re:
             localctx.exception = re
@@ -1585,15 +1626,8 @@ class pmlParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def arith_expr(self, i:int=None):
-            if i is None:
-                return self.getTypedRuleContexts(pmlParser.Arith_exprContext)
-            else:
-                return self.getTypedRuleContext(pmlParser.Arith_exprContext,i)
-
-
-        def relop(self):
-            return self.getTypedRuleContext(pmlParser.RelopContext,0)
+        def bool_expr(self):
+            return self.getTypedRuleContext(pmlParser.Bool_exprContext,0)
 
 
         def getRuleIndex(self):
@@ -1615,26 +1649,9 @@ class pmlParser ( Parser ):
         localctx = pmlParser.ConditionalContext(self, self._ctx, self.state)
         self.enterRule(localctx, 30, self.RULE_conditional)
         try:
-            self.state = 214
-            self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,15,self._ctx)
-            if la_ == 1:
-                self.enterOuterAlt(localctx, 1)
-                self.state = 209
-                self.arith_expr(0)
-                pass
-
-            elif la_ == 2:
-                self.enterOuterAlt(localctx, 2)
-                self.state = 210
-                self.arith_expr(0)
-                self.state = 211
-                self.relop()
-                self.state = 212
-                self.arith_expr(0)
-                pass
-
-
+            self.enterOuterAlt(localctx, 1)
+            self.state = 225
+            self.bool_expr(0)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1650,15 +1667,8 @@ class pmlParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def arith_expr(self, i:int=None):
-            if i is None:
-                return self.getTypedRuleContexts(pmlParser.Arith_exprContext)
-            else:
-                return self.getTypedRuleContext(pmlParser.Arith_exprContext,i)
-
-
-        def relop(self):
-            return self.getTypedRuleContext(pmlParser.RelopContext,0)
+        def bool_expr(self):
+            return self.getTypedRuleContext(pmlParser.Bool_exprContext,0)
 
 
         def getRuleIndex(self):
@@ -1680,26 +1690,182 @@ class pmlParser ( Parser ):
         localctx = pmlParser.ConditionContext(self, self._ctx, self.state)
         self.enterRule(localctx, 32, self.RULE_condition)
         try:
-            self.state = 221
+            self.enterOuterAlt(localctx, 1)
+            self.state = 227
+            self.bool_expr(0)
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class Bool_exprContext(ParserRuleContext):
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def ari_lparen(self):
+            return self.getTypedRuleContext(pmlParser.Ari_lparenContext,0)
+
+
+        def bool_expr(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(pmlParser.Bool_exprContext)
+            else:
+                return self.getTypedRuleContext(pmlParser.Bool_exprContext,i)
+
+
+        def ari_rparen(self):
+            return self.getTypedRuleContext(pmlParser.Ari_rparenContext,0)
+
+
+        def notop(self):
+            return self.getTypedRuleContext(pmlParser.NotopContext,0)
+
+
+        def cmp_expr(self):
+            return self.getTypedRuleContext(pmlParser.Cmp_exprContext,0)
+
+
+        def arith_atom(self):
+            return self.getTypedRuleContext(pmlParser.Arith_atomContext,0)
+
+
+        def logicop(self):
+            return self.getTypedRuleContext(pmlParser.LogicopContext,0)
+
+
+        def getRuleIndex(self):
+            return pmlParser.RULE_bool_expr
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterBool_expr" ):
+                listener.enterBool_expr(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitBool_expr" ):
+                listener.exitBool_expr(self)
+
+
+
+    def bool_expr(self, _p:int=0):
+        _parentctx = self._ctx
+        _parentState = self.state
+        localctx = pmlParser.Bool_exprContext(self, self._ctx, _parentState)
+        _prevctx = localctx
+        _startState = 34
+        self.enterRecursionRule(localctx, 34, self.RULE_bool_expr, _p)
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 239
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,16,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,15,self._ctx)
             if la_ == 1:
-                self.enterOuterAlt(localctx, 1)
-                self.state = 216
-                self.arith_expr(0)
+                self.state = 230
+                self.ari_lparen()
+                self.state = 231
+                self.bool_expr(0)
+                self.state = 232
+                self.ari_rparen()
                 pass
 
             elif la_ == 2:
-                self.enterOuterAlt(localctx, 2)
-                self.state = 217
-                self.arith_expr(0)
-                self.state = 218
-                self.relop()
-                self.state = 219
-                self.arith_expr(0)
+                self.state = 234
+                self.notop()
+                self.state = 235
+                self.bool_expr(4)
+                pass
+
+            elif la_ == 3:
+                self.state = 237
+                self.cmp_expr()
+                pass
+
+            elif la_ == 4:
+                self.state = 238
+                self.arith_atom()
                 pass
 
 
+            self._ctx.stop = self._input.LT(-1)
+            self.state = 247
+            self._errHandler.sync(self)
+            _alt = self._interp.adaptivePredict(self._input,16,self._ctx)
+            while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
+                if _alt==1:
+                    if self._parseListeners is not None:
+                        self.triggerExitRuleEvent()
+                    _prevctx = localctx
+                    localctx = pmlParser.Bool_exprContext(self, _parentctx, _parentState)
+                    self.pushNewRecursionContext(localctx, _startState, self.RULE_bool_expr)
+                    self.state = 241
+                    if not self.precpred(self._ctx, 3):
+                        from antlr4.error.Errors import FailedPredicateException
+                        raise FailedPredicateException(self, "self.precpred(self._ctx, 3)")
+                    self.state = 242
+                    self.logicop()
+                    self.state = 243
+                    self.bool_expr(4) 
+                self.state = 249
+                self._errHandler.sync(self)
+                _alt = self._interp.adaptivePredict(self._input,16,self._ctx)
+
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.unrollRecursionContexts(_parentctx)
+        return localctx
+
+
+    class Cmp_exprContext(ParserRuleContext):
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def arith_expr(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(pmlParser.Arith_exprContext)
+            else:
+                return self.getTypedRuleContext(pmlParser.Arith_exprContext,i)
+
+
+        def relop(self):
+            return self.getTypedRuleContext(pmlParser.RelopContext,0)
+
+
+        def getRuleIndex(self):
+            return pmlParser.RULE_cmp_expr
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterCmp_expr" ):
+                listener.enterCmp_expr(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitCmp_expr" ):
+                listener.exitCmp_expr(self)
+
+
+
+
+    def cmp_expr(self):
+
+        localctx = pmlParser.Cmp_exprContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 36, self.RULE_cmp_expr)
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 250
+            self.arith_expr(0)
+            self.state = 251
+            self.relop()
+            self.state = 252
+            self.arith_expr(0)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1715,8 +1881,8 @@ class pmlParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def arith_atom(self):
-            return self.getTypedRuleContext(pmlParser.Arith_atomContext,0)
+        def ari_lparen(self):
+            return self.getTypedRuleContext(pmlParser.Ari_lparenContext,0)
 
 
         def arith_expr(self, i:int=None):
@@ -1724,6 +1890,14 @@ class pmlParser ( Parser ):
                 return self.getTypedRuleContexts(pmlParser.Arith_exprContext)
             else:
                 return self.getTypedRuleContext(pmlParser.Arith_exprContext,i)
+
+
+        def ari_rparen(self):
+            return self.getTypedRuleContext(pmlParser.Ari_rparenContext,0)
+
+
+        def arith_atom(self):
+            return self.getTypedRuleContext(pmlParser.Arith_atomContext,0)
 
 
         def arith_op(self):
@@ -1748,16 +1922,32 @@ class pmlParser ( Parser ):
         _parentState = self.state
         localctx = pmlParser.Arith_exprContext(self, self._ctx, _parentState)
         _prevctx = localctx
-        _startState = 34
-        self.enterRecursionRule(localctx, 34, self.RULE_arith_expr, _p)
+        _startState = 38
+        self.enterRecursionRule(localctx, 38, self.RULE_arith_expr, _p)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 224
-            self.arith_atom()
-            self._ctx.stop = self._input.LT(-1)
-            self.state = 232
+            self.state = 260
             self._errHandler.sync(self)
-            _alt = self._interp.adaptivePredict(self._input,17,self._ctx)
+            token = self._input.LA(1)
+            if token in [pmlParser.LPAREN]:
+                self.state = 255
+                self.ari_lparen()
+                self.state = 256
+                self.arith_expr(0)
+                self.state = 257
+                self.ari_rparen()
+                pass
+            elif token in [pmlParser.T__11, pmlParser.IDENTIFIER, pmlParser.STRING_LITERAL, pmlParser.NUMBER]:
+                self.state = 259
+                self.arith_atom()
+                pass
+            else:
+                raise NoViableAltException(self)
+
+            self._ctx.stop = self._input.LT(-1)
+            self.state = 268
+            self._errHandler.sync(self)
+            _alt = self._interp.adaptivePredict(self._input,18,self._ctx)
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                 if _alt==1:
                     if self._parseListeners is not None:
@@ -1765,17 +1955,17 @@ class pmlParser ( Parser ):
                     _prevctx = localctx
                     localctx = pmlParser.Arith_exprContext(self, _parentctx, _parentState)
                     self.pushNewRecursionContext(localctx, _startState, self.RULE_arith_expr)
-                    self.state = 226
-                    if not self.precpred(self._ctx, 1):
+                    self.state = 262
+                    if not self.precpred(self._ctx, 2):
                         from antlr4.error.Errors import FailedPredicateException
-                        raise FailedPredicateException(self, "self.precpred(self._ctx, 1)")
-                    self.state = 227
+                        raise FailedPredicateException(self, "self.precpred(self._ctx, 2)")
+                    self.state = 263
                     self.arith_op()
-                    self.state = 228
-                    self.arith_expr(2) 
-                self.state = 234
+                    self.state = 264
+                    self.arith_expr(3) 
+                self.state = 270
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input,17,self._ctx)
+                _alt = self._interp.adaptivePredict(self._input,18,self._ctx)
 
         except RecognitionException as re:
             localctx.exception = re
@@ -1895,89 +2085,169 @@ class pmlParser ( Parser ):
     def arith_atom(self):
 
         localctx = pmlParser.Arith_atomContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 36, self.RULE_arith_atom)
+        self.enterRule(localctx, 40, self.RULE_arith_atom)
         try:
-            self.state = 256
+            self.state = 292
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,18,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,19,self._ctx)
             if la_ == 1:
                 localctx = pmlParser.ATOM_SINGLEContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
-                self.state = 235
+                self.state = 271
                 self.match(pmlParser.T__11)
-                self.state = 236
+                self.state = 272
                 self.match(pmlParser.T__12)
-                self.state = 237
+                self.state = 273
                 self.match(pmlParser.IDENTIFIER)
                 pass
 
             elif la_ == 2:
                 localctx = pmlParser.ATOM_SINGLEContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
-                self.state = 238
+                self.state = 274
                 self.match(pmlParser.T__11)
-                self.state = 239
+                self.state = 275
                 self.match(pmlParser.T__12)
-                self.state = 240
+                self.state = 276
                 self.match(pmlParser.IDENTIFIER)
-                self.state = 241
+                self.state = 277
                 self.match(pmlParser.T__12)
-                self.state = 242
+                self.state = 278
                 self.match(pmlParser.IDENTIFIER)
                 pass
 
             elif la_ == 3:
                 localctx = pmlParser.ATOM_FROMATTRContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
-                self.state = 243
+                self.state = 279
                 self.match(pmlParser.T__11)
-                self.state = 244
+                self.state = 280
                 self.match(pmlParser.T__12)
-                self.state = 245
+                self.state = 281
                 self.match(pmlParser.IDENTIFIER)
-                self.state = 246
+                self.state = 282
                 self.match(pmlParser.LBRACK)
-                self.state = 247
+                self.state = 283
                 self.match(pmlParser.STRING_LITERAL)
-                self.state = 248
+                self.state = 284
                 self.match(pmlParser.RBRACK)
                 pass
 
             elif la_ == 4:
                 localctx = pmlParser.ATOM_FROMATTR_SHORTContext(self, localctx)
                 self.enterOuterAlt(localctx, 4)
-                self.state = 249
+                self.state = 285
                 self.match(pmlParser.T__11)
-                self.state = 250
+                self.state = 286
                 self.match(pmlParser.LBRACK)
-                self.state = 251
+                self.state = 287
                 self.match(pmlParser.STRING_LITERAL)
-                self.state = 252
+                self.state = 288
                 self.match(pmlParser.RBRACK)
                 pass
 
             elif la_ == 5:
                 localctx = pmlParser.ATOM_IDENTContext(self, localctx)
                 self.enterOuterAlt(localctx, 5)
-                self.state = 253
+                self.state = 289
                 self.match(pmlParser.IDENTIFIER)
                 pass
 
             elif la_ == 6:
                 localctx = pmlParser.ATOM_IDENTContext(self, localctx)
                 self.enterOuterAlt(localctx, 6)
-                self.state = 254
+                self.state = 290
                 self.match(pmlParser.NUMBER)
                 pass
 
             elif la_ == 7:
                 localctx = pmlParser.ATOM_IDENTContext(self, localctx)
                 self.enterOuterAlt(localctx, 7)
-                self.state = 255
+                self.state = 291
                 self.match(pmlParser.STRING_LITERAL)
                 pass
 
 
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class Ari_lparenContext(ParserRuleContext):
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def LPAREN(self):
+            return self.getToken(pmlParser.LPAREN, 0)
+
+        def getRuleIndex(self):
+            return pmlParser.RULE_ari_lparen
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterAri_lparen" ):
+                listener.enterAri_lparen(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitAri_lparen" ):
+                listener.exitAri_lparen(self)
+
+
+
+
+    def ari_lparen(self):
+
+        localctx = pmlParser.Ari_lparenContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 42, self.RULE_ari_lparen)
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 294
+            self.match(pmlParser.LPAREN)
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class Ari_rparenContext(ParserRuleContext):
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def RPAREN(self):
+            return self.getToken(pmlParser.RPAREN, 0)
+
+        def getRuleIndex(self):
+            return pmlParser.RULE_ari_rparen
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterAri_rparen" ):
+                listener.enterAri_rparen(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitAri_rparen" ):
+                listener.exitAri_rparen(self)
+
+
+
+
+    def ari_rparen(self):
+
+        localctx = pmlParser.Ari_rparenContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 44, self.RULE_ari_rparen)
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 296
+            self.match(pmlParser.RPAREN)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -2019,11 +2289,11 @@ class pmlParser ( Parser ):
     def const_atom(self):
 
         localctx = pmlParser.Const_atomContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 38, self.RULE_const_atom)
+        self.enterRule(localctx, 46, self.RULE_const_atom)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 258
+            self.state = 298
             _la = self._input.LA(1)
             if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pmlParser.IDENTIFIER) | (1 << pmlParser.STRING_LITERAL) | (1 << pmlParser.NUMBER))) != 0)):
                 self._errHandler.recoverInline(self)
@@ -2071,11 +2341,11 @@ class pmlParser ( Parser ):
     def constant(self):
 
         localctx = pmlParser.ConstantContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 40, self.RULE_constant)
+        self.enterRule(localctx, 48, self.RULE_constant)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 260
+            self.state = 300
             _la = self._input.LA(1)
             if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pmlParser.IDENTIFIER) | (1 << pmlParser.STRING_LITERAL) | (1 << pmlParser.NUMBER))) != 0)):
                 self._errHandler.recoverInline(self)
@@ -2123,11 +2393,11 @@ class pmlParser ( Parser ):
     def simple_expr(self):
 
         localctx = pmlParser.Simple_exprContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 42, self.RULE_simple_expr)
+        self.enterRule(localctx, 50, self.RULE_simple_expr)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 262
+            self.state = 302
             _la = self._input.LA(1)
             if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pmlParser.IDENTIFIER) | (1 << pmlParser.STRING_LITERAL) | (1 << pmlParser.NUMBER))) != 0)):
                 self._errHandler.recoverInline(self)
@@ -2169,10 +2439,10 @@ class pmlParser ( Parser ):
     def element_name(self):
 
         localctx = pmlParser.Element_nameContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 44, self.RULE_element_name)
+        self.enterRule(localctx, 52, self.RULE_element_name)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 264
+            self.state = 304
             self.match(pmlParser.IDENTIFIER)
         except RecognitionException as re:
             localctx.exception = re
@@ -2209,10 +2479,10 @@ class pmlParser ( Parser ):
     def attr_name(self):
 
         localctx = pmlParser.Attr_nameContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 46, self.RULE_attr_name)
+        self.enterRule(localctx, 54, self.RULE_attr_name)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 266
+            self.state = 306
             self.match(pmlParser.IDENTIFIER)
         except RecognitionException as re:
             localctx.exception = re
@@ -2261,17 +2531,106 @@ class pmlParser ( Parser ):
     def relop(self):
 
         localctx = pmlParser.RelopContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 48, self.RULE_relop)
+        self.enterRule(localctx, 56, self.RULE_relop)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 268
+            self.state = 308
             _la = self._input.LA(1)
             if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pmlParser.GT) | (1 << pmlParser.GE) | (1 << pmlParser.LT) | (1 << pmlParser.LE) | (1 << pmlParser.EQ))) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
                 self.consume()
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class LogicopContext(ParserRuleContext):
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def AND(self):
+            return self.getToken(pmlParser.AND, 0)
+
+        def OR(self):
+            return self.getToken(pmlParser.OR, 0)
+
+        def getRuleIndex(self):
+            return pmlParser.RULE_logicop
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterLogicop" ):
+                listener.enterLogicop(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitLogicop" ):
+                listener.exitLogicop(self)
+
+
+
+
+    def logicop(self):
+
+        localctx = pmlParser.LogicopContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 58, self.RULE_logicop)
+        self._la = 0 # Token type
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 310
+            _la = self._input.LA(1)
+            if not(_la==pmlParser.OR or _la==pmlParser.AND):
+                self._errHandler.recoverInline(self)
+            else:
+                self._errHandler.reportMatch(self)
+                self.consume()
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class NotopContext(ParserRuleContext):
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def NOT(self):
+            return self.getToken(pmlParser.NOT, 0)
+
+        def getRuleIndex(self):
+            return pmlParser.RULE_notop
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterNotop" ):
+                listener.enterNotop(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitNotop" ):
+                listener.exitNotop(self)
+
+
+
+
+    def notop(self):
+
+        localctx = pmlParser.NotopContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 60, self.RULE_notop)
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 312
+            self.match(pmlParser.NOT)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -2316,11 +2675,11 @@ class pmlParser ( Parser ):
     def arith_op(self):
 
         localctx = pmlParser.Arith_opContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 50, self.RULE_arith_op)
+        self.enterRule(localctx, 62, self.RULE_arith_op)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 270
+            self.state = 314
             _la = self._input.LA(1)
             if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pmlParser.PLUS) | (1 << pmlParser.MINUS) | (1 << pmlParser.TIMES) | (1 << pmlParser.DIV))) != 0)):
                 self._errHandler.recoverInline(self)
@@ -2362,10 +2721,10 @@ class pmlParser ( Parser ):
     def number(self):
 
         localctx = pmlParser.NumberContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 52, self.RULE_number)
+        self.enterRule(localctx, 64, self.RULE_number)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 272
+            self.state = 316
             self.match(pmlParser.NUMBER)
         except RecognitionException as re:
             localctx.exception = re
@@ -2402,10 +2761,10 @@ class pmlParser ( Parser ):
     def string_literal(self):
 
         localctx = pmlParser.String_literalContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 54, self.RULE_string_literal)
+        self.enterRule(localctx, 66, self.RULE_string_literal)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 274
+            self.state = 318
             self.match(pmlParser.STRING_LITERAL)
         except RecognitionException as re:
             localctx.exception = re
@@ -2420,16 +2779,22 @@ class pmlParser ( Parser ):
     def sempred(self, localctx:RuleContext, ruleIndex:int, predIndex:int):
         if self._predicates == None:
             self._predicates = dict()
-        self._predicates[17] = self.arith_expr_sempred
+        self._predicates[17] = self.bool_expr_sempred
+        self._predicates[19] = self.arith_expr_sempred
         pred = self._predicates.get(ruleIndex, None)
         if pred is None:
             raise Exception("No predicate with index:" + str(ruleIndex))
         else:
             return pred(localctx, predIndex)
 
-    def arith_expr_sempred(self, localctx:Arith_exprContext, predIndex:int):
+    def bool_expr_sempred(self, localctx:Bool_exprContext, predIndex:int):
             if predIndex == 0:
-                return self.precpred(self._ctx, 1)
+                return self.precpred(self._ctx, 3)
+         
+
+    def arith_expr_sempred(self, localctx:Arith_exprContext, predIndex:int):
+            if predIndex == 1:
+                return self.precpred(self._ctx, 2)
          
 
 
