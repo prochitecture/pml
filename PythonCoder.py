@@ -217,11 +217,8 @@ class PythonCoder():
         self.write(atom)
 
     def enterATOM_FROMATTR(self,ident,literal):
-        if self.context == "conditional":
+        if self.context in ( "conditional", "condition"):
             self.write( 'item.' + ident +'.getStyleBlockAttr(' + literal + ')' )
-        elif self.context == "condition":
-            identifier = ident.capitalize()
-            self.write( "FromStyleBlockAttr("+literal+",FromStyleBlockAttr."+identifier+")")
         else:
             self.write(self.alterCommaStack[-1])
             identifier = ident.capitalize()
@@ -229,10 +226,8 @@ class PythonCoder():
             self.alterCommaStack[-1] = ",\n"
 
     def enterATOM_FROMATTR_SHORT(self,literal):
-        if self.context == "conditional":
+        if self.context in ( "conditional", "condition"):
             self.write( 'item.getStyleBlockAttr(' + literal + ')' )
-        elif self.context == "condition":
-            self.write("FromStyleBlockAttr("+literal+")")
         else:
             self.write(self.alterCommaStack[-1])
             self.write(self.indent()+"FromStyleBlockAttr("+literal+")")
