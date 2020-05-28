@@ -166,14 +166,21 @@ class PythonCoder():
             self.indents += 1
             self.write(self.indent()+'lambda item: ' ) 
         else:
-            self.context = "condition"
-            self.write('lambda item: ' ) 
+            self.context = "conditional"
+            self.write( "Value(Conditional(\n" )
+            self.indents += 1
+            self.write(self.indent()+'lambda item: ' ) 
+            self.alterCommaStack.append(',\n')
 
     def exitCOND(self):
         self.context = "alternatives"
         self.indents -= 1
         self.write("\n")
-        self.write(self.indent()+")" )
+        if self.context == "conditional":
+            self.write(self.indent()+"))" )
+        else:
+            self.write(self.indent()+")" )
+        self.context = "alternatives"
 
     def enterUSEFROM(self,ident):
         self.write('useFrom("' + ident + '")')
