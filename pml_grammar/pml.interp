@@ -4,7 +4,7 @@ null
 'symmetry'
 'use'
 'faces'
-'sharp_edges'
+'sharpEdges'
 'attr'
 'random_normal'
 'random_weighted'

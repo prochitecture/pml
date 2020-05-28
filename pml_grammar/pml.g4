@@ -27,7 +27,7 @@ attributes
 attribute 
     : 'symmetry' COLON sym_expression SEMI
     | 'use' COLON use_expression SEMI
-    | ('faces' | 'sharp_edges') COLON smooth_expression SEMI
+    | ('faces' | 'sharpEdges') COLON smooth_expression SEMI
     | attr_name COLON expression SEMI
     | attr_name COLON markup_block  // markup
     ;

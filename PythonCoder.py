@@ -75,9 +75,8 @@ class PythonCoder():
         self.write(self.indent()+'use = (' + expression + ',)' )
         self.exprCommaStack[-1] = ",\n"
 
-    def enterSmooth_expression(self, nam):
+    def enterSmooth_expression(self, name):
         self.smoothContext = 'smooth'
-        name = self.toCamelCase(nam)
         self.write(self.exprCommaStack[-1])
         self.write(self.indent() + name + ' = ' )
         self.exprCommaStack[-1] = ",\n"
@@ -282,8 +281,7 @@ class PythonCoder():
 
     def enterIdentifier(self, ident):
         if self.smoothContext == 'smooth' and ident in ('smooth','flat','horizontal','side','all') :
-            identifier = ident.capitalize()
-            self.write('smoothness.' + identifier )
+            self.write('smoothness.' + ident )
 
     def enterInop(self,op):
         self.write( ' '+op+' ' )
