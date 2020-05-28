@@ -86,3 +86,13 @@ roof {
 	;
 	faces: if (item.footprint["roofShape"] in ("dome", "onion")) smooth;
 }
+
+
+
+@name "residential";
+
+@meta {
+	buildingUse: appartments;
+	buildingLaf: modern;
+	height: "high rise";
+}
