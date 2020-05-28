@@ -27,7 +27,7 @@ attributes
 attribute 
     : 'symmetry' COLON sym_expression SEMI
     | 'use' COLON use_expression SEMI
-    | ('faces' | 'sharpEdges') COLON smooth_expression SEMI
+    | ('faces' | 'sharp_edges') COLON smooth_expression SEMI
     | attr_name COLON expression SEMI
     | attr_name COLON markup_block  // markup
     ;
@@ -41,7 +41,7 @@ use_expression
     ;
 
 smooth_expression
-    : IDENTIFIER
+    : expression
     ;
 
 markup_block
@@ -80,12 +80,10 @@ def_name
 
 conditional
     : bool_expr 
-//    | arith_expr relop arith_expr
     ;
 
 condition
     : bool_expr 
-//    | arith_expr relop arith_expr
     ;
 
 bool_expr
@@ -93,11 +91,16 @@ bool_expr
     |   notop bool_expr
     |   bool_expr logicop bool_expr
     |   cmp_expr
+    |   in_expr
     |   arith_atom
     ;
 
 cmp_expr
     : arith_expr relop arith_expr
+    ;
+
+in_expr
+    : arith_expr inop nested_list #INNESTED
     ;
 
 arith_expr
@@ -111,7 +114,7 @@ arith_atom
     | 'item' '.' IDENTIFIER '.' IDENTIFIER                  # ATOM_SINGLE
     | 'item' '.' IDENTIFIER LBRACK STRING_LITERAL RBRACK    # ATOM_FROMATTR
     | 'item' LBRACK STRING_LITERAL RBRACK                   # ATOM_FROMATTR_SHORT
-    | IDENTIFIER                                            # ATOM_IDENT
+    | identifier                                            # ATOM_IDENT
     | NUMBER                                                # ATOM_IDENT
     | STRING_LITERAL                                        # ATOM_IDENT
     ;
@@ -133,7 +136,7 @@ constant
     ;
 
 simple_expr
-    : IDENTIFIER
+    : identifier
     | NUMBER
     | STRING_LITERAL
     ; 
@@ -144,7 +147,11 @@ element_name
 
 attr_name
     : IDENTIFIER
-    ;      
+    ;  
+
+identifier      // hack for attributes "faces" and "sharp_edges"
+    : IDENTIFIER  
+    ;  
 
 relop
     : GT | GE | LT | LE | EQ
@@ -157,6 +164,11 @@ logicop
 notop
     : NOT
     ;
+
+inop
+    : IN
+    ;
+
 
 arith_op
     : PLUS | MINUS | TIMES | DIV
@@ -177,6 +189,7 @@ string_literal
 OR          : 'or';
 AND         : 'and';
 NOT         : 'not';
+IN          : 'in';
 
 IDENTIFIER
     : [a-zA-Z]([a-zA-Z0-9_]|'-')*

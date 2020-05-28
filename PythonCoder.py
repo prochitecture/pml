@@ -11,6 +11,7 @@ class PythonCoder():
         self.condCommaStack = []
         self.indents = 0
         self.context = ""
+        self.smoothContext = ""     # hack for attributes "faces" and "sharp_edges"
 
     def getCode(self):
         return self.code
@@ -74,11 +75,15 @@ class PythonCoder():
         self.write(self.indent()+'use = (' + expression + ',)' )
         self.exprCommaStack[-1] = ",\n"
 
-    def enterSmooth_expression(self, name, expr):
+    def enterSmooth_expression(self, nam):
+        self.smoothContext = 'smooth'
+        name = self.toCamelCase(nam)
         self.write(self.exprCommaStack[-1])
-        expression = expr.capitalize()
-        self.write(self.indent()+name+' = smoothness.' + expression )
+        self.write(self.indent() + name + ' = ' )
         self.exprCommaStack[-1] = ",\n"
+
+    def exitSmooth_expression(self):
+        self.smoothContext = ''
 
     def enterMarkup_block(self):
         self.write(' [\n')
@@ -161,6 +166,9 @@ class PythonCoder():
             self.write( self.indent()+"Conditional(\n" )
             self.indents += 1
             self.write(self.indent()+'lambda item: ' ) 
+        else:
+            self.context = "condition"
+            self.write('lambda item: ' ) 
 
     def exitCOND(self):
         self.context = "alternatives"
@@ -181,12 +189,19 @@ class PythonCoder():
         list = self.literalize(li)
         self.write( list )
 
+    def exitINNESTED(self,li):
+        list = self.literalize(li)
+        self.write( list )
+
     def enterCONST(self,text):
         expr = self.literalize(text)
         if self.context  in ( "alternatives", "conditional" ):
             self.write(self.alterCommaStack[-1])
             self.write( self.indent()+"Constant(" + expr + ')' )
             self.alterCommaStack[-1] = ",\n"
+        elif self.smoothContext == 'smooth':
+            self.write(', ')
+            self.enterIdentifier(text)
         else:
             self.write('Value(Constant(' + expr + ')' )
 
@@ -220,10 +235,10 @@ class PythonCoder():
         if self.context in ( "conditional", "condition"):
             self.write( 'item.' + ident +'.getStyleBlockAttr(' + literal + ')' )
         else:
-            self.write(self.alterCommaStack[-1])
+#            self.write(self.alterCommaStack[-1])
             identifier = ident.capitalize()
             self.write(self.indent()+"FromStyleBlockAttr("+literal+",FromStyleBlockAttr."+identifier+")")
-            self.alterCommaStack[-1] = ",\n"
+ #           self.alterCommaStack[-1] = ",\n"
 
     def enterATOM_FROMATTR_SHORT(self,literal):
         if self.context in ( "conditional", "condition"):
@@ -247,6 +262,8 @@ class PythonCoder():
         self.exprCommaStack[-1] = ",\n"
 
     def enterSimple_expr(self,text):
+        if self.smoothContext == 'smooth':
+            return
         if text in ('true','false'):
             expr = text.capitalize()
         else:
@@ -262,6 +279,14 @@ class PythonCoder():
 
     def enterAri_rparen(self):
         self.write( ') ' ) 
+
+    def enterIdentifier(self, ident):
+        if self.smoothContext == 'smooth' and ident in ('smooth','flat','horizontal','side','all') :
+            identifier = ident.capitalize()
+            self.write('smoothness.' + identifier )
+
+    def enterInop(self,op):
+        self.write( ' '+op+' ' )
 
     def enterRelop(self,op):
         self.write( ' '+op+' ' )

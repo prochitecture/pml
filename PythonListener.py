@@ -75,7 +75,11 @@ class PythonListener(pmlListener):
 
     # Enter a parse tree produced by pmlParser#smooth_expression.
     def enterSmooth_expression(self, ctx:pmlParser.Smooth_expressionContext):
-        self.coder.enterSmooth_expression(ctx.parentCtx.getChild(0).getText(), ctx.getText())
+        self.coder.enterSmooth_expression(ctx.parentCtx.getChild(0).getText())
+
+    # Exit a parse tree produced by pmlParser#smooth_expression.
+    def exitSmooth_expression(self, ctx:pmlParser.Smooth_expressionContext):
+        self.coder.exitSmooth_expression()
 
     # Enter a parse tree produced by pmlParser#markup_block.
     def enterMarkup_block(self, ctx:pmlParser.Markup_blockContext):
@@ -125,6 +129,10 @@ class PythonListener(pmlListener):
     def enterNESTED(self, ctx:pmlParser.NESTEDContext):
         self.coder.enterNESTED(ctx.getText())
 
+    # Exit a parse tree produced by pmlParser#INNESTED.
+    def exitINNESTED(self, ctx:pmlParser.INNESTEDContext):
+        self.coder.exitINNESTED(ctx.getChild(2).getText())
+
     # Enter a parse tree produced by pmlParser#CONST.
     def enterCONST(self, ctx:pmlParser.CONSTContext):
         self.coder.enterCONST(ctx.getChild(0).getText())
@@ -168,6 +176,14 @@ class PythonListener(pmlListener):
     # Enter a parse tree produced by pmlParser#simple_expr.
     def enterSimple_expr(self, ctx:pmlParser.Simple_exprContext):
         self.coder.enterSimple_expr(ctx.getText())
+
+    # Enter a parse tree produced by pmlParser#identifier.
+    def enterIdentifier(self, ctx:pmlParser.IdentifierContext):
+        self.coder.enterIdentifier(ctx.getText())
+
+    # Enter a parse tree produced by pmlParser#inop.
+    def enterInop(self, ctx:pmlParser.InopContext):
+        self.coder.enterInop(ctx.getText())
 
     # Enter a parse tree produced by pmlParser#relop.
     def enterRelop(self, ctx:pmlParser.RelopContext):
