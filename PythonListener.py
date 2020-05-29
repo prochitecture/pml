@@ -90,6 +90,10 @@ class PythonListener(pmlListener):
         self.coder.exitMarkup_block()
 
     # Enter a parse tree produced by pmlParser#attributes.
+    def enterAttributes(self, ctx:pmlParser.AttributesContext):
+        self.coder.enterAttributes()
+
+    # Enter a parse tree produced by pmlParser#attributes.
     def exitAttributes(self, ctx:pmlParser.AttributesContext):
         self.coder.exitAttributes()
         
@@ -139,7 +143,11 @@ class PythonListener(pmlListener):
 
     # Enter a parse tree produced by pmlParser#condition.
     def enterCondition(self, ctx:pmlParser.ConditionContext):
-        self.coder.enterCondition(ctx.getText())
+        self.coder.enterCondition()
+
+    # Enter a parse tree produced by pmlParser#condition.
+    def exitCondition(self, ctx:pmlParser.ConditionContext):
+        self.coder.exitCondition()
 
     # Enter a parse tree produced by pmlParser#ATOM_SINGLE.
     def enterATOM_SINGLE(self, ctx:pmlParser.ATOM_SINGLEContext):
