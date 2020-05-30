@@ -78,6 +78,7 @@ class PythonCoder():
 
     def enterElements(self):
         self.elementCommaStack.append('\n')
+        self.attribCommaStack.append("\n")
 
     def exitElements(self):
         self.write("\n")
@@ -97,7 +98,7 @@ class PythonCoder():
 
     def enterElement(self):
         self.write(self.elementCommaStack[-1])
-        self.attribCommaStack.append("\n")  # maybe we have a condition first
+#        self.attribCommaStack.append("\n")  # maybe we have a condition first
  
     def exitElement(self):
         self.indents -=1
@@ -106,7 +107,9 @@ class PythonCoder():
 
     def enterCondition(self):
         self.conditionContext = True
+        self.write(self.attribCommaStack[-1])
         self.write(self.indent()+'condition = lambda item : ' )
+        self.attribCommaStack[-1] = ',\n'
 
     def exitCondition(self):
         self.conditionContext = False
