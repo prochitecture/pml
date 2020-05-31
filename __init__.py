@@ -25,4 +25,4 @@ class PML:
         walker = ParseTreeWalker()
         walker.walk(translator, tree)
         exec(translator.getCode())
-        return style
+        return styles
