@@ -10,8 +10,8 @@ class PML:
     def __init__(self, pmlFilePath):
         self.pmlFilePath = pmlFilePath
     
-    def getPythonCode(self, pmlFilePath):
-        inputStream = FileStream(pmlFilePath)
+    def getPythonCode(self):
+        inputStream = FileStream(self.pmlFilePath)
         lexer = pmlLexer(inputStream)
         stream = CommonTokenStream(lexer)
         parser = pmlParser(stream)
