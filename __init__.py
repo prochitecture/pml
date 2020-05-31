@@ -1,8 +1,8 @@
-from antlr4 import FileStream, CommonTokenStream, ParseTreeWalker
-from pml_grammar.pmlLexer import pmlLexer
-from pml_grammar.pmlParser import pmlParser
-from PythonListener import PythonListener
-from ExceptionManagement import ParserExceptionListener
+from .antlr4 import FileStream, CommonTokenStream, ParseTreeWalker
+from .pml_grammar.pmlLexer import pmlLexer
+from .pml_grammar.pmlParser import pmlParser
+from .PythonListener import PythonListener
+from .ExceptionManagement import ParserExceptionListener
 
 
 class PML:
