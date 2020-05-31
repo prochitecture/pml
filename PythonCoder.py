@@ -98,7 +98,7 @@ class PythonCoder():
 
     def enterElement(self):
         self.write(self.elementCommaStack[-1])
-#        self.attribCommaStack.append("\n")  # maybe we have a condition first
+        self.attribCommaStack.append("\n")  # maybe we have a condition first
  
     def exitElement(self):
         self.indents -=1
@@ -175,7 +175,7 @@ class PythonCoder():
         self.smoothContext = False
 
     def enterMarkup_block(self):
-        self.write(' [\n')
+        self.write(' [')
         self.indents += 1
 
     def exitMarkup_block(self):
