@@ -16,8 +16,10 @@ footprint {
 	levelHeight: random_normal(3.);
 	roofShape: attr("roof:shape") | flat;
 	roofHeight: attr("roof:height");
-	claddingMaterial: attr("building:material") | random_weighted( (brick, 1), (plaster, 1) );
-	claddingColor:
+	claddingMaterial: per_building(
+		attr("building:material") | random_weighted( (brick, 1), (plaster, 1) )
+	);
+	claddingColor: per_building(
 		attr("building:colour")
 		|
 		if (item["claddingMaterial"] == "brick") random_weighted(
@@ -37,7 +39,7 @@ footprint {
             ((0.169, 0.318, 0.361, 1.), 1),
             ((0.094, 0.18, 0.271, 1.), 1)
 		)
-	;
+	);
 }
 
 facade[
