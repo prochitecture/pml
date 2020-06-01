@@ -24,5 +24,4 @@ class PML:
         translator = PythonListener()
         walker = ParseTreeWalker()
         walker.walk(translator, tree)
-        exec(translator.getCode())
-        return styles
+        return translator.getCode()
