@@ -57,15 +57,15 @@ alternatives
     ;
 
 function
-    : 'attr' LPAREN string_literal RPAREN           #ATTR
-    | 'random_normal' LPAREN NUMBER RPAREN          #RANDN
-    | 'random_weighted' nested_list                 #RANDW
-    | 'if' LPAREN conditional RPAREN function       #COND
-    | 'use_from' LPAREN IDENTIFIER RPAREN           #USEFROM
-    | 'per_building' LPAREN alternatives RPAREN         #PERBUILD
-    | constant                                      #CONST
-    | nested_list                                   #NESTED
-    | arith_atom                                    #ARITH
+    : 'attr' LPAREN string_literal RPAREN                       #ATTR
+    | 'random_normal' LPAREN NUMBER RPAREN                      #RANDN
+    | 'random_weighted' nested_list                             #RANDW
+    | 'if' LPAREN conditional RPAREN (function | alternatives)  #COND
+    | 'use_from' LPAREN IDENTIFIER RPAREN                       #USEFROM
+    | 'per_building' LPAREN (function | alternatives) RPAREN    #PERBUILD
+    | constant                                                  #CONST
+    | nested_list                                               #NESTED
+    | arith_atom                                                #ARITH
     ;
 
 nested_list
