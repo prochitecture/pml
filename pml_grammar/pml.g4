@@ -62,7 +62,7 @@ function
     | 'random_weighted' nested_list                 #RANDW
     | 'if' LPAREN conditional RPAREN function       #COND
     | 'use_from' LPAREN IDENTIFIER RPAREN           #USEFROM
-    | 'per_building' LPAREN function RPAREN         #PERBUILD
+    | 'per_building' LPAREN alternatives RPAREN         #PERBUILD
     | constant                                      #CONST
     | nested_list                                   #NESTED
     | arith_atom                                    #ARITH

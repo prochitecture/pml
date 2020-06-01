@@ -97,7 +97,7 @@ def serializedATN():
         buf.write("\2\u00c1\u00c2\5\32\16\2\u00c2\u00d0\3\2\2\2\u00c3\u00c4")
         buf.write("\7\f\2\2\u00c4\u00c5\7\34\2\2\u00c5\u00c6\7\24\2\2\u00c6")
         buf.write("\u00d0\7\35\2\2\u00c7\u00c8\7\r\2\2\u00c8\u00c9\7\34\2")
-        buf.write("\2\u00c9\u00ca\5\32\16\2\u00ca\u00cb\7\35\2\2\u00cb\u00d0")
+        buf.write("\2\u00c9\u00ca\5\30\r\2\u00ca\u00cb\7\35\2\2\u00cb\u00d0")
         buf.write("\3\2\2\2\u00cc\u00d0\5\64\33\2\u00cd\u00d0\5\34\17\2\u00ce")
         buf.write("\u00d0\5,\27\2\u00cf\u00b2\3\2\2\2\u00cf\u00b7\3\2\2\2")
         buf.write("\u00cf\u00bb\3\2\2\2\u00cf\u00bd\3\2\2\2\u00cf\u00c3\3")
@@ -1196,8 +1196,8 @@ class pmlParser ( Parser ):
 
         def LPAREN(self):
             return self.getToken(pmlParser.LPAREN, 0)
-        def function(self):
-            return self.getTypedRuleContext(pmlParser.FunctionContext,0)
+        def alternatives(self):
+            return self.getTypedRuleContext(pmlParser.AlternativesContext,0)
 
         def RPAREN(self):
             return self.getToken(pmlParser.RPAREN, 0)
@@ -1419,7 +1419,7 @@ class pmlParser ( Parser ):
                 self.state = 198
                 self.match(pmlParser.LPAREN)
                 self.state = 199
-                self.function()
+                self.alternatives()
                 self.state = 200
                 self.match(pmlParser.RPAREN)
                 pass
