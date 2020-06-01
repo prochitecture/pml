@@ -94,7 +94,7 @@ def serializedATN():
         buf.write("\2\u00b9\u00ba\7\26\2\2\u00ba\u00d0\7\35\2\2\u00bb\u00bc")
         buf.write("\7\n\2\2\u00bc\u00d0\5\34\17\2\u00bd\u00be\7\13\2\2\u00be")
         buf.write("\u00bf\7\34\2\2\u00bf\u00c0\5 \21\2\u00c0\u00c1\7\35\2")
-        buf.write("\2\u00c1\u00c2\5\32\16\2\u00c2\u00d0\3\2\2\2\u00c3\u00c4")
+        buf.write("\2\u00c1\u00c2\5\30\r\2\u00c2\u00d0\3\2\2\2\u00c3\u00c4")
         buf.write("\7\f\2\2\u00c4\u00c5\7\34\2\2\u00c5\u00c6\7\24\2\2\u00c6")
         buf.write("\u00d0\7\35\2\2\u00c7\u00c8\7\r\2\2\u00c8\u00c9\7\34\2")
         buf.write("\2\u00c9\u00ca\5\30\r\2\u00ca\u00cb\7\35\2\2\u00cb\u00d0")
@@ -1103,24 +1103,25 @@ class pmlParser ( Parser ):
 
         localctx = pmlParser.AlternativesContext(self, self._ctx, self.state)
         self.enterRule(localctx, 22, self.RULE_alternatives)
-        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 169
             self.function()
             self.state = 172 
             self._errHandler.sync(self)
-            _la = self._input.LA(1)
-            while True:
-                self.state = 170
-                self.match(pmlParser.PIPE)
-                self.state = 171
-                self.function()
+            _alt = 1
+            while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
+                if _alt == 1:
+                    self.state = 170
+                    self.match(pmlParser.PIPE)
+                    self.state = 171
+                    self.function()
+
+                else:
+                    raise NoViableAltException(self)
                 self.state = 174 
                 self._errHandler.sync(self)
-                _la = self._input.LA(1)
-                if not (_la==pmlParser.PIPE):
-                    break
+                _alt = self._interp.adaptivePredict(self._input,10,self._ctx)
 
         except RecognitionException as re:
             localctx.exception = re
@@ -1303,8 +1304,8 @@ class pmlParser ( Parser ):
 
         def RPAREN(self):
             return self.getToken(pmlParser.RPAREN, 0)
-        def function(self):
-            return self.getTypedRuleContext(pmlParser.FunctionContext,0)
+        def alternatives(self):
+            return self.getTypedRuleContext(pmlParser.AlternativesContext,0)
 
 
         def enterRule(self, listener:ParseTreeListener):
@@ -1395,7 +1396,7 @@ class pmlParser ( Parser ):
                 self.state = 190
                 self.match(pmlParser.RPAREN)
                 self.state = 191
-                self.function()
+                self.alternatives()
                 pass
 
             elif la_ == 5:
