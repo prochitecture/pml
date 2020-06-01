@@ -294,7 +294,10 @@ class PythonCoder():
         self.indents -= 1
         self.write("\n")
         if self.conditionContext:
-            self.write(self.indent()+"))" )
+            if self.alternativesContext:
+                self.write(self.indent()+")" )
+            else:
+                self.write(self.indent()+"))" )
         else:
             self.write(self.indent()+")" )
         self.conditionContext = False
