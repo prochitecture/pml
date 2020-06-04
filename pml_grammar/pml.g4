@@ -63,13 +63,15 @@ function
     | 'if' LPAREN conditional RPAREN (function | alternatives)  #COND
     | 'use_from' LPAREN IDENTIFIER RPAREN                       #USEFROM
     | 'per_building' LPAREN (function | alternatives) RPAREN    #PERBUILD
+    | 'rgb' LPAREN NUMBER COMMA NUMBER COMMA NUMBER RPAREN      #RGB
+    | 'rgba' LPAREN NUMBER COMMA NUMBER COMMA NUMBER COMMA NUMBER RPAREN      #RGBA
     | constant                                                  #CONST
     | nested_list                                               #NESTED
     | arith_atom                                                #ARITH
     ;
 
 nested_list
-    : LPAREN (STRING_LITERAL | NUMBER | IDENTIFIER) (COMMA (STRING_LITERAL | NUMBER  | IDENTIFIER))+ RPAREN
+    : LPAREN constant (COMMA constant)+ RPAREN
     | NUMBER
     | LPAREN nested_list (COMMA nested_list)+ RPAREN
    ;
@@ -132,7 +134,10 @@ const_atom
     ;
 
 constant
-    : STRING_LITERAL | NUMBER | IDENTIFIER
+    : HEX_NUMBER 
+    | STRING_LITERAL 
+    | NUMBER 
+    | IDENTIFIER
     ;
 
 simple_expr
@@ -199,9 +204,13 @@ STRING_LITERAL
     : '"' ('""' | ~ ('"'))* '"'
     ;
 
+HEX_NUMBER 
+    : '#' ('0'..'9'|'a'..'f'|'A'..'F')+
+    ;
+
 NUMBER
-    : '-'? FLOAT
-    | '-'? INT
+    : '-'? INT
+    | '-'? FLOAT
     ; 
 
 FLOAT

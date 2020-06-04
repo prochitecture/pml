@@ -125,6 +125,14 @@ class PythonListener(pmlListener):
     def enterPERBUILD(self, ctx:pmlParser.PERBUILDContext):
         self.coder.enterPERBUILD()
 
+    # Enter a parse tree produced by pmlParser#RGB.
+    def enterRGB(self, ctx:pmlParser.RGBContext):
+        self.coder.enterRGB(ctx.getText())
+
+    # Enter a parse tree produced by pmlParser#RGBA.
+    def enterRGBA(self, ctx:pmlParser.RGBAContext):
+        self.coder.enterRGBA(ctx.getText())
+
     # Exit a parse tree produced by pmlParser#PERBUILD.
     def exitPERBUILD(self, ctx:pmlParser.PERBUILDContext):
         self.coder.exitPERBUILD()

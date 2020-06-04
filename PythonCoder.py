@@ -217,6 +217,8 @@ class PythonCoder():
     #     | 'if' LPAREN conditional RPAREN function       #COND
     #     | 'use_from' LPAREN IDENTIFIER RPAREN           #USEFROM
     #     | 'per_building' LPAREN function RPAREN         #PERBUILD
+    #     | 'rgb' LPAREN NUMBER COMMA NUMBER COMMA NUMBER RPAREN      #RGB
+    #     | 'rgba' LPAREN NUMBER COMMA NUMBER COMMA NUMBER COMMA NUMBER RPAREN      #RGBA
     #     | constant                                      #CONST
     #     | nested_list                                   #NESTED
     #     | arith_atom                                    #ARITH
@@ -323,13 +325,74 @@ class PythonCoder():
     # ------------------------------------------------------------
     # function
     #     : ...
+    #     | 'rgb' LPAREN NUMBER COMMA NUMBER COMMA NUMBER RPAREN      #RGB
+    #     | 'rgba' LPAREN NUMBER COMMA NUMBER COMMA NUMBER COMMA NUMBER RPAREN      #RGBA
+    #     | ...
+    # ------------------------------------------------------------
+
+    def enterRGB(self,rgb):
+        values = rgb[4:-1].split(',')
+        values.append('255')
+        expr = str( tuple( int(c)/255. for c in values ) )
+        if self.alternativesContext or self.conditionalContext:
+            self.write(self.alterCommaStack[-1])
+            self.write( self.indent()+"Constant(" + expr + ')' )
+            self.alterCommaStack[-1] = ',\n'
+        else:
+            self.write('Value(Constant(' + expr + ')' )
+
+    def enterRGBA(self,rgba):
+        values = rgba[5:-1].split(',')
+        values[3] = str( 255.*float(values[3]) )
+        expr = str( tuple( float(c)/255. for c in values ) )
+        if self.alternativesContext or self.conditionalContext:
+            self.write(self.alterCommaStack[-1])
+            self.write( self.indent()+"Constant(" + expr + ')' )
+            self.alterCommaStack[-1] = ',\n'
+        else:
+            self.write('Value(Constant(' + expr + ')' )
+
+    # ------------------------------------------------------------
+    # function
+    #     : ...
     #     | constant                                      #CONST
     #     | nested_list                                   #NESTED
     #     | ...
     # ------------------------------------------------------------
 
     def enterCONST(self,text):
-        if self.conditionalContext:
+        # is text maybe a color word?
+        color_word = self.dictionary.getColor(text)
+        if color_word:
+            expr = str(color_word)
+            if self.alternativesContext or self.conditionalContext:
+                self.write(self.alterCommaStack[-1])
+                self.write( self.indent()+"Constant(" + expr + ')' )
+                self.alterCommaStack[-1] = ',\n'
+            else:
+                self.write('Value(Constant(' + expr + ')' )
+            return
+
+        # or is it a hex color ?
+        if text[0] == '#':
+            numCharacters = len(text)
+            if numCharacters == 7:
+                text = text[1:]
+            elif numCharacters in (3,4):
+                # <color> has the form like <fff> or <#fff>
+                text = "".join( 2*letter for letter in (text[-3:] if numCharacters==4 else text) )
+            elif numCharacters != 6:
+                raise Exception('Invalid hex number: #'+text)
+            expr = str( tuple( c/255. for c in bytes.fromhex("%sff" % text) ) )
+            if self.alternativesContext or self.conditionalContext:
+                self.write(self.alterCommaStack[-1])
+                self.write( self.indent()+"Constant(" + expr + ')' )
+                self.alterCommaStack[-1] = ',\n'
+            else:
+                self.write('Value(Constant(' + expr + ')' )
+            return
+
+        elif self.conditionalContext:
             self.write(',\n')
             if self.smoothContext and text in ('smooth','flat','horizontal','side','all'):
                 expr = self.toCamelCase(text)
@@ -348,7 +411,12 @@ class PythonCoder():
 
     def enterNESTED(self, li):
         list = self.literalize(li)
-        self.write( list )
+        if self.alternativesContext:
+            self.write(self.alterCommaStack[-1])
+            self.write( self.indent()+list )
+            self.alterCommaStack[-1] = ',\n'
+        else:
+            self.write( list )
 
     def exitINNESTED(self,li):
         list = self.literalize(li)

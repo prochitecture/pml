@@ -179,6 +179,24 @@ class pmlListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by pmlParser#RGB.
+    def enterRGB(self, ctx:pmlParser.RGBContext):
+        pass
+
+    # Exit a parse tree produced by pmlParser#RGB.
+    def exitRGB(self, ctx:pmlParser.RGBContext):
+        pass
+
+
+    # Enter a parse tree produced by pmlParser#RGBA.
+    def enterRGBA(self, ctx:pmlParser.RGBAContext):
+        pass
+
+    # Exit a parse tree produced by pmlParser#RGBA.
+    def exitRGBA(self, ctx:pmlParser.RGBAContext):
+        pass
+
+
     # Enter a parse tree produced by pmlParser#CONST.
     def enterCONST(self, ctx:pmlParser.CONSTContext):
         pass
