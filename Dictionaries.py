@@ -1,3 +1,5 @@
+import re
+
 class Dictionaries():
     # only fragment, to be completed for all possible OSM-attributes
     def __init__(self):
@@ -178,3 +180,5 @@ class Dictionaries():
             return self.colors[color]
         else:
             return None
+
+

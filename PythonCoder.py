@@ -25,13 +25,53 @@ class PythonCoder():
     def write(self,text):
         self.code += text
 
-    def literalize(self,text):
-        literalized = re.sub('("[ _]+")', ' ', re.sub('("")', '"', re.sub('([a-zA-Z]+)', '"\\1"', text) ) )
+    def literalize(self,text, useUnderscore):
+        if useUnderscore:
+            literalized = re.sub('("[ _]+")', ' ', re.sub('("")', '"', re.sub('([a-zA-Z]+)', '"\\1"', text) ) )
+        else:
+            literalized = re.sub('([a-zA-Z_]+)', '"\\1"', text) 
         return literalized
 
     def toCamelCase(self,text):
         return ''.join([ x.capitalize() for x in text.split('_') ])
 
+    def replaceHexColorCode(self, match):
+        value = match.group(1)
+        if len(value) == 3:  # short group
+            value = [str(int(c + c, 16)/255.0) for c in value]
+        elif len(value) == 6:
+            value = [str(int(c1 + c2, 16)/255.0) for c1, c2 in zip(value[::2], value[1::2])]
+        else:
+            raise Exception('Invalid hex number: #' + value)
+        return '({}, 1.0)'.format(', '.join(value))
+
+    def replaceRGBColorCode(self,match):
+        rgb = match.group(0)
+        values = rgb[4:-1].split(',')
+        values.append('255')
+        return str( tuple( int(c)/255. for c in values ) )
+
+    def replaceRGBAColorCode(self,match):
+        rgba = match.group(0)
+        values = rgba[5:-1].split(',')
+        values[3] = str( 255.*float(values[3]) )
+        return str( tuple( float(c)/255. for c in values ) )
+
+    def replaceColorsInText(self,text):
+        # _hex_colour = re.compile(r'#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})\b')
+        _hex_colour = re.compile(r'#([0-9a-fA-F]+|[0-9a-fA-F]+)\b')
+        text = _hex_colour.sub(self.replaceHexColorCode, text)
+
+        _rgb_colour = re.compile(r'rgb\(\s*(?:(\d{1,3})\s*,?){3}\)')
+        text = _rgb_colour.sub(self.replaceRGBColorCode, text)
+
+        _rgba_colour = re.compile(r'rgba\(\s*(?:(\d{1,3})\s*,?){3},\d+\.\d+\)')
+        text = _rgba_colour.sub(self.replaceRGBAColorCode, text)
+
+        for word, initial in self.dictionary.colors.items():
+            text = text.replace(word, str(initial))
+        return text
+        
     # ------------------------------------------------------------
     # styles
     # : named_block+  EOF            #NAMED
@@ -159,9 +199,9 @@ class PythonCoder():
         self.write(self.indent()+'symmetry = symmetry.'+symmetry )
         self.attribCommaStack[-1] = ",\n"
 
-    def enterUse_expression(self,expr):
+    def enterUse_expression(self,enterSimple_expr):
         self.write(self.attribCommaStack[-1])
-        expression = self.literalize(expr)
+        expression = self.literalize(enterSimple_expr,False)
         self.write(self.indent()+'use = (' + expression + ',)' )
         self.attribCommaStack[-1] = ",\n"
 
@@ -263,7 +303,8 @@ class PythonCoder():
             self.write('Value(RandomNormal( ' + value + ' ))')
 
     def enterRANDW(self,li):
-        list = self.literalize(li)
+        li = self.replaceColorsInText(li)
+        list = self.literalize(li,True)
         if self.alternativesContext or self.conditionContext:
             self.write(self.alterCommaStack[-1])
             self.write(self.indent()+'RandomWeighted( ' + list + ' )')
@@ -331,9 +372,7 @@ class PythonCoder():
     # ------------------------------------------------------------
 
     def enterRGB(self,rgb):
-        values = rgb[4:-1].split(',')
-        values.append('255')
-        expr = str( tuple( int(c)/255. for c in values ) )
+        expr = self.replaceColorsInText(rgb)
         if self.alternativesContext or self.conditionalContext:
             self.write(self.alterCommaStack[-1])
             self.write( self.indent()+"Constant(" + expr + ')' )
@@ -342,9 +381,7 @@ class PythonCoder():
             self.write('Value(Constant(' + expr + ')' )
 
     def enterRGBA(self,rgba):
-        values = rgba[5:-1].split(',')
-        values[3] = str( 255.*float(values[3]) )
-        expr = str( tuple( float(c)/255. for c in values ) )
+        expr = self.replaceColorsInText(rgba)
         if self.alternativesContext or self.conditionalContext:
             self.write(self.alterCommaStack[-1])
             self.write( self.indent()+"Constant(" + expr + ')' )
@@ -361,56 +398,58 @@ class PythonCoder():
     # ------------------------------------------------------------
 
     def enterCONST(self,text):
-        # is text maybe a color word?
-        color_word = self.dictionary.getColor(text)
-        if color_word:
-            expr = str(color_word)
-            if self.alternativesContext or self.conditionalContext:
-                self.write(self.alterCommaStack[-1])
-                self.write( self.indent()+"Constant(" + expr + ')' )
-                self.alterCommaStack[-1] = ',\n'
-            else:
-                self.write('Value(Constant(' + expr + ')' )
-            return
+        text = self.replaceColorsInText(text)
+        # # is text maybe a color word?
+        # color_word = self.dictionary.getColor(text)
+        # if color_word:
+        #     expr = str(color_word)
+        #     if self.alternativesContext or self.conditionalContext:
+        #         self.write(self.alterCommaStack[-1])
+        #         self.write( self.indent()+"Constant(" + expr + ')' )
+        #         self.alterCommaStack[-1] = ',\n'
+        #     else:
+        #         self.write('Value(Constant(' + expr + ')' )
+        #     return
 
-        # or is it a hex color ?
-        if text[0] == '#':
-            numCharacters = len(text)
-            if numCharacters == 7:
-                text = text[1:]
-            elif numCharacters in (3,4):
-                # <color> has the form like <fff> or <#fff>
-                text = "".join( 2*letter for letter in (text[-3:] if numCharacters==4 else text) )
-            elif numCharacters != 6:
-                raise Exception('Invalid hex number: #'+text)
-            expr = str( tuple( c/255. for c in bytes.fromhex("%sff" % text) ) )
-            if self.alternativesContext or self.conditionalContext:
-                self.write(self.alterCommaStack[-1])
-                self.write( self.indent()+"Constant(" + expr + ')' )
-                self.alterCommaStack[-1] = ',\n'
-            else:
-                self.write('Value(Constant(' + expr + ')' )
-            return
+        # # or is it a hex color ?
+        # if text[0] == '#':
+        #     numCharacters = len(text)
+        #     if numCharacters == 7:
+        #         text = text[1:]
+        #     elif numCharacters in (3,4):
+        #         # <color> has the form like <fff> or <#fff>
+        #         text = "".join( 2*letter for letter in (text[-3:] if numCharacters==4 else text) )
+        #     elif numCharacters != 6:
+        #         raise Exception('Invalid hex number: #'+text)
+        #     expr = str( tuple( c/255. for c in bytes.fromhex("%sff" % text) ) )
+        #     if self.alternativesContext or self.conditionalContext:
+        #         self.write(self.alterCommaStack[-1])
+        #         self.write( self.indent()+"Constant(" + expr + ')' )
+        #         self.alterCommaStack[-1] = ',\n'
+        #     else:
+        #         self.write('Value(Constant(' + expr + ')' )
+        #     return
 
-        elif self.conditionalContext:
+        if self.conditionalContext:
             self.write(',\n')
             if self.smoothContext and text in ('smooth','flat','horizontal','side','all'):
                 expr = self.toCamelCase(text)
                 self.write( self.indent()+"Constant(smoothness." + expr + ')' )
             else:
-                expr = self.literalize(text)
+                expr = self.literalize(text,True)
                 self.write( self.indent()+"Constant(" + expr + ')' )
         elif self.alternativesContext: 
             self.write(self.alterCommaStack[-1])
-            expr = self.literalize(text)
+            expr = self.literalize(text,True)
             self.write( self.indent()+"Constant(" + expr + ')' )
             self.alterCommaStack[-1] = ',\n'
         else:
-            expr = self.literalize(text)
+            expr = self.literalize(text,True)
             self.write('Value(Constant(' + expr + ')' )
 
     def enterNESTED(self, li):
-        list = self.literalize(li)
+        li = self.replaceColorsInText(li)
+        list = self.literalize(li,True)
         if self.alternativesContext:
             self.write(self.alterCommaStack[-1])
             self.write( self.indent()+list )
@@ -419,7 +458,7 @@ class PythonCoder():
             self.write( list )
 
     def exitINNESTED(self,li):
-        list = self.literalize(li)
+        list = self.literalize(li,True)
         self.write( list )
     # ------------------------------------------------------------
     # arith_atom
@@ -456,7 +495,7 @@ class PythonCoder():
         self.write(ident)
 
     def enterConst_atom(self,atom):
-        const = self.literalize(atom)
+        const = self.literalize(atom,True)
         self.write( ',\n'+self.indent()+"Constant(" + const + ')' )
 
     # ------------------------------------------------------------
@@ -467,13 +506,16 @@ class PythonCoder():
         self.write(self.indent()+'defName = "' + definition + '"' )
         self.attribCommaStack[-1] = ",\n"
 
+    def enterConstant(self,text):
+        self.enterCONST(text)
+
     def enterSimple_expr(self,text):
         if self.smoothContext:
             return
         if text in ('true','false'):
             expr = text.capitalize()
         else:
-            expr = self.literalize(text)
+            expr = self.literalize(text,True)
         if self.alternativesContext or self.conditionalContext: # ???or self.context  in ( "conditional" ):
             # self.write(self.alterCommaStack[-1])
             self.write( self.indent()+"Constant(" + expr + ')' )

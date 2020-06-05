@@ -185,6 +185,11 @@ class PythonListener(pmlListener):
     def enterConst_atom(self, ctx:pmlParser.Const_atomContext):
         self.coder.enterConst_atom(ctx.getText())
 
+    # Enter a parse tree produced by pmlParser#constant.
+    def enterConstant(self, ctx:pmlParser.ConstantContext):
+        pass
+        # self.coder.enterConstant(ctx.getText())
+
     # Enter a parse tree produced by pmlParser#def_name.
     def enterDef_name(self, ctx:pmlParser.Def_nameContext):
         self.coder.enterDef_name(ctx.getText())
