@@ -38,9 +38,9 @@ class PythonCoder():
     def replaceHexColorCode(self, match):
         value = match.group(1)
         if len(value) == 3:  # short group
-            value = [str(int(c + c, 16)/255.0) for c in value]
+            value = [str(round(int(c + c, 16)/255.0,3)) for c in value]
         elif len(value) == 6:
-            value = [str(int(c1 + c2, 16)/255.0) for c1, c2 in zip(value[::2], value[1::2])]
+            value = [str(round(int(c1 + c2, 16)/255.0,3)) for c1, c2 in zip(value[::2], value[1::2])]
         else:
             raise Exception('Invalid hex number: #' + value)
         return '({}, 1.0)'.format(', '.join(value))
@@ -49,13 +49,13 @@ class PythonCoder():
         rgb = match.group(0)
         values = rgb[4:-1].split(',')
         values.append('255')
-        return str( tuple( int(c)/255. for c in values ) )
+        return str( tuple( round(c/255.,3) for c in values ) )
 
     def replaceRGBAColorCode(self,match):
         rgba = match.group(0)
         values = rgba[5:-1].split(',')
         values[3] = str( 255.*float(values[3]) )
-        return str( tuple( float(c)/255. for c in values ) )
+        return str( tuple( round(c/255.,3) for c in values ) )
 
     def replaceColorsInText(self,text):
         # _hex_colour = re.compile(r'#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})\b')
@@ -69,7 +69,7 @@ class PythonCoder():
         text = _rgba_colour.sub(self.replaceRGBAColorCode, text)
 
         for word, initial in self.dictionary.colors.items():
-            text = text.replace(word, str(initial))
+             text = re.sub(r'\b'+word+r'\b',str(initial),text)
         return text
         
     # ------------------------------------------------------------
