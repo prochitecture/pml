@@ -23,6 +23,9 @@ facade
 [item.footprint["buildingPart"] == "cube"]
 {
 	claddingColor: (1., 0., 0., 1.);
+	markup: [
+		level{}
+	]
 }
 
 //refectory
