@@ -46,6 +46,7 @@ facade[
 	not item.footprint.numLevels or
 	item.footprint.height - item.footprint.minHeight < 1.5 or // minHeightForLevels
 	item.width < 1. // minWidthForOpenings
+	or item.footprint["roofShape"] in ("gabled", "round", "gambrel", "saltbox")
 ] {
 	label: "cladding only for structures without levels or too low structures or too narrow facades";
 }
@@ -133,6 +134,7 @@ facade[
 	not item.footprint.numLevels or
 	item.footprint.height - item.footprint.minHeight < 1.5 or // minHeightForLevels
 	item.width < 1. // minWidthForOpenings
+	or item.footprint["roofShape"] in ("gabled", "round", "gambrel", "saltbox")
 ] {
 	label: "cladding only for structures without levels or too low structures or too narrow facades";
 }
