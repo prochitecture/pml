@@ -172,7 +172,7 @@ class Dictionaries():
 
     def getAttributeTypes(self,attribute):
         if attribute not in self.osm_attrs.keys():
-            raise Exception('Dictionary ERROR: atrribute {} is not in dictionary'.format(attribute))
+            return [ "FromAttr.String" ]
         else:
             return self.osm_attrs[attribute]
 
