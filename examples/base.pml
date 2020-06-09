@@ -16,6 +16,7 @@ footprint {
 	levelHeight: random_normal(3.);
 	roofShape: attr("roof:shape") | flat;
 	roofHeight: attr("roof:height");
+	roofOrientation: attr("roof:orientation");
 	claddingMaterial: per_building(
 		attr("building:material") | random_weighted( (brick, 1), (plaster, 1) )
 	);
@@ -109,6 +110,7 @@ footprint {
 	levelHeight: random_normal(3.);
 	roofShape: attr("roof:shape") | flat;
 	roofHeight: attr("roof:height");
+	roofOrientation: attr("roof:orientation");
 	claddingMaterial: per_building(
 		attr("building:material") | random_weighted( (brick, 1), (plaster, 1) )
 	);
@@ -182,6 +184,7 @@ footprint {
 	topHeight: 0.;
 	roofShape: attr("roof:shape") | flat;
 	roofHeight: attr("roof:height");
+	roofOrientation: attr("roof:orientation");
 	claddingMaterial: per_building(
 		attr("building:material") | plaster
 	);
@@ -226,6 +229,7 @@ footprint {
 	topHeight: 0.;
 	roofShape: attr("roof:shape") | flat;
 	roofHeight: attr("roof:height");
+	roofOrientation: attr("roof:orientation");
 	claddingMaterial: per_building(
 		attr("building:material") | brick
 	);

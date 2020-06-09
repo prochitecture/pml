@@ -17,6 +17,7 @@ class Dictionaries():
             '"roof:height"': [ "FromAttr.Float, FromAttr.NonNegative" ],
             '"roof:angle"': [ "FromAttr.Float" ],
             '"roof:direction"': [ "FromAttr.String, RoofDefs.directions", "FromAttr.Float" ],
+            '"roof:orientation"': ["FromAttr.String, RoofOrientation" ],
             '"roof:slope:direction"': [ "FromAttr.String, RoofDefs.directions", "FromAttr.Float" ]
         }
 
