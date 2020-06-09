@@ -515,7 +515,8 @@ class PythonCoder():
         if text in ('true','false'):
             expr = text.capitalize()
         else:
-            expr = self.literalize(text,True)
+            expr = self.replaceColorsInText(text)
+            expr = self.literalize(expr,True)
         if self.alternativesContext or self.conditionalContext: # ???or self.context  in ( "conditional" ):
             # self.write(self.alterCommaStack[-1])
             self.write( self.indent()+"Constant(" + expr + ')' )
