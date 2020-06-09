@@ -23,7 +23,7 @@ footprint {
 facade 
 [item.footprint["buildingPart"] == "cube"]
 {
-	claddingColor: (1., 0., 0., 1.);
+	claddingColor: red;
 	markup: [
 		level{}
 	]
@@ -33,34 +33,34 @@ facade
 facade 
 [item.footprint["buildingPart"] == "refectory"]
 {
-	claddingColor: (0., 1., 0., 1.);
+	claddingColor: green;
 }
 
 // porch
 facade 
 [item.footprint["buildingPart"] == "porch"]
 {
-	claddingColor: (0., 0., 1., 1.);
+	claddingColor: blue;
 }
 
 // belltower
 facade 
 [item.footprint["buildingPart"] == "belltower"]
 {
-	claddingColor: (0., 0., 1., 1.);
+	claddingColor: blue;
 }
 
 //apse
 facade 
 [item.footprint["buildingPart"] == "apse"]
 {
-	claddingColor: (0., 0., 1., 1.);
+	claddingColor: blue;
 }
 
 facade 
 [item.footprint["buildingPart"] == "tholobate"]
 {
-	claddingColor: (0., 0., 1., 1.);
+	claddingColor: blue;
 }
 
 //Unknown facade
@@ -77,9 +77,9 @@ roof {
 		|
 		// roofCladdingMaterial == "metal"
 		random_weighted(
-            ((0.686, 0.686, 0.686, 1.), 1),
-            ((0.698, 0.698, 0.651, 1.), 1),
-            ((0.784, 0.761, 0.714, 1.), 1)
+            (#afafaf, 1),
+            (#b2b2a6, 1),
+            (#c8c2b6, 1)
 		)
 	;
 	faces: if (item.footprint["roofShape"] in ("dome", "onion")) smooth;
