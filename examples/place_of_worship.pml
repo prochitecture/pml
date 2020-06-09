@@ -7,11 +7,12 @@
 footprint {
 	height: attr("height");
 	minHeight: attr("min_height");
-	numLevels: 0;
+	//numLevels: 0;
 	topHeight: 0.;
 	roofShape: attr("roof:shape") | flat;
 	roofHeight: attr("roof:height");
-        buildingPart: attr("building:part");
+	roofOrientation: attr("roof:orientation");
+	buildingPart: attr("building:part");
 	claddingMaterial: per_building(
 		attr("building:material") | plaster
 	);
