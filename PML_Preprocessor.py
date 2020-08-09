@@ -1,4 +1,4 @@
-import re
+import re, os
 
 # NOTE: All line numbers in this class refer to a first line having the number zero.
 # Editors normally start with line numbe 1, so error messages have to correct for this.
@@ -59,6 +59,10 @@ class PML_Preprocessor():
                             file = path, line = localLine+1, col = 0, msg = 'attempt to @include recursively')
                             raise Exception(errorText)
                         else:
+                            inclPath = os.path.join(
+                                os.path.dirname(path),
+                                inclPath
+                            )
                             self.includeStack.append(inclPath)
                             # get all lines from included file
                             self.process_includes(inclPath)
