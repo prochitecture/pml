@@ -10,7 +10,7 @@ import os, tempfile
 
 def compare(output, referenceOutput):
     referenceOutput = "styles = [%s]" % referenceOutput
-    return ' '.join(output.split()) == ' '.join(referenceOutput.split())
+    return ''.join(output.split()) == ''.join(referenceOutput.split())
 
 
 def getPythonCode(pmlString, rootDir=''):
