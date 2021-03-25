@@ -2,7 +2,7 @@ from . import getPythonCode, compare
 import ast
 
 input = """
-facade[item.front and style.count<=1] {
+facade(item.front and style.count<=1) {
     class: facade_with_door;
 }
 """
