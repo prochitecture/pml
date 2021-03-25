@@ -5,7 +5,7 @@ from .. import PML
 """
 
 from .. import PML
-import os, tempfile
+import os, ast, tempfile
 
 
 def compare(output, referenceOutput):
@@ -20,3 +20,10 @@ def getPythonCode(pmlString, rootDir=''):
             tmpFile.write(pmlString)
         pythonCode = PML(tmpFileName, rootDir).getPythonCode()
     return pythonCode
+
+
+def makeTest(inputAndOutput):
+    input, referenceOutput = inputAndOutput
+    output = getPythonCode(input)
+    ast.parse(output)
+    assert compare(output, referenceOutput)
