@@ -1,7 +1,8 @@
 from . import makeTest
 
 
-level_only = (
+def test_level_only():
+    makeTest(
 """
 level {
     class: myclass;
@@ -14,8 +15,4 @@ Level(
     cl = "myclass"
 )
 """
-)
-
-
-def test_level_only():
-    makeTest(level_only)
+    )

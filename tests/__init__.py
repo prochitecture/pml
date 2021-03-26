@@ -22,8 +22,7 @@ def getPythonCode(pmlString, rootDir=''):
     return pythonCode
 
 
-def makeTest(inputAndOutput):
-    input, referenceOutput = inputAndOutput
+def makeTest(input, referenceOutput):
     output = getPythonCode(input)
     ast.parse(output)
     assert compare(output, referenceOutput)

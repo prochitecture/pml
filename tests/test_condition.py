@@ -1,7 +1,8 @@
 from . import makeTest
 
 
-style_variable = (
+def test_style_variable():
+    makeTest(
 """
 facade(item.front and style.count<=1) {
     class: facade_with_door;
@@ -13,8 +14,4 @@ Facade(
     cl = "facade_with_door"
 )
 """
-)
-
-
-def test_style_variable():
-    makeTest(style_variable)
+    )
